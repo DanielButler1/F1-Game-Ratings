@@ -1,3 +1,5 @@
+export const revalidate = 86400;
+
 import {
 	getDriverRankings,
 	getGameVersions,

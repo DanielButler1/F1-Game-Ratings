@@ -1,5 +1,7 @@
 "use client";
 
+export const revalidate = 86400;
+
 import { useMemo, useState } from "react";
 import { notFound } from "next/navigation";
 import {

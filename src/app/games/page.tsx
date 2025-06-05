@@ -137,8 +137,7 @@ export default async function Page() {
 				</div>
 			</div>
 		);
-	} catch (error) {
-		console.error("Failed to load games:", error);
+	} catch {
 		return (
 			<div className="container py-8">
 				<div className="flex flex-col space-y-8">

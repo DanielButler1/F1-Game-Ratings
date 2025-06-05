@@ -188,8 +188,7 @@ export default async function GamePage({ params }: { params: PageParams }) {
 				</div>
 			</div>
 		);
-	} catch (error) {
-		console.error("Failed to load game data:", error);
+	} catch {
 		return (
 			<div className="container mx-auto max-w-7xl px-4 py-8">
 				<div className="flex flex-col space-y-8">

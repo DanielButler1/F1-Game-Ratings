@@ -7,7 +7,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-// import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -54,7 +54,7 @@ export default function RootLayout({
 					"bg-background antialiased min-h-screen flex flex-col"
 				)}`}
 			>
-				{/* <GoogleAnalytics gaId="G-XXXXXXXXXX" /> */}
+				<GoogleAnalytics gaId="G-1RFFEH7Z2B" />
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"

@@ -60,8 +60,7 @@ export function getGameNames(): string[] {
             gameSet.add(gameName);
         });
         return Array.from(gameSet).sort();
-    } catch (error) {
-        console.error('Error getting game names:', error);
+    } catch {
         throw new Error('Failed to get game names');
     }
 }
@@ -72,29 +71,25 @@ export function getGameVersions(gameName: string): string[] {
         throw new Error('Game name is required');
     }
 
-    try {
-        const versions = Object.keys(rankingsData)
-            .filter(key => {
-                const { gameName: name } = splitGameKey(key);
-                return name === gameName;
-            })
-            .map(key => splitGameKey(key).version)
-            .sort((a, b) => {
-                // Sort versions with "B" (Base) first, then numerically
-                if (a === "B") return -1;
-                if (b === "B") return 1;
-                return parseInt(a) - parseInt(b);
-            });
+    const versions = Object.keys(rankingsData)
+        .filter(key => {
+            const { gameName: name } = splitGameKey(key);
+            return name === gameName;
+        })
+        .map(key => splitGameKey(key).version)
+        .sort((a, b) => {
+            // Sort versions with "B" (Base) first, then numerically
+            if (a === "B") return -1;
+            if (b === "B") return 1;
+            return parseInt(a) - parseInt(b);
+        });
 
-        if (versions.length === 0) {
-            throw new Error(`No versions found for game: ${gameName}`);
-        }
-        
-        return versions;
-    } catch (error) {
-        console.error('Error getting game versions:', error);
-        throw error;
+    if (versions.length === 0) {
+        throw new Error(`No versions found for game: ${gameName}`);
     }
+
+    return versions;
+
 }
 
 // Get all available games with their versions
@@ -105,8 +100,7 @@ export function getAllGames(): GameVersion[] {
             gameName,
             versions: getGameVersions(gameName)
         }));
-    } catch (error) {
-        console.error('Error getting all games:', error);
+    } catch {
         throw new Error('Failed to get games data');
     }
 }

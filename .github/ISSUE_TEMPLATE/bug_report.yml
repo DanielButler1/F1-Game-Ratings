@@ -1,0 +1,44 @@
+name: "🐞 Bug Report"
+description: "Report a problem or unexpected behaviour"
+title: "[Bug] <short description>"
+labels: [bug]
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Describe the bug
+          placeholder: "What happened? What did you expect instead?"
+      validations:
+          required: true
+
+    - type: input
+      id: url
+      attributes:
+          label: Related page
+          placeholder: e.g. /ratings/2023
+
+    - type: textarea
+      id: steps
+      attributes:
+          label: Steps to Reproduce
+          placeholder: |
+              1. Go to homepage
+              2. Click on Lewis Hamilton
+              3. See the error
+
+    - type: dropdown
+      id: browser
+      attributes:
+          label: Browser / Platform
+          options:
+              - Chrome
+              - Firefox
+              - Safari
+              - Edge
+              - Mobile
+              - Other
+
+    - type: textarea
+      id: additional
+      attributes:
+          label: Additional info or screenshots

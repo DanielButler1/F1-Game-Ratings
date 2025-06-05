@@ -1,0 +1,4214 @@
+{
+	"F1 2020 (B)": [
+		{
+			"name": "Alexander Albon",
+			"overall": 79,
+			"experience": 52,
+			"racecraft": 87,
+			"awareness": 78,
+			"pace": 83
+		},
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 73,
+			"experience": 47,
+			"racecraft": 73,
+			"awareness": 70,
+			"pace": 79
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 82,
+			"experience": 65,
+			"racecraft": 88,
+			"awareness": 81,
+			"pace": 84
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 86,
+			"experience": 56,
+			"racecraft": 92,
+			"awareness": 82,
+			"pace": 93
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 87,
+			"experience": 76,
+			"racecraft": 90,
+			"awareness": 86,
+			"pace": 90
+		},
+		{
+			"name": "Daniil Kvyat",
+			"overall": 80,
+			"experience": 63,
+			"racecraft": 86,
+			"awareness": 74,
+			"pace": 85
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 80,
+			"experience": 54,
+			"racecraft": 90,
+			"awareness": 79,
+			"pace": 82
+		},
+		{
+			"name": "George Russell",
+			"overall": 75,
+			"experience": 52,
+			"racecraft": 73,
+			"awareness": 78,
+			"pace": 80
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 78,
+			"experience": 65,
+			"racecraft": 79,
+			"awareness": 73,
+			"pace": 83
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 87,
+			"experience": 98,
+			"racecraft": 84,
+			"awareness": 91,
+			"pace": 83
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 78,
+			"experience": 57,
+			"racecraft": 86,
+			"awareness": 73,
+			"pace": 83
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 79,
+			"experience": 52,
+			"racecraft": 89,
+			"awareness": 78,
+			"pace": 80
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 89,
+			"racecraft": 93,
+			"awareness": 95,
+			"pace": 96
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 90,
+			"experience": 68,
+			"racecraft": 94,
+			"awareness": 84,
+			"pace": 96
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 64,
+			"experience": 32,
+			"racecraft": 60,
+			"awareness": 80,
+			"pace": 64
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 80,
+			"experience": 53,
+			"racecraft": 85,
+			"awareness": 87,
+			"pace": 80
+		},
+		{
+			"name": "Romain Grosjean",
+			"overall": 80,
+			"experience": 75,
+			"racecraft": 81,
+			"awareness": 77,
+			"pace": 83
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 89,
+			"experience": 88,
+			"racecraft": 89,
+			"awareness": 81,
+			"pace": 94
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 85,
+			"experience": 78,
+			"racecraft": 91,
+			"awareness": 80,
+			"pace": 86
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 90,
+			"experience": 71,
+			"racecraft": 89,
+			"awareness": 99,
+			"pace": 91
+		}
+	],
+	"F1 2020 (1)": [
+		{
+			"name": "Alexander Albon",
+			"overall": 77,
+			"experience": 54,
+			"racecraft": 89,
+			"awareness": 72,
+			"pace": 80
+		},
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 72,
+			"experience": 49,
+			"racecraft": 74,
+			"awareness": 68,
+			"pace": 79
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 82,
+			"experience": 66,
+			"racecraft": 86,
+			"awareness": 82,
+			"pace": 84
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 87,
+			"experience": 57,
+			"racecraft": 92,
+			"awareness": 85,
+			"pace": 93
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 88,
+			"experience": 77,
+			"racecraft": 89,
+			"awareness": 87,
+			"pace": 91
+		},
+		{
+			"name": "Daniil Kvyat",
+			"overall": 79,
+			"experience": 64,
+			"racecraft": 87,
+			"awareness": 73,
+			"pace": 82
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 80,
+			"experience": 55,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 81
+		},
+		{
+			"name": "George Russell",
+			"overall": 76,
+			"experience": 54,
+			"racecraft": 69,
+			"awareness": 84,
+			"pace": 82
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 78,
+			"experience": 66,
+			"racecraft": 79,
+			"awareness": 72,
+			"pace": 83
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 86,
+			"experience": 99,
+			"racecraft": 84,
+			"awareness": 84,
+			"pace": 84
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 79,
+			"experience": 58,
+			"racecraft": 86,
+			"awareness": 74,
+			"pace": 83
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 81,
+			"experience": 54,
+			"racecraft": 90,
+			"awareness": 84,
+			"pace": 81
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 90,
+			"racecraft": 93,
+			"awareness": 88,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 91,
+			"experience": 66,
+			"racecraft": 94,
+			"awareness": 85,
+			"pace": 98
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 62,
+			"experience": 45,
+			"racecraft": 62,
+			"awareness": 65,
+			"pace": 65
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 82,
+			"experience": 55,
+			"racecraft": 84,
+			"awareness": 90,
+			"pace": 84
+		},
+		{
+			"name": "Romain Grosjean",
+			"overall": 80,
+			"experience": 76,
+			"racecraft": 79,
+			"awareness": 78,
+			"pace": 83
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 88,
+			"experience": 89,
+			"racecraft": 88,
+			"awareness": 81,
+			"pace": 92
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 84,
+			"experience": 78,
+			"racecraft": 90,
+			"awareness": 75,
+			"pace": 86
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 90,
+			"experience": 72,
+			"racecraft": 88,
+			"awareness": 99,
+			"pace": 91
+		}
+	],
+	"F1 2020 (2)": [
+		{
+			"name": "Alexander Albon",
+			"overall": 75,
+			"experience": 56,
+			"racecraft": 88,
+			"awareness": 65,
+			"pace": 78
+		},
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 72,
+			"experience": 50,
+			"racecraft": 76,
+			"awareness": 67,
+			"pace": 79
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 83,
+			"experience": 67,
+			"racecraft": 87,
+			"awareness": 83,
+			"pace": 86
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 88,
+			"experience": 58,
+			"racecraft": 91,
+			"awareness": 87,
+			"pace": 95
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 88,
+			"experience": 78,
+			"racecraft": 90,
+			"awareness": 83,
+			"pace": 92
+		},
+		{
+			"name": "Daniil Kvyat",
+			"overall": 79,
+			"experience": 65,
+			"racecraft": 87,
+			"awareness": 74,
+			"pace": 82
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 80,
+			"experience": 56,
+			"racecraft": 91,
+			"awareness": 83,
+			"pace": 80
+		},
+		{
+			"name": "George Russell",
+			"overall": 78,
+			"experience": 56,
+			"racecraft": 69,
+			"awareness": 88,
+			"pace": 82
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 78,
+			"experience": 67,
+			"racecraft": 80,
+			"awareness": 73,
+			"pace": 83
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 84,
+			"experience": 99,
+			"racecraft": 84,
+			"awareness": 75,
+			"pace": 84
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 79,
+			"experience": 59,
+			"racecraft": 87,
+			"awareness": 75,
+			"pace": 83
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 82,
+			"experience": 56,
+			"racecraft": 90,
+			"awareness": 88,
+			"pace": 81
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 93,
+			"experience": 91,
+			"racecraft": 92,
+			"awareness": 83,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 92,
+			"experience": 67,
+			"racecraft": 95,
+			"awareness": 86,
+			"pace": 99
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 69,
+			"experience": 48,
+			"racecraft": 70,
+			"awareness": 69,
+			"pace": 74
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 84,
+			"experience": 56,
+			"racecraft": 85,
+			"awareness": 93,
+			"pace": 86
+		},
+		{
+			"name": "Romain Grosjean",
+			"overall": 81,
+			"experience": 77,
+			"racecraft": 79,
+			"awareness": 78,
+			"pace": 84
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 88,
+			"experience": 89,
+			"racecraft": 88,
+			"awareness": 81,
+			"pace": 91
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 85,
+			"experience": 79,
+			"racecraft": 90,
+			"awareness": 76,
+			"pace": 88
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 90,
+			"experience": 73,
+			"racecraft": 89,
+			"awareness": 99,
+			"pace": 90
+		}
+	],
+	"F1 2020 (3)": [
+		{
+			"name": "Alexander Albon",
+			"overall": 75,
+			"experience": 57,
+			"racecraft": 86,
+			"awareness": 66,
+			"pace": 79
+		},
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 71,
+			"experience": 52,
+			"racecraft": 76,
+			"awareness": 68,
+			"pace": 74
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 84,
+			"experience": 68,
+			"racecraft": 88,
+			"awareness": 84,
+			"pace": 85
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 87,
+			"experience": 60,
+			"racecraft": 91,
+			"awareness": 81,
+			"pace": 94
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 88,
+			"experience": 79,
+			"racecraft": 90,
+			"awareness": 84,
+			"pace": 92
+		},
+		{
+			"name": "Daniil Kvyat",
+			"overall": 79,
+			"experience": 66,
+			"racecraft": 86,
+			"awareness": 71,
+			"pace": 82
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 81,
+			"experience": 58,
+			"racecraft": 91,
+			"awareness": 86,
+			"pace": 79
+		},
+		{
+			"name": "George Russell",
+			"overall": 79,
+			"experience": 57,
+			"racecraft": 69,
+			"awareness": 93,
+			"pace": 83
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 78,
+			"experience": 68,
+			"racecraft": 78,
+			"awareness": 73,
+			"pace": 84
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 84,
+			"experience": 99,
+			"racecraft": 84,
+			"awareness": 76,
+			"pace": 85
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 78,
+			"experience": 60,
+			"racecraft": 86,
+			"awareness": 71,
+			"pace": 83
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 84,
+			"experience": 57,
+			"racecraft": 90,
+			"awareness": 93,
+			"pace": 83
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 93,
+			"experience": 92,
+			"racecraft": 92,
+			"awareness": 84,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 92,
+			"experience": 68,
+			"racecraft": 84,
+			"awareness": 87,
+			"pace": 99
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 70,
+			"experience": 51,
+			"racecraft": 72,
+			"awareness": 75,
+			"pace": 71
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 85,
+			"experience": 57,
+			"racecraft": 86,
+			"awareness": 96,
+			"pace": 86
+		},
+		{
+			"name": "Romain Grosjean",
+			"overall": 80,
+			"experience": 78,
+			"racecraft": 79,
+			"awareness": 74,
+			"pace": 83
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 88,
+			"experience": 90,
+			"racecraft": 87,
+			"awareness": 82,
+			"pace": 91
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 85,
+			"experience": 80,
+			"racecraft": 90,
+			"awareness": 76,
+			"pace": 88
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 90,
+			"experience": 74,
+			"racecraft": 87,
+			"awareness": 99,
+			"pace": 90
+		}
+	],
+	"F1 2021 (B)": [
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 79,
+			"experience": 54,
+			"racecraft": 82,
+			"awareness": 82,
+			"pace": 80
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 87,
+			"experience": 69,
+			"racecraft": 88,
+			"awareness": 94,
+			"pace": 85
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 88,
+			"experience": 62,
+			"racecraft": 88,
+			"awareness": 87,
+			"pace": 92
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 90,
+			"experience": 80,
+			"racecraft": 94,
+			"awareness": 91,
+			"pace": 88
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 86,
+			"experience": 60,
+			"racecraft": 93,
+			"awareness": 98,
+			"pace": 79
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 89,
+			"experience": 99,
+			"racecraft": 89,
+			"awareness": 94,
+			"pace": 86
+		},
+		{
+			"name": "George Russell",
+			"overall": 84,
+			"experience": 60,
+			"racecraft": 76,
+			"awareness": 99,
+			"pace": 83
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 87,
+			"experience": 99,
+			"racecraft": 91,
+			"awareness": 84,
+			"pace": 86
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 83,
+			"experience": 62,
+			"racecraft": 93,
+			"awareness": 82,
+			"pace": 82
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 91,
+			"experience": 60,
+			"racecraft": 96,
+			"awareness": 99,
+			"pace": 89
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 95,
+			"experience": 92,
+			"racecraft": 94,
+			"awareness": 89,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 69,
+			"racecraft": 96,
+			"awareness": 96,
+			"pace": 97
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 76,
+			"experience": 47,
+			"racecraft": 65,
+			"awareness": 81,
+			"pace": 83
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 71,
+			"experience": 55,
+			"racecraft": 69,
+			"awareness": 79,
+			"pace": 70
+		},
+		{
+			"name": "Nikita Mazepin",
+			"overall": 67,
+			"experience": 47,
+			"racecraft": 65,
+			"awareness": 78,
+			"pace": 66
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 90,
+			"experience": 59,
+			"racecraft": 92,
+			"awareness": 99,
+			"pace": 89
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 89,
+			"experience": 91,
+			"racecraft": 93,
+			"awareness": 87,
+			"pace": 88
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 81,
+			"racecraft": 92,
+			"awareness": 84,
+			"pace": 87
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 92,
+			"experience": 75,
+			"racecraft": 89,
+			"awareness": 99,
+			"pace": 92
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 82,
+			"experience": 46,
+			"racecraft": 88,
+			"awareness": 78,
+			"pace": 86
+		}
+	],
+	"F1 2021 (1)": [
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 79,
+			"experience": 55,
+			"racecraft": 83,
+			"awareness": 80,
+			"pace": 80
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 87,
+			"experience": 70,
+			"racecraft": 90,
+			"awareness": 94,
+			"pace": 85
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 88,
+			"experience": 63,
+			"racecraft": 89,
+			"awareness": 87,
+			"pace": 91
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 89,
+			"experience": 81,
+			"racecraft": 94,
+			"awareness": 92,
+			"pace": 87
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 86,
+			"experience": 61,
+			"racecraft": 94,
+			"awareness": 99,
+			"pace": 78
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 91,
+			"experience": 99,
+			"racecraft": 92,
+			"awareness": 95,
+			"pace": 87
+		},
+		{
+			"name": "George Russell",
+			"overall": 85,
+			"experience": 61,
+			"racecraft": 79,
+			"awareness": 99,
+			"pace": 83
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 87,
+			"experience": 99,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 86
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 83,
+			"experience": 63,
+			"racecraft": 93,
+			"awareness": 80,
+			"pace": 82
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 61,
+			"racecraft": 97,
+			"awareness": 84,
+			"pace": 90
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 93,
+			"racecraft": 94,
+			"awareness": 85,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 70,
+			"racecraft": 93,
+			"awareness": 96,
+			"pace": 98
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 77,
+			"experience": 50,
+			"racecraft": 65,
+			"awareness": 83,
+			"pace": 83
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 72,
+			"experience": 56,
+			"racecraft": 73,
+			"awareness": 79,
+			"pace": 71
+		},
+		{
+			"name": "Nikita Mazepin",
+			"overall": 69,
+			"experience": 50,
+			"racecraft": 65,
+			"awareness": 78,
+			"pace": 68
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 92,
+			"experience": 60,
+			"racecraft": 93,
+			"awareness": 99,
+			"pace": 91
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 89,
+			"experience": 91,
+			"racecraft": 93,
+			"awareness": 87,
+			"pace": 87
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 86,
+			"experience": 82,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 87
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 90,
+			"experience": 76,
+			"racecraft": 90,
+			"awareness": 92,
+			"pace": 91
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 80,
+			"experience": 49,
+			"racecraft": 88,
+			"awareness": 77,
+			"pace": 81
+		}
+	],
+	"F1 2021 (2)": [
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 80,
+			"experience": 56,
+			"racecraft": 81,
+			"awareness": 79,
+			"pace": 82
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 88,
+			"experience": 70,
+			"racecraft": 91,
+			"awareness": 95,
+			"pace": 86
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 88,
+			"experience": 63,
+			"racecraft": 90,
+			"awareness": 88,
+			"pace": 91
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 89,
+			"experience": 81,
+			"racecraft": 94,
+			"awareness": 92,
+			"pace": 87
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 84,
+			"experience": 61,
+			"racecraft": 95,
+			"awareness": 85,
+			"pace": 81
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 91,
+			"experience": 99,
+			"racecraft": 93,
+			"awareness": 95,
+			"pace": 88
+		},
+		{
+			"name": "George Russell",
+			"overall": 82,
+			"experience": 62,
+			"racecraft": 79,
+			"awareness": 85,
+			"pace": 84
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 86,
+			"experience": 99,
+			"racecraft": 89,
+			"awareness": 81,
+			"pace": 86
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 83,
+			"experience": 63,
+			"racecraft": 90,
+			"awareness": 80,
+			"pace": 83
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 62,
+			"racecraft": 96,
+			"awareness": 85,
+			"pace": 91
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 93,
+			"racecraft": 94,
+			"awareness": 85,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 93,
+			"experience": 70,
+			"racecraft": 94,
+			"awareness": 87,
+			"pace": 98
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 79,
+			"experience": 51,
+			"racecraft": 67,
+			"awareness": 84,
+			"pace": 85
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 74,
+			"experience": 57,
+			"racecraft": 74,
+			"awareness": 79,
+			"pace": 73
+		},
+		{
+			"name": "Nikita Mazepin",
+			"overall": 68,
+			"experience": 51,
+			"racecraft": 65,
+			"awareness": 78,
+			"pace": 66
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 92,
+			"experience": 61,
+			"racecraft": 93,
+			"awareness": 99,
+			"pace": 91
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 89,
+			"experience": 92,
+			"racecraft": 94,
+			"awareness": 87,
+			"pace": 88
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 86,
+			"experience": 82,
+			"racecraft": 88,
+			"awareness": 81,
+			"pace": 88
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 91,
+			"experience": 76,
+			"racecraft": 91,
+			"awareness": 92,
+			"pace": 92
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 78,
+			"experience": 50,
+			"racecraft": 87,
+			"awareness": 78,
+			"pace": 76
+		}
+	],
+	"F1 2021 (3)": [
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 80,
+			"experience": 56,
+			"racecraft": 82,
+			"awareness": 79,
+			"pace": 83
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 88,
+			"experience": 71,
+			"racecraft": 91,
+			"awareness": 95,
+			"pace": 86
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 88,
+			"experience": 64,
+			"racecraft": 91,
+			"awareness": 88,
+			"pace": 90
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 89,
+			"experience": 82,
+			"racecraft": 95,
+			"awareness": 92,
+			"pace": 86
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 62,
+			"racecraft": 94,
+			"awareness": 85,
+			"pace": 79
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 89,
+			"experience": 99,
+			"racecraft": 90,
+			"awareness": 86,
+			"pace": 89
+		},
+		{
+			"name": "George Russell",
+			"overall": 82,
+			"experience": 62,
+			"racecraft": 76,
+			"awareness": 85,
+			"pace": 85
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 87,
+			"experience": 99,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 86
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 83,
+			"experience": 64,
+			"racecraft": 91,
+			"awareness": 79,
+			"pace": 83
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 62,
+			"racecraft": 93,
+			"awareness": 85,
+			"pace": 92
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 93,
+			"racecraft": 94,
+			"awareness": 85,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 92,
+			"experience": 71,
+			"racecraft": 94,
+			"awareness": 87,
+			"pace": 97
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 79,
+			"experience": 52,
+			"racecraft": 65,
+			"awareness": 86,
+			"pace": 85
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 73,
+			"experience": 58,
+			"racecraft": 73,
+			"awareness": 79,
+			"pace": 71
+		},
+		{
+			"name": "Nikita Mazepin",
+			"overall": 67,
+			"experience": 52,
+			"racecraft": 65,
+			"awareness": 78,
+			"pace": 65
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 89,
+			"experience": 61,
+			"racecraft": 93,
+			"awareness": 87,
+			"pace": 91
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 89,
+			"experience": 92,
+			"racecraft": 92,
+			"awareness": 87,
+			"pace": 88
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 86,
+			"experience": 82,
+			"racecraft": 89,
+			"awareness": 81,
+			"pace": 87
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 91,
+			"experience": 77,
+			"racecraft": 91,
+			"awareness": 92,
+			"pace": 92
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 77,
+			"experience": 51,
+			"racecraft": 81,
+			"awareness": 78,
+			"pace": 77
+		}
+	],
+	"F1 2021 (4)": [
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 81,
+			"experience": 57,
+			"racecraft": 84,
+			"awareness": 80,
+			"pace": 82
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 89,
+			"experience": 71,
+			"racecraft": 92,
+			"awareness": 96,
+			"pace": 87
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 64,
+			"racecraft": 92,
+			"awareness": 89,
+			"pace": 90
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 89,
+			"experience": 82,
+			"racecraft": 94,
+			"awareness": 92,
+			"pace": 85
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 62,
+			"racecraft": 94,
+			"awareness": 86,
+			"pace": 78
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 89,
+			"experience": 99,
+			"racecraft": 91,
+			"awareness": 86,
+			"pace": 89
+		},
+		{
+			"name": "George Russell",
+			"overall": 82,
+			"experience": 63,
+			"racecraft": 75,
+			"awareness": 86,
+			"pace": 85
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 87,
+			"experience": 99,
+			"racecraft": 91,
+			"awareness": 81,
+			"pace": 87
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 82,
+			"experience": 64,
+			"racecraft": 92,
+			"awareness": 79,
+			"pace": 81
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 63,
+			"racecraft": 94,
+			"awareness": 86,
+			"pace": 82
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 94,
+			"racecraft": 94,
+			"awareness": 85,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 93,
+			"experience": 71,
+			"racecraft": 95,
+			"awareness": 87,
+			"pace": 98
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 79,
+			"experience": 54,
+			"racecraft": 65,
+			"awareness": 88,
+			"pace": 85
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 72,
+			"experience": 59,
+			"racecraft": 72,
+			"awareness": 79,
+			"pace": 70
+		},
+		{
+			"name": "Nikita Mazepin",
+			"overall": 67,
+			"experience": 54,
+			"racecraft": 65,
+			"awareness": 78,
+			"pace": 65
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 88,
+			"experience": 62,
+			"racecraft": 91,
+			"awareness": 87,
+			"pace": 90
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 90,
+			"experience": 93,
+			"racecraft": 93,
+			"awareness": 87,
+			"pace": 89
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 83,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 88
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 90,
+			"experience": 77,
+			"racecraft": 90,
+			"awareness": 92,
+			"pace": 91
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 77,
+			"experience": 53,
+			"racecraft": 80,
+			"awareness": 78,
+			"pace": 77
+		}
+	],
+	"F1 2021 (5)": [
+		{
+			"name": "Antonio Giovinazzi",
+			"overall": 81,
+			"experience": 58,
+			"racecraft": 84,
+			"awareness": 80,
+			"pace": 82
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 89,
+			"experience": 72,
+			"racecraft": 92,
+			"awareness": 96,
+			"pace": 87
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 65,
+			"racecraft": 91,
+			"awareness": 89,
+			"pace": 90
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 89,
+			"experience": 82,
+			"racecraft": 94,
+			"awareness": 93,
+			"pace": 85
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 63,
+			"racecraft": 95,
+			"awareness": 86,
+			"pace": 79
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 89,
+			"experience": 99,
+			"racecraft": 91,
+			"awareness": 86,
+			"pace": 89
+		},
+		{
+			"name": "George Russell",
+			"overall": 81,
+			"experience": 63,
+			"racecraft": 75,
+			"awareness": 86,
+			"pace": 84
+		},
+		{
+			"name": "Kimi Raikkonen",
+			"overall": 87,
+			"experience": 99,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 86
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 82,
+			"experience": 65,
+			"racecraft": 92,
+			"awareness": 80,
+			"pace": 81
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 63,
+			"racecraft": 92,
+			"awareness": 86,
+			"pace": 93
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 94,
+			"racecraft": 94,
+			"awareness": 85,
+			"pace": 98
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 93,
+			"experience": 72,
+			"racecraft": 96,
+			"awareness": 82,
+			"pace": 99
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 80,
+			"experience": 54,
+			"racecraft": 67,
+			"awareness": 89,
+			"pace": 85
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 72,
+			"experience": 59,
+			"racecraft": 73,
+			"awareness": 79,
+			"pace": 70
+		},
+		{
+			"name": "Nikita Mazepin",
+			"overall": 67,
+			"experience": 54,
+			"racecraft": 65,
+			"awareness": 78,
+			"pace": 65
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 89,
+			"experience": 62,
+			"racecraft": 92,
+			"awareness": 88,
+			"pace": 91
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 89,
+			"experience": 93,
+			"racecraft": 93,
+			"awareness": 88,
+			"pace": 88
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 86,
+			"experience": 83,
+			"racecraft": 88,
+			"awareness": 81,
+			"pace": 88
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 90,
+			"experience": 78,
+			"racecraft": 90,
+			"awareness": 93,
+			"pace": 91
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 77,
+			"experience": 53,
+			"racecraft": 81,
+			"awareness": 78,
+			"pace": 78
+		}
+	],
+	"F1 22 (B)": [
+		{
+			"name": "Alexander Albon",
+			"overall": 82,
+			"experience": 59,
+			"racecraft": 90,
+			"awareness": 76,
+			"pace": 81
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 87,
+			"experience": 72,
+			"racecraft": 89,
+			"awareness": 89,
+			"pace": 87
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 92,
+			"experience": 65,
+			"racecraft": 94,
+			"awareness": 91,
+			"pace": 95
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 83,
+			"experience": 82,
+			"racecraft": 88,
+			"awareness": 93,
+			"pace": 80
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 63,
+			"racecraft": 90,
+			"awareness": 76,
+			"pace": 82
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 89,
+			"experience": 98,
+			"racecraft": 88,
+			"awareness": 78,
+			"pace": 89
+		},
+		{
+			"name": "George Russell",
+			"overall": 90,
+			"experience": 64,
+			"racecraft": 90,
+			"awareness": 86,
+			"pace": 93
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 70,
+			"experience": 47,
+			"racecraft": 80,
+			"awareness": 73,
+			"pace": 67
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 81,
+			"experience": 68,
+			"racecraft": 82,
+			"awareness": 84,
+			"pace": 82
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 65,
+			"racecraft": 89,
+			"awareness": 76,
+			"pace": 77
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 90,
+			"experience": 64,
+			"racecraft": 94,
+			"awareness": 82,
+			"pace": 92
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 93,
+			"racecraft": 96,
+			"awareness": 92,
+			"pace": 93
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 94,
+			"experience": 72,
+			"racecraft": 98,
+			"awareness": 79,
+			"pace": 97
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 77,
+			"experience": 56,
+			"racecraft": 79,
+			"awareness": 80,
+			"pace": 79
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 70,
+			"experience": 60,
+			"racecraft": 80,
+			"awareness": 76,
+			"pace": 66
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 84,
+			"experience": 62,
+			"racecraft": 90,
+			"awareness": 79,
+			"pace": 84
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 85,
+			"experience": 91,
+			"racecraft": 87,
+			"awareness": 92,
+			"pace": 83
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 88,
+			"experience": 83,
+			"racecraft": 89,
+			"awareness": 85,
+			"pace": 89
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 88,
+			"experience": 77,
+			"racecraft": 84,
+			"awareness": 93,
+			"pace": 90
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 78,
+			"experience": 55,
+			"racecraft": 76,
+			"awareness": 74,
+			"pace": 83
+		}
+	],
+	"F1 22 (1)": [
+		{
+			"name": "Alexander Albon",
+			"overall": 82,
+			"experience": 61,
+			"racecraft": 78,
+			"awareness": 76,
+			"pace": 87
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 88,
+			"experience": 72,
+			"racecraft": 91,
+			"awareness": 80,
+			"pace": 90
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 91,
+			"experience": 66,
+			"racecraft": 94,
+			"awareness": 90,
+			"pace": 92
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 84,
+			"experience": 83,
+			"racecraft": 89,
+			"awareness": 84,
+			"pace": 82
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 82,
+			"experience": 64,
+			"racecraft": 89,
+			"awareness": 76,
+			"pace": 82
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 89,
+			"experience": 99,
+			"racecraft": 87,
+			"awareness": 77,
+			"pace": 90
+		},
+		{
+			"name": "George Russell",
+			"overall": 92,
+			"experience": 65,
+			"racecraft": 94,
+			"awareness": 84,
+			"pace": 95
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 75,
+			"experience": 51,
+			"racecraft": 76,
+			"awareness": 73,
+			"pace": 78
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 81,
+			"experience": 69,
+			"racecraft": 82,
+			"awareness": 85,
+			"pace": 81
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 66,
+			"racecraft": 88,
+			"awareness": 75,
+			"pace": 79
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 90,
+			"experience": 65,
+			"racecraft": 94,
+			"awareness": 77,
+			"pace": 93
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 94,
+			"racecraft": 97,
+			"awareness": 93,
+			"pace": 93
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 72,
+			"racecraft": 98,
+			"awareness": 81,
+			"pace": 98
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 79,
+			"experience": 58,
+			"racecraft": 84,
+			"awareness": 82,
+			"pace": 79
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 69,
+			"experience": 62,
+			"racecraft": 79,
+			"awareness": 74,
+			"pace": 65
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 82,
+			"experience": 63,
+			"racecraft": 88,
+			"awareness": 75,
+			"pace": 82
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 85,
+			"experience": 92,
+			"racecraft": 89,
+			"awareness": 84,
+			"pace": 83
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 88,
+			"experience": 83,
+			"racecraft": 91,
+			"awareness": 78,
+			"pace": 88
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 86,
+			"experience": 78,
+			"racecraft": 85,
+			"awareness": 94,
+			"pace": 86
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 76,
+			"experience": 57,
+			"racecraft": 75,
+			"awareness": 74,
+			"pace": 79
+		}
+	],
+	"F1 22 (2)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 96,
+			"experience": 73,
+			"racecraft": 99,
+			"awareness": 84,
+			"pace": 98
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 94,
+			"experience": 94,
+			"racecraft": 96,
+			"awareness": 91,
+			"pace": 93
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 92,
+			"experience": 67,
+			"racecraft": 96,
+			"awareness": 85,
+			"pace": 94
+		},
+		{
+			"name": "George Russell",
+			"overall": 91,
+			"experience": 66,
+			"racecraft": 94,
+			"awareness": 83,
+			"pace": 94
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 90,
+			"experience": 99,
+			"racecraft": 90,
+			"awareness": 76,
+			"pace": 90
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 90,
+			"experience": 66,
+			"racecraft": 94,
+			"awareness": 77,
+			"pace": 92
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 89,
+			"experience": 73,
+			"racecraft": 92,
+			"awareness": 80,
+			"pace": 90
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 84,
+			"racecraft": 93,
+			"awareness": 85,
+			"pace": 84
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 85,
+			"experience": 93,
+			"racecraft": 89,
+			"awareness": 80,
+			"pace": 83
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 83,
+			"experience": 64,
+			"racecraft": 88,
+			"awareness": 76,
+			"pace": 83
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 83,
+			"experience": 78,
+			"racecraft": 84,
+			"awareness": 90,
+			"pace": 83
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 82,
+			"experience": 61,
+			"racecraft": 80,
+			"awareness": 76,
+			"pace": 87
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 82,
+			"experience": 83,
+			"racecraft": 84,
+			"awareness": 84,
+			"pace": 81
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 82,
+			"experience": 64,
+			"racecraft": 88,
+			"awareness": 76,
+			"pace": 82
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 80,
+			"experience": 70,
+			"racecraft": 82,
+			"awareness": 78,
+			"pace": 81
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 66,
+			"racecraft": 88,
+			"awareness": 75,
+			"pace": 78
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 80,
+			"experience": 59,
+			"racecraft": 83,
+			"awareness": 82,
+			"pace": 80
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 78,
+			"experience": 52,
+			"racecraft": 82,
+			"awareness": 73,
+			"pace": 80
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 77,
+			"experience": 58,
+			"racecraft": 77,
+			"awareness": 74,
+			"pace": 79
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 67,
+			"experience": 62,
+			"racecraft": 72,
+			"awareness": 74,
+			"pace": 65
+		}
+	],
+	"F1 22 (3)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 73,
+			"racecraft": 98,
+			"awareness": 84,
+			"pace": 98
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 93,
+			"experience": 94,
+			"racecraft": 95,
+			"awareness": 91,
+			"pace": 93
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 92,
+			"experience": 67,
+			"racecraft": 97,
+			"awareness": 80,
+			"pace": 94
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 90,
+			"experience": 99,
+			"racecraft": 91,
+			"awareness": 76,
+			"pace": 90
+		},
+		{
+			"name": "George Russell",
+			"overall": 90,
+			"experience": 66,
+			"racecraft": 93,
+			"awareness": 83,
+			"pace": 93
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 66,
+			"racecraft": 94,
+			"awareness": 77,
+			"pace": 91
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 88,
+			"experience": 73,
+			"racecraft": 93,
+			"awareness": 80,
+			"pace": 89
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 88,
+			"experience": 84,
+			"racecraft": 93,
+			"awareness": 84,
+			"pace": 86
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 85,
+			"experience": 93,
+			"racecraft": 89,
+			"awareness": 80,
+			"pace": 83
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 83,
+			"experience": 79,
+			"racecraft": 82,
+			"awareness": 91,
+			"pace": 83
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 82,
+			"experience": 62,
+			"racecraft": 78,
+			"awareness": 77,
+			"pace": 87
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 82,
+			"experience": 83,
+			"racecraft": 85,
+			"awareness": 84,
+			"pace": 80
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 82,
+			"experience": 65,
+			"racecraft": 89,
+			"awareness": 76,
+			"pace": 81
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 82,
+			"experience": 64,
+			"racecraft": 85,
+			"awareness": 75,
+			"pace": 83
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 67,
+			"racecraft": 88,
+			"awareness": 75,
+			"pace": 79
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 80,
+			"experience": 59,
+			"racecraft": 83,
+			"awareness": 83,
+			"pace": 80
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 79,
+			"experience": 70,
+			"racecraft": 82,
+			"awareness": 78,
+			"pace": 79
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 78,
+			"experience": 53,
+			"racecraft": 77,
+			"awareness": 73,
+			"pace": 83
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 77,
+			"experience": 58,
+			"racecraft": 78,
+			"awareness": 74,
+			"pace": 79
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 69,
+			"experience": 63,
+			"racecraft": 75,
+			"awareness": 75,
+			"pace": 66
+		}
+	],
+	"F1 22 (4)": [
+		{
+			"name": "Alexander Albon",
+			"overall": 79,
+			"experience": 62,
+			"racecraft": 76,
+			"awareness": 76,
+			"pace": 83
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 88,
+			"experience": 74,
+			"racecraft": 94,
+			"awareness": 80,
+			"pace": 88
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 91,
+			"experience": 68,
+			"racecraft": 98,
+			"awareness": 81,
+			"pace": 92
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 79,
+			"experience": 84,
+			"racecraft": 82,
+			"awareness": 78,
+			"pace": 77
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 66,
+			"racecraft": 90,
+			"awareness": 76,
+			"pace": 82
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 90,
+			"experience": 99,
+			"racecraft": 92,
+			"awareness": 77,
+			"pace": 89
+		},
+		{
+			"name": "George Russell",
+			"overall": 91,
+			"experience": 67,
+			"racecraft": 94,
+			"awareness": 82,
+			"pace": 93
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 77,
+			"experience": 55,
+			"racecraft": 76,
+			"awareness": 73,
+			"pace": 81
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 79,
+			"experience": 70,
+			"racecraft": 77,
+			"awareness": 78,
+			"pace": 81
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 78,
+			"experience": 67,
+			"racecraft": 84,
+			"awareness": 75,
+			"pace": 77
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 67,
+			"racecraft": 94,
+			"awareness": 77,
+			"pace": 90
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 93,
+			"experience": 95,
+			"racecraft": 94,
+			"awareness": 92,
+			"pace": 92
+		},
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 74,
+			"racecraft": 98,
+			"awareness": 82,
+			"pace": 97
+		},
+		{
+			"name": "Mick Schumacher",
+			"overall": 77,
+			"experience": 60,
+			"racecraft": 81,
+			"awareness": 73,
+			"pace": 77
+		},
+		{
+			"name": "Nicholas Latifi",
+			"overall": 66,
+			"experience": 64,
+			"racecraft": 65,
+			"awareness": 74,
+			"pace": 65
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 81,
+			"experience": 65,
+			"racecraft": 85,
+			"awareness": 74,
+			"pace": 82
+		},
+		{
+			"name": "Sebastian Vettel",
+			"overall": 85,
+			"experience": 93,
+			"racecraft": 89,
+			"awareness": 80,
+			"pace": 83
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 85,
+			"racecraft": 93,
+			"awareness": 84,
+			"pace": 85
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 83,
+			"experience": 79,
+			"racecraft": 82,
+			"awareness": 91,
+			"pace": 83
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 75,
+			"experience": 59,
+			"racecraft": 78,
+			"awareness": 74,
+			"pace": 75
+		}
+	],
+	"F1 23 (B)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 94,
+			"experience": 84,
+			"racecraft": 97,
+			"awareness": 85,
+			"pace": 95
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 92,
+			"experience": 97,
+			"racecraft": 94,
+			"awareness": 94,
+			"pace": 90
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 92,
+			"experience": 99,
+			"racecraft": 91,
+			"awareness": 78,
+			"pace": 93
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 89,
+			"experience": 91,
+			"racecraft": 93,
+			"awareness": 86,
+			"pace": 87
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 77,
+			"racecraft": 92,
+			"awareness": 85,
+			"pace": 90
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 76,
+			"racecraft": 91,
+			"awareness": 79,
+			"pace": 91
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 88,
+			"experience": 84,
+			"racecraft": 92,
+			"awareness": 81,
+			"pace": 87
+		},
+		{
+			"name": "George Russell",
+			"overall": 88,
+			"experience": 76,
+			"racecraft": 87,
+			"awareness": 83,
+			"pace": 91
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 87,
+			"experience": 88,
+			"racecraft": 86,
+			"awareness": 97,
+			"pace": 86
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 86,
+			"experience": 77,
+			"racecraft": 92,
+			"awareness": 76,
+			"pace": 86
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 85,
+			"experience": 78,
+			"racecraft": 89,
+			"awareness": 76,
+			"pace": 85
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 84,
+			"experience": 79,
+			"racecraft": 91,
+			"awareness": 78,
+			"pace": 81
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 83,
+			"experience": 75,
+			"racecraft": 81,
+			"awareness": 78,
+			"pace": 86
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 83,
+			"experience": 69,
+			"racecraft": 79,
+			"awareness": 75,
+			"pace": 87
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 81,
+			"experience": 81,
+			"racecraft": 79,
+			"awareness": 85,
+			"pace": 82
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 80,
+			"experience": 86,
+			"racecraft": 79,
+			"awareness": 81,
+			"pace": 80
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 78,
+			"experience": 63,
+			"racecraft": 78,
+			"awareness": 74,
+			"pace": 81
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 74,
+			"experience": 74,
+			"racecraft": 73,
+			"awareness": 79,
+			"pace": 77
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 71,
+			"experience": 48,
+			"racecraft": 84,
+			"awareness": 75,
+			"pace": 67
+		},
+		{
+			"name": "Nyck De Vries",
+			"overall": 71,
+			"experience": 50,
+			"racecraft": 84,
+			"awareness": 75,
+			"pace": 67
+		}
+	],
+	"F1 23 (1)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 84,
+			"racecraft": 96,
+			"awareness": 85,
+			"pace": 97
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 92,
+			"experience": 99,
+			"racecraft": 93,
+			"awareness": 78,
+			"pace": 92
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 92,
+			"experience": 97,
+			"racecraft": 95,
+			"awareness": 88,
+			"pace": 91
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 78,
+			"racecraft": 91,
+			"awareness": 86,
+			"pace": 90
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 88,
+			"experience": 91,
+			"racecraft": 94,
+			"awareness": 86,
+			"pace": 85
+		},
+		{
+			"name": "George Russell",
+			"overall": 88,
+			"experience": 77,
+			"racecraft": 89,
+			"awareness": 81,
+			"pace": 89
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 89,
+			"experience": 84,
+			"racecraft": 91,
+			"awareness": 79,
+			"pace": 89
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 83,
+			"experience": 80,
+			"racecraft": 90,
+			"awareness": 77,
+			"pace": 81
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 77,
+			"racecraft": 88,
+			"awareness": 78,
+			"pace": 92
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 85,
+			"experience": 78,
+			"racecraft": 91,
+			"awareness": 76,
+			"pace": 84
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 76,
+			"experience": 55,
+			"racecraft": 75,
+			"awareness": 81,
+			"pace": 76
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 85,
+			"experience": 78,
+			"racecraft": 88,
+			"awareness": 76,
+			"pace": 86
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 85,
+			"experience": 76,
+			"racecraft": 83,
+			"awareness": 77,
+			"pace": 88
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 81,
+			"experience": 86,
+			"racecraft": 78,
+			"awareness": 81,
+			"pace": 81
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 87,
+			"experience": 88,
+			"racecraft": 85,
+			"awareness": 97,
+			"pace": 86
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 80,
+			"experience": 65,
+			"racecraft": 83,
+			"awareness": 79,
+			"pace": 81
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 82,
+			"experience": 70,
+			"racecraft": 78,
+			"awareness": 74,
+			"pace": 87
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 80,
+			"experience": 82,
+			"racecraft": 78,
+			"awareness": 81,
+			"pace": 80
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 71,
+			"experience": 55,
+			"racecraft": 77,
+			"awareness": 74,
+			"pace": 70
+		},
+		{
+			"name": "Nyck De Vries",
+			"overall": 70,
+			"experience": 56,
+			"racecraft": 83,
+			"awareness": 75,
+			"pace": 65
+		}
+	],
+	"F1 23 (2)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 96,
+			"experience": 85,
+			"racecraft": 97,
+			"awareness": 86,
+			"pace": 98
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 93,
+			"experience": 99,
+			"racecraft": 93,
+			"awareness": 80,
+			"pace": 93
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 93,
+			"experience": 97,
+			"racecraft": 94,
+			"awareness": 89,
+			"pace": 92
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 78,
+			"racecraft": 91,
+			"awareness": 82,
+			"pace": 90
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 92,
+			"racecraft": 94,
+			"awareness": 87,
+			"pace": 83
+		},
+		{
+			"name": "George Russell",
+			"overall": 87,
+			"experience": 77,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 88
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 88,
+			"experience": 85,
+			"racecraft": 92,
+			"awareness": 79,
+			"pace": 88
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 81,
+			"experience": 80,
+			"racecraft": 88,
+			"awareness": 76,
+			"pace": 79
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 77,
+			"racecraft": 88,
+			"awareness": 79,
+			"pace": 92
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 85,
+			"experience": 78,
+			"racecraft": 92,
+			"awareness": 76,
+			"pace": 84
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 79,
+			"experience": 56,
+			"racecraft": 78,
+			"awareness": 82,
+			"pace": 82
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 86,
+			"experience": 79,
+			"racecraft": 89,
+			"awareness": 77,
+			"pace": 86
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 86,
+			"experience": 76,
+			"racecraft": 84,
+			"awareness": 79,
+			"pace": 89
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 82,
+			"experience": 86,
+			"racecraft": 78,
+			"awareness": 81,
+			"pace": 83
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 86,
+			"experience": 88,
+			"racecraft": 84,
+			"awareness": 96,
+			"pace": 86
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 80,
+			"experience": 66,
+			"racecraft": 81,
+			"awareness": 79,
+			"pace": 81
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 83,
+			"experience": 71,
+			"racecraft": 79,
+			"awareness": 74,
+			"pace": 87
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 80,
+			"experience": 82,
+			"racecraft": 78,
+			"awareness": 82,
+			"pace": 81
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 71,
+			"experience": 57,
+			"racecraft": 75,
+			"awareness": 74,
+			"pace": 70
+		},
+		{
+			"name": "Nyck De Vries",
+			"overall": 70,
+			"experience": 56,
+			"racecraft": 82,
+			"awareness": 75,
+			"pace": 65
+		}
+	],
+	"F1 23 (3)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 96,
+			"experience": 85,
+			"racecraft": 97,
+			"awareness": 86,
+			"pace": 98
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 93,
+			"experience": 99,
+			"racecraft": 93,
+			"awareness": 78,
+			"pace": 94
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 92,
+			"experience": 98,
+			"racecraft": 94,
+			"awareness": 84,
+			"pace": 92
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 78,
+			"racecraft": 92,
+			"awareness": 82,
+			"pace": 90
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 88,
+			"experience": 92,
+			"racecraft": 95,
+			"awareness": 86,
+			"pace": 85
+		},
+		{
+			"name": "George Russell",
+			"overall": 88,
+			"experience": 77,
+			"racecraft": 88,
+			"awareness": 80,
+			"pace": 90
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 89,
+			"experience": 85,
+			"racecraft": 92,
+			"awareness": 79,
+			"pace": 89
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 81,
+			"experience": 80,
+			"racecraft": 89,
+			"awareness": 78,
+			"pace": 78
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 77,
+			"racecraft": 88,
+			"awareness": 78,
+			"pace": 92
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 85,
+			"experience": 79,
+			"racecraft": 92,
+			"awareness": 76,
+			"pace": 84
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 82,
+			"experience": 58,
+			"racecraft": 79,
+			"awareness": 80,
+			"pace": 87
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 86,
+			"experience": 79,
+			"racecraft": 89,
+			"awareness": 76,
+			"pace": 87
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 87,
+			"experience": 77,
+			"racecraft": 84,
+			"awareness": 77,
+			"pace": 91
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 81,
+			"experience": 86,
+			"racecraft": 80,
+			"awareness": 81,
+			"pace": 81
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 87,
+			"experience": 88,
+			"racecraft": 85,
+			"awareness": 97,
+			"pace": 87
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 80,
+			"experience": 67,
+			"racecraft": 81,
+			"awareness": 79,
+			"pace": 82
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 84,
+			"experience": 71,
+			"racecraft": 79,
+			"awareness": 74,
+			"pace": 89
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 80,
+			"experience": 82,
+			"racecraft": 77,
+			"awareness": 80,
+			"pace": 82
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 70,
+			"experience": 59,
+			"racecraft": 73,
+			"awareness": 74,
+			"pace": 69
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 86,
+			"experience": 90,
+			"racecraft": 85,
+			"awareness": 84,
+			"pace": 86
+		}
+	],
+	"F1 23 (4)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 96,
+			"experience": 85,
+			"racecraft": 98,
+			"awareness": 86,
+			"pace": 98
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 93,
+			"experience": 99,
+			"racecraft": 94,
+			"awareness": 78,
+			"pace": 93
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 92,
+			"experience": 98,
+			"racecraft": 95,
+			"awareness": 84,
+			"pace": 91
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 79,
+			"racecraft": 93,
+			"awareness": 82,
+			"pace": 89
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 92,
+			"racecraft": 93,
+			"awareness": 83,
+			"pace": 83
+		},
+		{
+			"name": "George Russell",
+			"overall": 87,
+			"experience": 78,
+			"racecraft": 88,
+			"awareness": 80,
+			"pace": 88
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 91,
+			"experience": 85,
+			"racecraft": 95,
+			"awareness": 82,
+			"pace": 90
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 79,
+			"experience": 81,
+			"racecraft": 86,
+			"awareness": 77,
+			"pace": 75
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 78,
+			"racecraft": 89,
+			"awareness": 78,
+			"pace": 92
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 84,
+			"experience": 79,
+			"racecraft": 91,
+			"awareness": 76,
+			"pace": 82
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 83,
+			"experience": 62,
+			"racecraft": 85,
+			"awareness": 84,
+			"pace": 84
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 86,
+			"experience": 80,
+			"racecraft": 89,
+			"awareness": 75,
+			"pace": 87
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 86,
+			"experience": 78,
+			"racecraft": 84,
+			"awareness": 76,
+			"pace": 90
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 80,
+			"experience": 86,
+			"racecraft": 80,
+			"awareness": 81,
+			"pace": 79
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 82,
+			"experience": 89,
+			"racecraft": 79,
+			"awareness": 89,
+			"pace": 81
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 82,
+			"experience": 69,
+			"racecraft": 82,
+			"awareness": 79,
+			"pace": 84
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 83,
+			"experience": 73,
+			"racecraft": 78,
+			"awareness": 74,
+			"pace": 88
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 79,
+			"experience": 83,
+			"racecraft": 72,
+			"awareness": 80,
+			"pace": 82
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 71,
+			"experience": 63,
+			"racecraft": 73,
+			"awareness": 74,
+			"pace": 71
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 84,
+			"experience": 90,
+			"racecraft": 82,
+			"awareness": 84,
+			"pace": 84
+		}
+	],
+	"F1 23 (5)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 96,
+			"experience": 86,
+			"racecraft": 98,
+			"awareness": 84,
+			"pace": 98
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 93,
+			"experience": 99,
+			"racecraft": 95,
+			"awareness": 78,
+			"pace": 93
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 92,
+			"experience": 98,
+			"racecraft": 95,
+			"awareness": 84,
+			"pace": 91
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 90,
+			"experience": 79,
+			"racecraft": 94,
+			"awareness": 82,
+			"pace": 90
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 92,
+			"racecraft": 94,
+			"awareness": 83,
+			"pace": 84
+		},
+		{
+			"name": "George Russell",
+			"overall": 87,
+			"experience": 79,
+			"racecraft": 88,
+			"awareness": 80,
+			"pace": 89
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 90,
+			"experience": 86,
+			"racecraft": 96,
+			"awareness": 82,
+			"pace": 88
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 81,
+			"racecraft": 86,
+			"awareness": 77,
+			"pace": 78
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 88,
+			"experience": 79,
+			"racecraft": 90,
+			"awareness": 78,
+			"pace": 90
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 85,
+			"experience": 80,
+			"racecraft": 91,
+			"awareness": 76,
+			"pace": 83
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 85,
+			"experience": 63,
+			"racecraft": 87,
+			"awareness": 84,
+			"pace": 86
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 86,
+			"experience": 80,
+			"racecraft": 88,
+			"awareness": 75,
+			"pace": 87
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 86,
+			"experience": 78,
+			"racecraft": 82,
+			"awareness": 76,
+			"pace": 90
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 80,
+			"experience": 86,
+			"racecraft": 80,
+			"awareness": 81,
+			"pace": 79
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 81,
+			"experience": 89,
+			"racecraft": 79,
+			"awareness": 89,
+			"pace": 81
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 81,
+			"experience": 69,
+			"racecraft": 78,
+			"awareness": 79,
+			"pace": 85
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 83,
+			"experience": 73,
+			"racecraft": 77,
+			"awareness": 74,
+			"pace": 88
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 78,
+			"experience": 83,
+			"racecraft": 69,
+			"awareness": 80,
+			"pace": 82
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 69,
+			"experience": 64,
+			"racecraft": 68,
+			"awareness": 74,
+			"pace": 70
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 84,
+			"experience": 91,
+			"racecraft": 82,
+			"awareness": 84,
+			"pace": 84
+		}
+	],
+	"F1 24 (B)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 96,
+			"experience": 85,
+			"racecraft": 98,
+			"awareness": 94,
+			"pace": 96
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 92,
+			"experience": 99,
+			"racecraft": 94,
+			"awareness": 81,
+			"pace": 91
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 89,
+			"experience": 85,
+			"racecraft": 93,
+			"awareness": 89,
+			"pace": 88
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 78,
+			"racecraft": 91,
+			"awareness": 90,
+			"pace": 89
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 89,
+			"experience": 78,
+			"racecraft": 89,
+			"awareness": 85,
+			"pace": 90
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 89,
+			"experience": 97,
+			"racecraft": 90,
+			"awareness": 92,
+			"pace": 87
+		},
+		{
+			"name": "George Russell",
+			"overall": 87,
+			"experience": 78,
+			"racecraft": 87,
+			"awareness": 84,
+			"pace": 88
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 87,
+			"experience": 91,
+			"racecraft": 93,
+			"awareness": 79,
+			"pace": 85
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 85,
+			"experience": 77,
+			"racecraft": 83,
+			"awareness": 79,
+			"pace": 87
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 84,
+			"experience": 62,
+			"racecraft": 85,
+			"awareness": 81,
+			"pace": 86
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 84,
+			"experience": 79,
+			"racecraft": 85,
+			"awareness": 78,
+			"pace": 85
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 79,
+			"racecraft": 83,
+			"awareness": 80,
+			"pace": 83
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 82,
+			"experience": 89,
+			"racecraft": 81,
+			"awareness": 85,
+			"pace": 82
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 82,
+			"experience": 85,
+			"racecraft": 82,
+			"awareness": 85,
+			"pace": 81
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 81,
+			"experience": 88,
+			"racecraft": 72,
+			"awareness": 97,
+			"pace": 83
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 81,
+			"experience": 72,
+			"racecraft": 74,
+			"awareness": 77,
+			"pace": 86
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 80,
+			"experience": 82,
+			"racecraft": 75,
+			"awareness": 79,
+			"pace": 82
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 80,
+			"racecraft": 83,
+			"awareness": 79,
+			"pace": 79
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 80,
+			"experience": 68,
+			"racecraft": 78,
+			"awareness": 82,
+			"pace": 83
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 70,
+			"experience": 62,
+			"racecraft": 68,
+			"awareness": 75,
+			"pace": 72
+		}
+	],
+	"F1 24 (1)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 85,
+			"racecraft": 97,
+			"awareness": 90,
+			"pace": 96
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 90,
+			"experience": 99,
+			"racecraft": 92,
+			"awareness": 81,
+			"pace": 89
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 90,
+			"experience": 85,
+			"racecraft": 95,
+			"awareness": 87,
+			"pace": 88
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 89,
+			"experience": 78,
+			"racecraft": 90,
+			"awareness": 90,
+			"pace": 89
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 90,
+			"experience": 78,
+			"racecraft": 90,
+			"awareness": 83,
+			"pace": 92
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 90,
+			"experience": 97,
+			"racecraft": 91,
+			"awareness": 92,
+			"pace": 88
+		},
+		{
+			"name": "George Russell",
+			"overall": 88,
+			"experience": 78,
+			"racecraft": 88,
+			"awareness": 84,
+			"pace": 89
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 85,
+			"experience": 91,
+			"racecraft": 90,
+			"awareness": 79,
+			"pace": 83
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 84,
+			"experience": 77,
+			"racecraft": 82,
+			"awareness": 78,
+			"pace": 87
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 85,
+			"experience": 62,
+			"racecraft": 88,
+			"awareness": 81,
+			"pace": 87
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 85,
+			"experience": 79,
+			"racecraft": 87,
+			"awareness": 78,
+			"pace": 85
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 79,
+			"racecraft": 85,
+			"awareness": 78,
+			"pace": 83
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 83,
+			"experience": 89,
+			"racecraft": 82,
+			"awareness": 85,
+			"pace": 82
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 83,
+			"experience": 85,
+			"racecraft": 85,
+			"awareness": 85,
+			"pace": 82
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 81,
+			"experience": 88,
+			"racecraft": 70,
+			"awareness": 97,
+			"pace": 83
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 81,
+			"experience": 72,
+			"racecraft": 76,
+			"awareness": 76,
+			"pace": 86
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 80,
+			"experience": 82,
+			"racecraft": 76,
+			"awareness": 76,
+			"pace": 82
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 80,
+			"racecraft": 84,
+			"awareness": 78,
+			"pace": 78
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 80,
+			"experience": 68,
+			"racecraft": 77,
+			"awareness": 82,
+			"pace": 83
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 69,
+			"experience": 62,
+			"racecraft": 68,
+			"awareness": 75,
+			"pace": 70
+		}
+	],
+	"F1 24 (2)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 87,
+			"racecraft": 96,
+			"awareness": 90,
+			"pace": 96
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 91,
+			"experience": 81,
+			"racecraft": 90,
+			"awareness": 84,
+			"pace": 93
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 90,
+			"experience": 87,
+			"racecraft": 95,
+			"awareness": 88,
+			"pace": 88
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 90,
+			"experience": 81,
+			"racecraft": 92,
+			"awareness": 93,
+			"pace": 89
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 90,
+			"experience": 98,
+			"racecraft": 92,
+			"awareness": 93,
+			"pace": 88
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 89,
+			"experience": 99,
+			"racecraft": 92,
+			"awareness": 81,
+			"pace": 88
+		},
+		{
+			"name": "George Russell",
+			"overall": 88,
+			"experience": 81,
+			"racecraft": 90,
+			"awareness": 85,
+			"pace": 89
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 87,
+			"experience": 71,
+			"racecraft": 89,
+			"awareness": 89,
+			"pace": 88
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 85,
+			"experience": 82,
+			"racecraft": 86,
+			"awareness": 79,
+			"pace": 85
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 85,
+			"experience": 93,
+			"racecraft": 91,
+			"awareness": 80,
+			"pace": 82
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 85,
+			"experience": 81,
+			"racecraft": 82,
+			"awareness": 80,
+			"pace": 87
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 84,
+			"experience": 91,
+			"racecraft": 82,
+			"awareness": 82,
+			"pace": 84
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 81,
+			"racecraft": 85,
+			"awareness": 78,
+			"pace": 83
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 83,
+			"experience": 87,
+			"racecraft": 84,
+			"awareness": 85,
+			"pace": 81
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 82,
+			"experience": 90,
+			"racecraft": 71,
+			"awareness": 97,
+			"pace": 84
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 82,
+			"experience": 76,
+			"racecraft": 77,
+			"awareness": 77,
+			"pace": 85
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 80,
+			"experience": 85,
+			"racecraft": 76,
+			"awareness": 75,
+			"pace": 82
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 80,
+			"experience": 82,
+			"racecraft": 84,
+			"awareness": 78,
+			"pace": 78
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 78,
+			"experience": 74,
+			"racecraft": 74,
+			"awareness": 83,
+			"pace": 80
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 68,
+			"experience": 71,
+			"racecraft": 67,
+			"awareness": 73,
+			"pace": 68
+		}
+	],
+	"F1 24 (3)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 87,
+			"racecraft": 96,
+			"awareness": 86,
+			"pace": 96
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 91,
+			"experience": 81,
+			"racecraft": 94,
+			"awareness": 93,
+			"pace": 90
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 91,
+			"experience": 81,
+			"racecraft": 90,
+			"awareness": 82,
+			"pace": 94
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 90,
+			"experience": 87,
+			"racecraft": 95,
+			"awareness": 88,
+			"pace": 88
+		},
+		{
+			"name": "George Russell",
+			"overall": 90,
+			"experience": 81,
+			"racecraft": 82,
+			"awareness": 85,
+			"pace": 90
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 89,
+			"experience": 98,
+			"racecraft": 91,
+			"awareness": 93,
+			"pace": 87
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 88,
+			"experience": 99,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 87
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 87,
+			"experience": 71,
+			"racecraft": 92,
+			"awareness": 88,
+			"pace": 87
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 86,
+			"experience": 82,
+			"racecraft": 88,
+			"awareness": 79,
+			"pace": 86
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 85,
+			"experience": 81,
+			"racecraft": 87,
+			"awareness": 78,
+			"pace": 85
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 84,
+			"experience": 81,
+			"racecraft": 82,
+			"awareness": 80,
+			"pace": 86
+		},
+		{
+			"name": "Sergio Perez",
+			"overall": 83,
+			"experience": 93,
+			"racecraft": 85,
+			"awareness": 79,
+			"pace": 82
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 83,
+			"experience": 87,
+			"racecraft": 85,
+			"awareness": 85,
+			"pace": 82
+		},
+		{
+			"name": "Valtteri Bottas",
+			"overall": 82,
+			"experience": 90,
+			"racecraft": 72,
+			"awareness": 97,
+			"pace": 84
+		},
+		{
+			"name": "Daniel Ricciardo",
+			"overall": 82,
+			"experience": 91,
+			"racecraft": 83,
+			"awareness": 82,
+			"pace": 81
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 81,
+			"experience": 76,
+			"racecraft": 77,
+			"awareness": 77,
+			"pace": 84
+		},
+		{
+			"name": "Kevin Magnussen",
+			"overall": 81,
+			"experience": 85,
+			"racecraft": 79,
+			"awareness": 75,
+			"pace": 82
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 79,
+			"experience": 82,
+			"racecraft": 83,
+			"awareness": 78,
+			"pace": 77
+		},
+		{
+			"name": "Zhou Guanyu",
+			"overall": 78,
+			"experience": 74,
+			"racecraft": 75,
+			"awareness": 83,
+			"pace": 79
+		},
+		{
+			"name": "Logan Sargeant",
+			"overall": 68,
+			"experience": 71,
+			"racecraft": 67,
+			"awareness": 73,
+			"pace": 68
+		}
+	],
+	"F1 25 (B)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 95,
+			"experience": 87,
+			"racecraft": 96,
+			"awareness": 85,
+			"pace": 96
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 91,
+			"experience": 81,
+			"racecraft": 89,
+			"awareness": 80,
+			"pace": 94
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 91,
+			"experience": 81,
+			"racecraft": 95,
+			"awareness": 93,
+			"pace": 90
+		},
+		{
+			"name": "George Russell",
+			"overall": 90,
+			"experience": 81,
+			"racecraft": 92,
+			"awareness": 84,
+			"pace": 90
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 90,
+			"experience": 87,
+			"racecraft": 96,
+			"awareness": 88,
+			"pace": 88
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 89,
+			"experience": 98,
+			"racecraft": 90,
+			"awareness": 90,
+			"pace": 87
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 88,
+			"experience": 99,
+			"racecraft": 90,
+			"awareness": 81,
+			"pace": 87
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 87,
+			"experience": 72,
+			"racecraft": 92,
+			"awareness": 86,
+			"pace": 87
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 86,
+			"experience": 82,
+			"racecraft": 88,
+			"awareness": 79,
+			"pace": 86
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 85,
+			"experience": 81,
+			"racecraft": 86,
+			"awareness": 79,
+			"pace": 85
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 84,
+			"experience": 87,
+			"racecraft": 86,
+			"awareness": 85,
+			"pace": 82
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 83,
+			"experience": 81,
+			"racecraft": 82,
+			"awareness": 78,
+			"pace": 85
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 82,
+			"experience": 77,
+			"racecraft": 78,
+			"awareness": 77,
+			"pace": 85
+		},
+		{
+			"name": "Liam Lawson",
+			"overall": 80,
+			"experience": 54,
+			"racecraft": 76,
+			"awareness": 75,
+			"pace": 85
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 78,
+			"experience": 83,
+			"racecraft": 81,
+			"awareness": 78,
+			"pace": 76
+		},
+		{
+			"name": "Oliver Bearman",
+			"overall": 74,
+			"experience": 52,
+			"racecraft": 84,
+			"awareness": 65,
+			"pace": 73
+		},
+		{
+			"name": "Gabriel Bortoleto",
+			"overall": 74,
+			"experience": 50,
+			"racecraft": 76,
+			"awareness": 68,
+			"pace": 77
+		},
+		{
+			"name": "Jack Doohan",
+			"overall": 73,
+			"experience": 51,
+			"racecraft": 71,
+			"awareness": 67,
+			"pace": 78
+		},
+		{
+			"name": "Kimi Antonelli",
+			"overall": 72,
+			"experience": 50,
+			"racecraft": 67,
+			"awareness": 79,
+			"pace": 76
+		},
+		{
+			"name": "Isack Hadjar",
+			"overall": 68,
+			"experience": 51,
+			"racecraft": 66,
+			"awareness": 65,
+			"pace": 72
+		}
+	]
+}

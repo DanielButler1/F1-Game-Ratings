@@ -1,0 +1,28 @@
+name: "✨ Feature Request"
+description: "Suggest a new feature, chart, or site improvement"
+title: "[Feature] <your idea>"
+labels: [enhancement]
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: What's your feature idea?
+          placeholder: "Describe the feature and why it's useful"
+      validations:
+          required: true
+
+    - type: textarea
+      id: context
+      attributes:
+          label: Additional context
+          placeholder: "Is this related to an existing feature? Any references or mockups?"
+
+    - type: checkboxes
+      id: motivation
+      attributes:
+          label: Why is this feature valuable?
+          options:
+              - label: Improve usability
+              - label: Add missing functionality
+              - label: Just a cool idea
+              - label: Other

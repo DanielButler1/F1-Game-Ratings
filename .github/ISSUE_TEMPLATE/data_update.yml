@@ -1,0 +1,33 @@
+name: "📈 Data Addition or Update"
+description: "Request a new rating set or propose a correction"
+title: "[Data] <F1 Game version or Driver update>"
+labels: [data]
+body:
+    - type: input
+      id: game_version
+      attributes:
+          label: F1 Game Version
+          placeholder: e.g. F1 26 (B)
+      validations:
+          required: true
+
+    - type: textarea
+      id: changes
+      attributes:
+          label: Describe the changes
+          placeholder: |
+              - Updated Max Verstappen's overall from 94 → 95
+              - Added new driver 'Oliver Bearman'
+      validations:
+          required: true
+
+    - type: textarea
+      id: source
+      attributes:
+          label: Source or proof (if available)
+          placeholder: "Link to official patch notes or screenshot"
+
+    - type: textarea
+      id: notes
+      attributes:
+          label: Any other notes?

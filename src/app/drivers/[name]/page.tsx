@@ -21,9 +21,9 @@ export async function generateStaticParams() {
 export default async function DriverPage({
 	params,
 }: {
-	params: { name: string } | Promise<{ name: string }>;
+	params: Promise<{ name: string }>;
 }) {
-	const { name } = await Promise.resolve(params);
+	const { name } = await params;
 	const driverName = decodeURIComponent(name);
 	const driverHistory = getDriverHistory(driverName);
 

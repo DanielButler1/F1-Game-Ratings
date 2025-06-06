@@ -1,5 +1,3 @@
-export const revalidate = 86400;
-
 import {
 	getDriverRankings,
 	getGameVersions,
@@ -11,6 +9,18 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+export const revalidate = 86400;
+
+export async function generateStaticParams() {
+	const allGames = getAllGames();
+	return allGames.flatMap((game) =>
+		game.versions.map((version) => ({
+			game: encodeURIComponent(game.gameName),
+			patch: version,
+		}))
+	);
+}
 
 const statColors = {
 	overall: "#FF3366",

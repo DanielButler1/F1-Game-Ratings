@@ -103,6 +103,7 @@ const teamDrivers: TeamDrivers = {
 		"Racing Bulls": ["Liam Lawson", "Isack Hadjar"],
 		"Kick Sauber": ["Nico Hulkenberg", "Gabriel Bortoleto"],
 		Haas: ["Oliver Bearman", "Esteban Ocon"],
+		APXGP: ["Sonny Hayes", "Joshua Pearce"],
 	},
 };
 

@@ -4209,6 +4209,22 @@
 			"racecraft": 66,
 			"awareness": 65,
 			"pace": 72
+		},
+		{
+			"name": "Sonny Hayes",
+			"overall": 88,
+			"experience": 94,
+			"racecraft": 93,
+			"awareness": 88,
+			"pace": 84
+		},
+		{
+			"name": "Joshua Pearce",
+			"overall": 82,
+			"experience": 75,
+			"racecraft": 80,
+			"awareness": 79,
+			"pace": 85
 		}
 	]
 }

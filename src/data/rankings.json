@@ -4226,5 +4226,167 @@
 			"awareness": 79,
 			"pace": 85
 		}
+	],
+	"F1 25 (1)": [
+		{
+			"name": "Max Verstappen",
+			"overall": 93,
+			"experience": 87,
+			"racecraft": 93,
+			"awareness": 75,
+			"pace": 96
+		},
+		{
+			"name": "Lando Norris",
+			"overall": 91,
+			"experience": 82,
+			"racecraft": 91,
+			"awareness": 77,
+			"pace": 94
+		},
+		{
+			"name": "Charles Leclerc",
+			"overall": 90,
+			"experience": 82,
+			"racecraft": 91,
+			"awareness": 92,
+			"pace": 91
+		},
+		{
+			"name": "George Russell",
+			"overall": 91,
+			"experience": 82,
+			"racecraft": 93,
+			"awareness": 90,
+			"pace": 91
+		},
+		{
+			"name": "Carlos Sainz",
+			"overall": 86,
+			"experience": 87,
+			"racecraft": 90,
+			"awareness": 85,
+			"pace": 84
+		},
+		{
+			"name": "Lewis Hamilton",
+			"overall": 90,
+			"experience": 98,
+			"racecraft": 92,
+			"awareness": 95,
+			"pace": 88
+		},
+		{
+			"name": "Fernando Alonso",
+			"overall": 88,
+			"experience": 99,
+			"racecraft": 89,
+			"awareness": 85,
+			"pace": 86
+		},
+		{
+			"name": "Oscar Piastri",
+			"overall": 91,
+			"experience": 74,
+			"racecraft": 94,
+			"awareness": 84,
+			"pace": 93
+		},
+		{
+			"name": "Pierre Gasly",
+			"overall": 85,
+			"experience": 82,
+			"racecraft": 88,
+			"awareness": 86,
+			"pace": 84
+		},
+		{
+			"name": "Esteban Ocon",
+			"overall": 83,
+			"experience": 82,
+			"racecraft": 84,
+			"awareness": 87,
+			"pace": 82
+		},
+		{
+			"name": "Nico Hulkenberg",
+			"overall": 85,
+			"experience": 87,
+			"racecraft": 87,
+			"awareness": 91,
+			"pace": 83
+		},
+		{
+			"name": "Alexander Albon",
+			"overall": 85,
+			"experience": 82,
+			"racecraft": 86,
+			"awareness": 80,
+			"pace": 85
+		},
+		{
+			"name": "Yuki Tsunoda",
+			"overall": 77,
+			"experience": 78,
+			"racecraft": 76,
+			"awareness": 73,
+			"pace": 77
+		},
+		{
+			"name": "Liam Lawson",
+			"overall": 72,
+			"experience": 67,
+			"racecraft": 79,
+			"awareness": 66,
+			"pace": 70
+		},
+		{
+			"name": "Lance Stroll",
+			"overall": 77,
+			"experience": 83,
+			"racecraft": 77,
+			"awareness": 76,
+			"pace": 76
+		},
+		{
+			"name": "Oliver Bearman",
+			"overall": 75,
+			"experience": 66,
+			"racecraft": 79,
+			"awareness": 70,
+			"pace": 74
+		},
+		{
+			"name": "Gabriel Bortoleto",
+			"overall": 74,
+			"experience": 63,
+			"racecraft": 75,
+			"awareness": 78,
+			"pace": 74
+		},
+		{
+			"name": "Jack Doohan",
+			"overall": 67,
+			"experience": 58,
+			"racecraft": 67,
+			"awareness": 66,
+			"pace": 69
+		},
+		{
+			"name": "Kimi Antonelli",
+			"overall": 77,
+			"experience": 64,
+			"racecraft": 80,
+			"awareness": 76,
+			"pace": 78
+		},
+		{
+			"name": "Isack Hadjar",
+			"overall": 77,
+			"experience": 65,
+			"racecraft": 79,
+			"awareness": 79,
+			"pace": 78
+		},
 	]
 }

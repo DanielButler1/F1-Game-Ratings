@@ -112,7 +112,17 @@ export default function TeamsPage() {
 	const latestGame = games[games.length - 1]?.gameName || "";
 
 	const [selectedGame, setSelectedGame] = useState(latestGame);
-	const [selectedVersion, setSelectedVersion] = useState("B");
+	// Initialize selectedVersion to the latest available version for the selected game
+	const initialVersions = selectedGame
+		? games.find((g) => g.gameName === selectedGame)?.versions || []
+		: [];
+	const latestVersionForInitialGame =
+		initialVersions.length > 0
+			? initialVersions[initialVersions.length - 1]
+			: "B";
+	const [selectedVersion, setSelectedVersion] = useState(
+		latestVersionForInitialGame
+	);
 
 	const handleGameChange = (game: string) => {
 		setSelectedGame(game);
@@ -139,6 +149,12 @@ export default function TeamsPage() {
 								allDrivers.find((d) => d.name === driver)
 							)
 							.filter(Boolean);
+
+						// If any driver listed for the team is missing stats for this
+						// selected version, exclude the team entirely.
+						if (teamDriverStats.length !== drivers.length) {
+							return null;
+						}
 
 						const averageStats = {
 							overall: Math.round(
@@ -179,6 +195,8 @@ export default function TeamsPage() {
 							averageStats,
 						};
 					})
+					.filter(Boolean)
+					.map((t) => t as TeamStats)
 					.sort(
 						(a, b) =>
 							b.averageStats.overall - a.averageStats.overall

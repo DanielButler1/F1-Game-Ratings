@@ -6,6 +6,7 @@ import {
 	getLatestGameAndVersion,
 	getAllDrivers,
 } from "@/lib/rankings";
+import { ChevronUpIcon, ChevronDownIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export const revalidate = 86400;
@@ -60,51 +61,150 @@ export default async function DriverPage({
 								Rating History
 							</h3>
 							<div className="space-y-4">
-								{driverHistory.history.map((entry) => (
-									<div
-										key={`${entry.gameName}-${entry.version}`}
-										className="rounded-lg border p-4"
-									>
-										<div className="mb-2 flex items-center justify-between">
-											<h4 className="font-semibold">
-												{entry.gameName} (
-												{entry.version === "B"
-													? "Base"
-													: `Update ${entry.version}`}
-												)
-											</h4>
-											<span className="font-medium text-primary">
-												Overall: {entry.stats.overall}
-											</span>
-										</div>
-										<div className="grid gap-2 text-sm text-muted-foreground sm:grid-cols-2 md:grid-cols-4">
-											<div className="flex gap-2">
-												<span>Experience</span>
-												<span className="font-medium">
-													{entry.stats.experience}
+								{(() => {
+									const hist = driverHistory.history;
+									const display = [...hist].reverse();
+
+									return display.map((entry, idx) => {
+										const origIdx = hist.length - 1 - idx;
+										const prev =
+											origIdx > 0
+												? hist[origIdx - 1]
+												: undefined;
+
+										const overallDelta = prev
+											? entry.stats.overall -
+											  prev.stats.overall
+											: 0;
+										const experienceDelta = prev
+											? entry.stats.experience -
+											  prev.stats.experience
+											: 0;
+										const racecraftDelta = prev
+											? entry.stats.racecraft -
+											  prev.stats.racecraft
+											: 0;
+										const awarenessDelta = prev
+											? entry.stats.awareness -
+											  prev.stats.awareness
+											: 0;
+										const paceDelta = prev
+											? entry.stats.pace - prev.stats.pace
+											: 0;
+
+										const DeltaIcon = ({
+											delta,
+										}: {
+											delta: number;
+										}) => {
+											if (delta > 0) {
+												return (
+													<ChevronUpIcon
+														className="size-4 text-emerald-500 inline-block ml-2"
+														aria-hidden
+													/>
+												);
+											}
+											if (delta < 0) {
+												return (
+													<ChevronDownIcon
+														className="size-4 text-red-500 inline-block ml-2"
+														aria-hidden
+													/>
+												);
+											}
+
+											// No change: render an em dash in muted color
+											return (
+												<span
+													className="ml-2 text-muted-foreground"
+													aria-hidden
+												>
+													—
 												</span>
+											);
+										};
+
+										return (
+											<div
+												key={`${entry.gameName}-${entry.version}`}
+												className="rounded-lg border p-4"
+											>
+												<div className="mb-2 flex items-center justify-between">
+													<h4 className="font-semibold">
+														{entry.gameName} (
+														{entry.version === "B"
+															? "Base"
+															: `Update ${entry.version}`}
+														)
+													</h4>
+													<span className="font-medium text-primary">
+														Overall:{" "}
+														{entry.stats.overall}
+														<DeltaIcon
+															delta={overallDelta}
+														/>
+													</span>
+												</div>
+												<div className="grid gap-2 text-sm text-muted-foreground sm:grid-cols-2 md:grid-cols-4">
+													<div className="flex gap-2">
+														<span>Experience</span>
+														<span className="font-medium">
+															{
+																entry.stats
+																	.experience
+															}
+															<DeltaIcon
+																delta={
+																	experienceDelta
+																}
+															/>
+														</span>
+													</div>
+													<div className="flex gap-2">
+														<span>Racecraft</span>
+														<span className="font-medium">
+															{
+																entry.stats
+																	.racecraft
+															}
+															<DeltaIcon
+																delta={
+																	racecraftDelta
+																}
+															/>
+														</span>
+													</div>
+													<div className="flex gap-2">
+														<span>Awareness</span>
+														<span className="font-medium">
+															{
+																entry.stats
+																	.awareness
+															}
+															<DeltaIcon
+																delta={
+																	awarenessDelta
+																}
+															/>
+														</span>
+													</div>
+													<div className="flex gap-2">
+														<span>Pace</span>
+														<span className="font-medium">
+															{entry.stats.pace}
+															<DeltaIcon
+																delta={
+																	paceDelta
+																}
+															/>
+														</span>
+													</div>
+												</div>
 											</div>
-											<div className="flex gap-2">
-												<span>Racecraft</span>
-												<span className="font-medium">
-													{entry.stats.racecraft}
-												</span>
-											</div>
-											<div className="flex gap-2">
-												<span>Awareness</span>
-												<span className="font-medium">
-													{entry.stats.awareness}
-												</span>
-											</div>
-											<div className="flex gap-2">
-												<span>Pace</span>
-												<span className="font-medium">
-													{entry.stats.pace}
-												</span>
-											</div>
-										</div>
-									</div>
-								))}
+										);
+									});
+								})()}
 							</div>
 						</div>
 					</Card>

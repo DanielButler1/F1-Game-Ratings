@@ -136,7 +136,7 @@ export default function Footer() {
 							<Tooltip>
 								<TooltipTrigger asChild>
 									<Link
-										href="https://github.com"
+										href="https://github.com/DanielButler1/F1-Game-Ratings"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="ml-2 hover:text-foreground"

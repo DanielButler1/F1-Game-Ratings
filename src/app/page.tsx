@@ -7,6 +7,8 @@ import {
 	getAllGames,
 	getDriverRankings,
 	getLatestGameAndVersion,
+	getGameRouteSegment,
+	getVersionLabel,
 } from "@/lib/rankings";
 
 export default function HomePage() {
@@ -46,15 +48,12 @@ export default function HomePage() {
 							<div>
 								<h2 className="text-3xl font-bold">Latest Driver Ratings</h2>
 								<span className="text-gray-600 dark:text-gray-400 block mt-1">
-									{gameName} -{" "}
-									{version === "B" ? "Base Game" : `Update ${version}`}
+									{gameName} - {getVersionLabel(gameName, version)}
 								</span>
 								{/* Show button below on mobile */}
 								<div className="block md:hidden mt-2">
 									<Button asChild variant="ghost" className="gap-1">
-										<Link
-											href={`/games/${encodeURIComponent(gameName)}/${version}`}
-										>
+										<Link href={`/games/${getGameRouteSegment(gameName)}/${version}`}>
 											View All <ChevronRight className="h-4 w-4" />
 										</Link>
 									</Button>
@@ -63,9 +62,7 @@ export default function HomePage() {
 							{/* Show button on the right on desktop */}
 							<div className="hidden md:flex items-center gap-2">
 								<Button asChild variant="ghost" className="gap-1">
-									<Link
-										href={`/games/${encodeURIComponent(gameName)}/${version}`}
-									>
+									<Link href={`/games/${getGameRouteSegment(gameName)}/${version}`}>
 										View All <ChevronRight className="h-4 w-4" />
 									</Link>
 								</Button>
@@ -76,14 +73,16 @@ export default function HomePage() {
 								.sort((a, b) => b.overall - a.overall)
 								.slice(0, 6)
 								.map((driver) => (
-									<Card key={driver.name} className="p-6">
-										<div className="flex flex-col space-y-4">
-											<h3 className="text-xl font-semibold">
-												{driver.name}
-											</h3>
-											<div className="space-y-2">
-												<div className="flex justify-between">
-													<span>Overall</span>
+								<Card key={driver.name} className="p-6">
+									<div className="flex flex-col space-y-4">
+										<h3 className="text-xl font-semibold">
+											{driver.name}
+										</h3>
+										<div className="space-y-2">
+											<div className="flex justify-between">
+													<span className="font-semibold">
+														Overall
+													</span>
 													<span className="font-medium">
 														{driver.overall}
 													</span>
@@ -140,14 +139,13 @@ export default function HomePage() {
 											{game.versions.map((version) => (
 												<Link
 													key={`${game.gameName}-${version}`}
-													href={`/games/${encodeURIComponent(
-														game.gameName
-													)}/${version}`}
+													href={`/games/${getGameRouteSegment(game.gameName)}/${version}`}
 													className="inline-flex items-center justify-center rounded-full border px-3 py-1 text-sm font-medium transition-colors hover:bg-muted"
 												>
-													{version === "B"
-														? "Base Game"
-														: `Update ${version}`}
+													{getVersionLabel(
+														game.gameName,
+														version
+													)}
 												</Link>
 											))}
 										</div>

@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getAllGames, getAllDrivers } from "@/lib/rankings";
+import { getAllGames, getAllDrivers, getGameRouteSegment } from "@/lib/rankings";
 
 // Define the type for a sitemap item explicitly
 // (MetadataRoute.SitemapItem is the correct type for Next.js 13+)
@@ -43,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const games = getAllGames();
     const gamePatchItems = games.flatMap((game) =>
         game.versions.map((patch) => ({
-            url: `${baseUrl}/games/${encodeURIComponent(game.gameName)}/${encodeURIComponent(
+            url: `${baseUrl}/games/${getGameRouteSegment(game.gameName)}/${encodeURIComponent(
                 patch
             )}`,
             lastModified: new Date().toISOString(),

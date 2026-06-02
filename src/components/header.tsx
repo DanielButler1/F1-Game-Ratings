@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./theme-toggle";
 import { Menu } from "lucide-react";
@@ -12,6 +13,7 @@ import {
 	DrawerClose,
 } from "./ui/drawer";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const navigation = [
 	{ href: "/drivers", label: "Drivers" },
@@ -24,6 +26,18 @@ const navigation = [
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
+	const pathname = usePathname();
+
+	const isActiveRoute = (href: string) =>
+		pathname === href || pathname.startsWith(`${href}/`);
+
+	const navLinkClassName = (href: string) =>
+		cn(
+			"text-sm font-medium transition-colors",
+			isActiveRoute(href)
+				? "bg-accent text-accent-foreground"
+				: "hover:text-primary"
+		);
 
 	return (
 		<header className="border-b bg-background">
@@ -43,7 +57,12 @@ export default function Header() {
 								<Button key={item.href} variant="ghost" asChild>
 									<Link
 										href={item.href}
-										className="text-sm font-medium hover:text-primary"
+										aria-current={
+											isActiveRoute(item.href)
+												? "page"
+												: undefined
+										}
+										className={navLinkClassName(item.href)}
 									>
 										{item.label}
 									</Link>
@@ -71,7 +90,14 @@ export default function Header() {
 											>
 												<Link
 													href={item.href}
-													className="text-sm font-medium hover:text-primary"
+													aria-current={
+														isActiveRoute(item.href)
+															? "page"
+															: undefined
+													}
+													className={navLinkClassName(
+														item.href
+													)}
 													onClick={() =>
 														setIsOpen(false)
 													}

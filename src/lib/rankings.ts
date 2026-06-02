@@ -23,6 +23,50 @@ export type DriverHistory = {
     }[];
 }
 
+const versionLabels: Record<string, Record<string, string>> = {
+    "F1 25": {
+        "4": "2026 Season Pack"
+    }
+};
+
+export function getGameSlug(gameName: string): string {
+    return gameName
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
+
+function decodeRouteSegment(value: string): string {
+    try {
+        return decodeURIComponent(value);
+    } catch {
+        return value;
+    }
+}
+
+export function getGameRouteSegment(gameName: string): string {
+    return getGameSlug(gameName);
+}
+
+export function resolveGameNameFromRoute(routeValue: string): string {
+    const decodedValue = decodeRouteSegment(routeValue).trim();
+    const allGames = getGameNames();
+
+    const exactMatch = allGames.find((gameName) => gameName === decodedValue);
+    if (exactMatch) {
+        return exactMatch;
+    }
+
+    const slug = getGameSlug(decodedValue);
+    const slugMatch = allGames.find((gameName) => getGameSlug(gameName) === slug);
+    if (slugMatch) {
+        return slugMatch;
+    }
+
+    throw new Error(`No game found for route segment: ${routeValue}`);
+}
+
 // Helper function to split the game key into name and version
 function splitGameKey(key: string): { gameName: string; version: string } {
     const match = key.match(/^(.*?)\s*\((.*?)\)$/);
@@ -33,6 +77,18 @@ function splitGameKey(key: string): { gameName: string; version: string } {
         gameName: match[1].trim(),
         version: match[2].trim()
     };
+}
+
+export function getVersionLabel(
+    gameName: string,
+    version: string,
+    baseLabel = "Base Game"
+): string {
+    if (version === "B") {
+        return baseLabel;
+    }
+
+    return versionLabels[gameName]?.[version] ?? `Update ${version}`;
 }
 
 // Get driver rankings for a specific game and version

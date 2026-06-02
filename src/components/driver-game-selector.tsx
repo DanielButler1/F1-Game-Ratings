@@ -8,6 +8,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { getVersionLabel } from "@/lib/rankings";
 
 interface DriverGameSelectorProps {
 	games: Array<{ gameName: string; versions: string[] }>;
@@ -68,7 +69,7 @@ export default function DriverGameSelector({
 					<SelectContent>
 						{versions.map((version) => (
 							<SelectItem key={version} value={version}>
-								{version === "B" ? "Base" : `Update ${version}`}
+								{getVersionLabel(selectedGame, version, "Base")}
 							</SelectItem>
 						))}
 					</SelectContent>

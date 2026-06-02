@@ -4,6 +4,8 @@ import {
 	getAllGames,
 	getDriverRankings,
 	calculateAverageRatings,
+	getGameRouteSegment,
+	getVersionLabel,
 } from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -57,9 +59,7 @@ export default async function Page() {
 												</div>
 												<Button asChild>
 													<Link
-														href={`/games/${encodeURIComponent(
-															game.gameName
-														)}/${latestVersion}`}
+														href={`/games/${getGameRouteSegment(game.gameName)}/${latestVersion}`}
 													>
 														Latest Ratings
 														<ChevronRight className="ml-2 h-4 w-4" />
@@ -73,9 +73,10 @@ export default async function Page() {
 														Latest Version
 													</h3>
 													<p className="text-2xl font-bold">
-														{latestVersion === "B"
-															? "Base Game"
-															: `Update ${latestVersion}`}
+														{getVersionLabel(
+															game.gameName,
+															latestVersion
+														)}
 													</p>
 												</div>
 
@@ -111,17 +112,16 @@ export default async function Page() {
 													<div className="flex flex-wrap gap-2">
 														{game.versions.map(
 															(version) => (
-																<Link
-																	key={`${game.gameName}-${version}`}
-																	href={`/games/${encodeURIComponent(
-																		game.gameName
-																	)}/${version}`}
-																	className="inline-flex items-center justify-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:bg-muted"
-																>
-																	{version ===
-																	"B"
-																		? "Base"
-																		: version}
+															<Link
+																key={`${game.gameName}-${version}`}
+																href={`/games/${getGameRouteSegment(game.gameName)}/${version}`}
+																className="inline-flex items-center justify-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:bg-muted"
+															>
+																	{getVersionLabel(
+																		game.gameName,
+																		version,
+																		"Base"
+																	)}
 																</Link>
 															)
 														)}

@@ -20,6 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         "/rating-system",
         "/teams",
         "/timeline",
+        "/updates",
     ];
 
     // Create static route items

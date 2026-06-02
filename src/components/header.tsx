@@ -21,6 +21,7 @@ const navigation = [
 	{ href: "/games", label: "Games" },
 	{ href: "/compare", label: "Compare" },
 	{ href: "/timeline", label: "Timeline" },
+	{ href: "/updates", label: "Updates" },
 	{ href: "/about", label: "About" },
 ];
 

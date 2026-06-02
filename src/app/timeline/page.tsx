@@ -1,6 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+	TableCaption,
+} from "@/components/ui/table";
 import {
 	getAllGames,
 	getDriverRankings,
@@ -26,9 +36,18 @@ import {
 	Tooltip,
 } from "recharts";
 import { TooltipProps } from "recharts";
+import { cn } from "@/lib/utils";
 
 type StatKey = "overall" | "experience" | "racecraft" | "awareness" | "pace";
 type StatTabKey = StatKey | "all";
+
+const statKeys: StatKey[] = [
+	"overall",
+	"experience",
+	"racecraft",
+	"awareness",
+	"pace",
+];
 
 const stats: Record<StatTabKey, string> = {
 	all: "All Stats",
@@ -81,6 +100,7 @@ export default function TimelinePage() {
 	const [selectedStat, setSelectedStat] = useState<string>("overall");
 	const games = getAllGames();
 	const drivers = getAllDrivers();
+	const selectedStatKey = selectedStat as StatKey;
 
 	// Get all ratings for the selected driver and track changes
 	const driverRatings = selectedDriver
@@ -244,6 +264,32 @@ export default function TimelinePage() {
 
 		return result;
 	});
+
+	const formatDelta = (delta: number | undefined | null) => {
+		if (delta === undefined || delta === null) {
+			return (
+				<span className="text-muted-foreground text-xs font-medium uppercase tracking-wide">
+					Base
+				</span>
+			);
+		}
+
+		return (
+			<span
+				className={
+					delta > 0
+						? "text-green-500"
+						: delta < 0
+						? "text-red-500"
+						: "text-muted-foreground"
+				}
+			>
+				({delta > 0 ? "+" : ""}
+				{delta})
+			</span>
+		);
+	};
+
 	const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
 		if (!active || !payload || !payload.length) return null;
 
@@ -380,118 +426,228 @@ export default function TimelinePage() {
 				</Card>
 
 				{selectedDriver && (
-					<Card className="p-6">
-						<div className="space-y-6">
-							{" "}
-							<div className="flex items-center justify-between">
-								<h3 className="text-xl font-semibold">
-									{selectedDriver} -{" "}
-									{selectedStat === "all"
-										? "All Stats"
-										: stats[selectedStat as StatTabKey]}
-								</h3>
-							</div>
-							<div className="w-full h-[500px] md:aspect-[2/1]">
+					<div className="space-y-6">
+						<Card className="p-6">
+							<div className="space-y-6">
 								{" "}
-								<ResponsiveContainer width="100%" height="100%">
-									<LineChart
-										data={chartData}
-										margin={{
-											top: 20,
-											right: 20,
-											bottom: 20,
-											left: 20,
-										}}
+								<div className="flex items-center justify-between">
+									<h3 className="text-xl font-semibold">
+										{selectedDriver} -{" "}
+										{selectedStat === "all"
+											? "All Stats"
+											: stats[selectedStat as StatTabKey]}
+									</h3>
+								</div>
+								<div className="w-full h-[500px] md:aspect-[2/1]">
+									{" "}
+									<ResponsiveContainer
+										width="100%"
+										height="100%"
 									>
-										<CartesianGrid
-											horizontal
-											vertical={false}
-											strokeDasharray="3 3"
-										/>
-										<XAxis
-											dataKey="name"
-											angle={-45}
-											textAnchor="end"
-											height={80}
-											interval={0}
-											tick={{ fontSize: 12 }}
-										/>
-										<YAxis
-											domain={[0, 99]}
-											ticks={[0, 20, 40, 60, 80, 99]}
-										/>
+										<LineChart
+											data={chartData}
+											margin={{
+												top: 20,
+												right: 20,
+												bottom: 20,
+												left: 20,
+											}}
+										>
+											<CartesianGrid
+												horizontal
+												vertical={false}
+												strokeDasharray="3 3"
+											/>
+											<XAxis
+												dataKey="name"
+												angle={-45}
+												textAnchor="end"
+												height={80}
+												interval={0}
+												tick={{ fontSize: 12 }}
+											/>
+											<YAxis
+												domain={[0, 99]}
+												ticks={[0, 20, 40, 60, 80, 99]}
+											/>
 
-										<Tooltip content={<CustomTooltip />} />
+											<Tooltip
+												content={<CustomTooltip />}
+											/>
 
-										{/* Solid lines with gaps for interpolated data */}
-										{(selectedStat === "all" ||
-											selectedStat === "overall") && (
-											<Line
-												type="monotone"
-												dataKey="overall"
-												stroke={
-													chartConfig.overall.color
-												}
-												strokeWidth={2}
-												dot={false}
-												connectNulls={false}
-											/>
-										)}
-										{(selectedStat === "all" ||
-											selectedStat === "experience") && (
-											<Line
-												type="monotone"
-												dataKey="experience"
-												stroke={
-													chartConfig.experience.color
-												}
-												strokeWidth={2}
-												dot={false}
-												connectNulls={false}
-											/>
-										)}
-										{(selectedStat === "all" ||
-											selectedStat === "racecraft") && (
-											<Line
-												type="monotone"
-												dataKey="racecraft"
-												stroke={
-													chartConfig.racecraft.color
-												}
-												strokeWidth={2}
-												dot={false}
-												connectNulls={false}
-											/>
-										)}
-										{(selectedStat === "all" ||
-											selectedStat === "awareness") && (
-											<Line
-												type="monotone"
-												dataKey="awareness"
-												stroke={
-													chartConfig.awareness.color
-												}
-												strokeWidth={2}
-												dot={false}
-												connectNulls={false}
-											/>
-										)}
-										{(selectedStat === "all" ||
-											selectedStat === "pace") && (
-											<Line
-												type="monotone"
-												dataKey="pace"
-												stroke={chartConfig.pace.color}
-												strokeWidth={2}
-												dot={false}
-												connectNulls={false}
-											/>
-										)}
-									</LineChart>
-								</ResponsiveContainer>
+											{/* Solid lines with gaps for interpolated data */}
+											{(selectedStat === "all" ||
+												selectedStat === "overall") && (
+												<Line
+													type="monotone"
+													dataKey="overall"
+													stroke={
+														chartConfig.overall
+															.color
+													}
+													strokeWidth={2}
+													dot={false}
+													connectNulls={false}
+												/>
+											)}
+											{(selectedStat === "all" ||
+												selectedStat === "experience") && (
+												<Line
+													type="monotone"
+													dataKey="experience"
+													stroke={
+														chartConfig.experience
+															.color
+													}
+													strokeWidth={2}
+													dot={false}
+													connectNulls={false}
+												/>
+											)}
+											{(selectedStat === "all" ||
+												selectedStat === "racecraft") && (
+												<Line
+													type="monotone"
+													dataKey="racecraft"
+													stroke={
+														chartConfig.racecraft
+															.color
+													}
+													strokeWidth={2}
+													dot={false}
+													connectNulls={false}
+												/>
+											)}
+											{(selectedStat === "all" ||
+												selectedStat === "awareness") && (
+												<Line
+													type="monotone"
+													dataKey="awareness"
+													stroke={
+														chartConfig.awareness
+															.color
+													}
+													strokeWidth={2}
+													dot={false}
+													connectNulls={false}
+												/>
+											)}
+											{(selectedStat === "all" ||
+												selectedStat === "pace") && (
+												<Line
+													type="monotone"
+													dataKey="pace"
+													stroke={chartConfig.pace.color}
+													strokeWidth={2}
+													dot={false}
+													connectNulls={false}
+												/>
+											)}
+										</LineChart>
+									</ResponsiveContainer>
+								</div>
 							</div>
-						</div>
-					</Card>
+						</Card>
+
+						<Card className="overflow-hidden">
+							<div className="border-b p-6">
+								<h3 className="text-xl font-semibold">
+									Timeline Table
+								</h3>
+								<p className="text-muted-foreground mt-1 text-sm">
+									The same driver history shown in the graph,
+									with inline deltas for each stat.
+								</p>
+							</div>
+							<Table>
+								<TableHeader>
+									<TableRow>
+										<TableHead className="pl-6">
+											Patch
+										</TableHead>
+										{statKeys.map((stat) => (
+											<TableHead
+												key={stat}
+												className={cn(
+													selectedStat !== "all" &&
+														selectedStatKey ===
+															stat &&
+														"bg-muted/60",
+													"text-right"
+												)}
+											>
+												<div className="flex items-center justify-end gap-2">
+													{chartConfig[stat].label}
+													<span
+														className="h-2 w-2 rounded-sm"
+														style={{
+															backgroundColor:
+																chartConfig[
+																	stat
+																].color,
+														}}
+													/>
+												</div>
+											</TableHead>
+										))}
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									{driverRatings.map((point) => (
+										<TableRow
+											key={point.name}
+											className={
+												point.isInterpolated
+													? "opacity-80"
+													: undefined
+											}
+										>
+											<TableCell className="pl-6 font-medium">
+												<div className="flex flex-wrap items-center gap-2">
+													<span>{point.name}</span>
+													{point.isInterpolated && (
+														<Badge variant="secondary">
+															Estimated
+														</Badge>
+													)}
+												</div>
+											</TableCell>
+											{statKeys.map((stat) => {
+												const change =
+													point.changes?.[stat];
+
+												return (
+													<TableCell
+														key={`${point.name}-${stat}`}
+														className={cn(
+															selectedStat !==
+																"all" &&
+																selectedStatKey ===
+																	stat &&
+																"bg-muted/60",
+															"text-right font-mono tabular-nums pr-6"
+														)}
+													>
+														<div className="flex items-center justify-end gap-2">
+															<span>
+																{point[stat]}
+															</span>
+															{formatDelta(change)}
+														</div>
+													</TableCell>
+												);
+											})}
+										</TableRow>
+									))}
+								</TableBody>
+								<TableCaption className="px-6 pb-6 text-left">
+									Estimated rows carry forward the last known
+									rating when a driver is missing from a
+									patch.
+								</TableCaption>
+							</Table>
+						</Card>
+					</div>
 				)}
 			</div>
 		</div>

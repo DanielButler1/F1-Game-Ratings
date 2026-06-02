@@ -23,6 +23,27 @@ export type DriverHistory = {
     }[];
 }
 
+export type DriverPatchChange = {
+    name: string;
+    current: Driver;
+    previous: Driver | null;
+    changes: {
+        overall: number;
+        experience: number;
+        racecraft: number;
+        awareness: number;
+        pace: number;
+    } | null;
+};
+
+export type PatchUpdateEntry = {
+    gameName: string;
+    version: string;
+    versionLabel: string;
+    href: string;
+    drivers: DriverPatchChange[];
+};
+
 const versionLabels: Record<string, Record<string, string>> = {
     "F1 25": {
         "4": "2026 Season Pack"
@@ -245,4 +266,67 @@ export function getDriverRatingChanges(
             pace: toStats.pace - fromStats.pace
         }
     };
+}
+
+export function getPatchUpdateEntries(): PatchUpdateEntry[] {
+    const games = getAllGames();
+    const entries: PatchUpdateEntry[] = [];
+
+    games.forEach((game, gameIndex) => {
+        game.versions.forEach((version, versionIndex, versions) => {
+            const currentDrivers = getDriverRankings(game.gameName, version);
+            let previousDrivers: Driver[] | null = null;
+
+            if (versionIndex > 0) {
+                previousDrivers = getDriverRankings(
+                    game.gameName,
+                    versions[versionIndex - 1]
+                );
+            } else if (gameIndex > 0) {
+                const previousGame = games[gameIndex - 1];
+                previousDrivers = getDriverRankings(
+                    previousGame.gameName,
+                    previousGame.versions[previousGame.versions.length - 1]
+                );
+            }
+
+            entries.push({
+                gameName: game.gameName,
+                version,
+                versionLabel: getVersionLabel(game.gameName, version, "Base Game"),
+                href: `/games/${getGameRouteSegment(game.gameName)}/${version}`,
+                drivers: currentDrivers
+                    .map((driver) => {
+                        const previous = previousDrivers?.find(
+                            (candidate) => candidate.name === driver.name
+                        ) ?? null;
+
+                        return {
+                            name: driver.name,
+                            current: driver,
+                            previous,
+                            changes: previous
+                                ? {
+                                        overall:
+                                            driver.overall - previous.overall,
+                                        experience:
+                                            driver.experience -
+                                            previous.experience,
+                                        racecraft:
+                                            driver.racecraft -
+                                            previous.racecraft,
+                                        awareness:
+                                            driver.awareness -
+                                            previous.awareness,
+                                        pace: driver.pace - previous.pace,
+                                  }
+                                : null,
+                        };
+                    })
+                    .sort((a, b) => b.current.overall - a.current.overall),
+            });
+        });
+    });
+
+    return entries;
 }

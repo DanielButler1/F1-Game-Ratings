@@ -71,6 +71,14 @@ export default function Footer() {
 									Timeline
 								</Link>
 							</li>
+							<li>
+								<Link
+									href="/updates"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Updates
+								</Link>
+							</li>
 						</ul>
 					</div>
 

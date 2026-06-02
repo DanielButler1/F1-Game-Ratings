@@ -5,6 +5,7 @@ import {
 	getAllGames,
 	getLatestGameAndVersion,
 	getAllDrivers,
+	getVersionLabel,
 } from "@/lib/rankings";
 import { ChevronUpIcon, ChevronDownIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -131,13 +132,15 @@ export default async function DriverPage({
 												className="rounded-lg border p-4"
 											>
 												<div className="mb-2 flex items-center justify-between">
-													<h4 className="font-semibold">
-														{entry.gameName} (
-														{entry.version === "B"
-															? "Base"
-															: `Update ${entry.version}`}
-														)
-													</h4>
+											<h4 className="font-semibold">
+												{entry.gameName} (
+												{getVersionLabel(
+													entry.gameName,
+													entry.version,
+													"Base"
+												)}
+												)
+											</h4>
 													<span className="font-medium text-primary">
 														Overall:{" "}
 														{entry.stats.overall}

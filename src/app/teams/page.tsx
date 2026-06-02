@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { getAllGames, getDriverRankings, type Driver } from "@/lib/rankings";
+import {
+	getAllGames,
+	getDriverRankings,
+	getVersionLabel,
+	type Driver,
+} from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
 import {
 	Select,
@@ -94,16 +99,16 @@ const teamDrivers: TeamDrivers = {
 	},
 	"F1 25": {
 		Mercedes: ["Kimi Antonelli", "George Russell"],
-		"Red Bull": ["Max Verstappen", "Yuki Tsunoda"],
+		"Red Bull Racing": ["Max Verstappen", "Isack Hadjar"],
 		Ferrari: ["Charles Leclerc", "Lewis Hamilton"],
 		McLaren: ["Lando Norris", "Oscar Piastri"],
 		"Aston Martin": ["Fernando Alonso", "Lance Stroll"],
-		Alpine: ["Pierre Gasly", "Jack Doohan"],
-		Williams: ["Alexander Albon", "Carlos Sainz"],
-		"Racing Bulls": ["Liam Lawson", "Isack Hadjar"],
-		"Kick Sauber": ["Nico Hulkenberg", "Gabriel Bortoleto"],
-		Haas: ["Oliver Bearman", "Esteban Ocon"],
-		APXGP: ["Sonny Hayes", "Joshua Pearce"],
+		Alpine: ["Pierre Gasly", "Franco Colapinto"],
+		"Williams": ["Carlos Sainz", "Alexander Albon"],
+		"Racing Bulls": ["Liam Lawson", "Arvid Lindblad"],
+		"Audi": ["Nico Hulkenberg", "Gabriel Bortoleto"],
+		"Cadillac": ["Sergio Perez", "Valtteri Bottas"],
+		"Haas F1 Team": ["Esteban Ocon", "Oliver Bearman"],
 	},
 };
 
@@ -125,8 +130,12 @@ export default function TeamsPage() {
 	);
 
 	const handleGameChange = (game: string) => {
+		const nextGameVersions =
+			games.find((g) => g.gameName === game)?.versions || [];
 		setSelectedGame(game);
-		setSelectedVersion("B"); // Always set to base version when game changes
+		setSelectedVersion(
+			nextGameVersions[nextGameVersions.length - 1] || "B"
+		);
 	};
 
 	const versions = selectedGame
@@ -254,9 +263,10 @@ export default function TeamsPage() {
 											key={version}
 											value={version}
 										>
-											{version === "B"
-												? "Base Game"
-												: `Update ${version}`}
+											{getVersionLabel(
+												selectedGame,
+												version
+											)}
 										</SelectItem>
 									))}
 								</SelectContent>

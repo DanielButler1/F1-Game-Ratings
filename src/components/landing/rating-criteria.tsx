@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 export default function RatingCriteriaSection() {
 	return (
 		<section className="py-16">
-			<div className="container mx-auto px-4">
+			<div className="container mx-auto max-w-7xl px-4">
 				<h2 className="text-3xl font-bold mb-10">Rating Criteria</h2>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 					<Card className="p-6">

@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { getAllGames, getDriverRankings, getAllDrivers } from "@/lib/rankings";
+import {
+	getAllGames,
+	getDriverRankings,
+	getAllDrivers,
+	getVersionLabel,
+} from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
 import {
 	Select,
@@ -181,11 +186,11 @@ export default function TimelinePage() {
 							if (!currentRating) return null;
 
 							return {
-								name: `${game.gameName} ${
-									version === "B"
-										? "Base"
-										: `Update ${version}`
-								}`,
+								name: `${game.gameName} ${getVersionLabel(
+									game.gameName,
+									version,
+									"Base"
+								)}`,
 								overall: currentRating.overall,
 								experience: currentRating.experience,
 								racecraft: currentRating.racecraft,

@@ -2,13 +2,23 @@ import {
 	getDriverRankings,
 	getGameVersions,
 	getAllGames,
+	getGameRouteSegment,
+	resolveGameNameFromRoute,
+	getVersionLabel,
 } from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { ReactNode } from "react";
+import { redirect } from "next/navigation";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export const revalidate = 86400;
 
@@ -16,7 +26,7 @@ export async function generateStaticParams() {
 	const allGames = getAllGames();
 	return allGames.flatMap((game) =>
 		game.versions.map((version) => ({
-			game: encodeURIComponent(game.gameName),
+			game: getGameRouteSegment(game.gameName),
 			patch: version,
 		}))
 	);
@@ -51,10 +61,74 @@ function getBadgeClasses(ranking: string): string {
 	return classes[ranking as keyof typeof classes];
 }
 
+const topNavButtonClassName =
+	"size-8 shrink-0 self-start";
+
+function TopNavButton({
+	href,
+	label,
+	icon,
+	disabled = false,
+}: {
+	href?: string;
+	label: string;
+	icon: ReactNode;
+	disabled?: boolean;
+}) {
+	const content = (
+		<>
+			{icon}
+			<span className="sr-only">{label}</span>
+		</>
+	);
+
+	if (disabled || !href) {
+		return (
+			<span
+				aria-disabled="true"
+				className={cn(
+					buttonVariants({
+						variant: "outline",
+						size: "icon",
+					}),
+					topNavButtonClassName,
+					"pointer-events-none opacity-40"
+				)}
+			>
+				{content}
+			</span>
+		);
+	}
+
+	return (
+		<Tooltip>
+			<TooltipTrigger asChild>
+				<Link
+					href={href}
+					className={cn(
+						buttonVariants({
+							variant: "outline",
+							size: "icon",
+						}),
+						topNavButtonClassName
+					)}
+				>
+					{content}
+				</Link>
+			</TooltipTrigger>
+			<TooltipContent>{label}</TooltipContent>
+		</Tooltip>
+	);
+}
+
 export default async function GamePage({ params }: { params: PageParams }) {
 	try {
 		const resolvedParams = await params;
-		const gameName = decodeURIComponent(resolvedParams.game);
+		const gameName = resolveGameNameFromRoute(resolvedParams.game);
+		const canonicalGameRoute = getGameRouteSegment(gameName);
+		if (resolvedParams.game !== canonicalGameRoute) {
+			redirect(`/games/${canonicalGameRoute}/${resolvedParams.patch}`);
+		}
 		const drivers = getDriverRankings(gameName, resolvedParams.patch);
 		const allGames = getAllGames();
 		const currentGameIndex = allGames.findIndex(
@@ -95,49 +169,69 @@ export default async function GamePage({ params }: { params: PageParams }) {
 		return (
 			<div className="container mx-auto max-w-7xl px-4 py-8">
 				<div className="flex flex-col space-y-8">
-					<div className="flex flex-col space-y-4">
-						<div className="flex items-center justify-between">
+					<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+						<div className="min-w-0 space-y-2 sm:space-y-4">
 							<h1 className="text-4xl font-bold">{gameName}</h1>
-							<div className="flex items-center gap-2">
-								{(previousVersion || previousGame) && (
-									<Link
-										href={`/games/${encodeURIComponent(
-											previousGame?.gameName || gameName
-										)}/${previousVersion}`}
-									>
-										<Button variant="outline" size="sm">
-											<ChevronLeft className="mr-1 h-4 w-4" />
-											{previousGame
-												? `${previousGame.gameName} Update ${previousVersion}`
-												: previousVersion === "B"
-												? "Base Game"
-												: `Update ${previousVersion}`}
-										</Button>
-									</Link>
-								)}
-								{(nextVersion || nextGame) && (
-									<Link
-										href={`/games/${encodeURIComponent(
-											nextGame?.gameName || gameName
-										)}/${nextVersion}`}
-									>
-										<Button variant="outline" size="sm">
-											{nextGame
-												? `${nextGame.gameName} Base Game`
-												: nextVersion === "B"
-												? "Base Game"
-												: `Update ${nextVersion}`}
-											<ChevronRight className="ml-1 h-4 w-4" />
-										</Button>
-									</Link>
-								)}
-							</div>
+							<p className="text-muted-foreground text-lg">
+								{getVersionLabel(gameName, resolvedParams.patch)}
+							</p>
 						</div>
-						<p className="text-muted-foreground text-lg">
-							{resolvedParams.patch === "B"
-								? "Base Game"
-								: `Update ${resolvedParams.patch}`}
-						</p>
+						<div className="flex w-full justify-end gap-2 sm:w-auto sm:self-start">
+							<TopNavButton
+								href={
+									previousVersion || previousGame
+										? `/games/${getGameRouteSegment(
+												previousGame?.gameName ||
+													gameName
+											)}/${previousVersion}`
+										: undefined
+								}
+								label={
+									previousGame
+										? `${previousGame.gameName} ${getVersionLabel(
+												previousGame.gameName,
+												previousVersion!
+											)}`
+										: previousVersion
+											? getVersionLabel(
+													gameName,
+													previousVersion
+												)
+											: "No previous version"
+								}
+								icon={
+									<ChevronLeft className="h-4 w-4 shrink-0 translate-y-px" />
+								}
+								disabled={!previousVersion && !previousGame}
+							/>
+							<TopNavButton
+								href={
+									nextVersion || nextGame
+										? `/games/${getGameRouteSegment(
+												nextGame?.gameName ||
+													gameName
+											)}/${nextVersion}`
+										: undefined
+								}
+								label={
+									nextGame
+										? `${nextGame.gameName} ${getVersionLabel(
+												nextGame.gameName,
+												nextVersion!
+											)}`
+										: nextVersion
+											? getVersionLabel(
+													gameName,
+													nextVersion
+												)
+											: "No next version"
+								}
+								icon={
+									<ChevronRight className="h-4 w-4 shrink-0 translate-y-px" />
+								}
+								disabled={!nextVersion && !nextGame}
+							/>
+						</div>
 					</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -196,6 +290,62 @@ export default async function GamePage({ params }: { params: PageParams }) {
 									</Card>
 								);
 							})}
+					</div>
+					<div className="grid w-full gap-2 sm:grid-cols-2">
+						{(previousVersion || previousGame) && (
+							<Link
+								href={`/games/${getGameRouteSegment(
+									previousGame?.gameName || gameName
+								)}/${previousVersion}`}
+								className={cn(
+									buttonVariants({
+										variant: "outline",
+										size: "sm",
+									}),
+									"w-full justify-start gap-2"
+								)}
+							>
+								<ChevronLeft className="h-4 w-4 shrink-0" />
+								<span className="truncate text-left">
+									{previousGame
+										? `${previousGame.gameName} ${getVersionLabel(
+												previousGame.gameName,
+												previousVersion!
+											)}`
+										: getVersionLabel(
+												gameName,
+												previousVersion!
+											)}
+								</span>
+							</Link>
+						)}
+						{(nextVersion || nextGame) && (
+							<Link
+								href={`/games/${getGameRouteSegment(
+									nextGame?.gameName || gameName
+								)}/${nextVersion}`}
+								className={cn(
+									buttonVariants({
+										variant: "outline",
+										size: "sm",
+									}),
+									"w-full justify-between"
+								)}
+							>
+								<span className="truncate text-left">
+									{nextGame
+										? `${nextGame.gameName} ${getVersionLabel(
+												nextGame.gameName,
+												nextVersion!
+											)}`
+										: getVersionLabel(
+												gameName,
+												nextVersion!
+											)}
+								</span>
+								<ChevronRight className="h-4 w-4 shrink-0" />
+							</Link>
+						)}
 					</div>
 				</div>
 			</div>

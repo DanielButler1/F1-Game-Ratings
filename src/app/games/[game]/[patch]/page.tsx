@@ -6,6 +6,8 @@ import {
 	resolveGameNameFromRoute,
 	getVersionLabel,
 } from "@/lib/rankings";
+import type { Metadata } from "next";
+import { siteName } from "@/lib/seo";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
@@ -21,6 +23,28 @@ import {
 } from "@/components/ui/tooltip";
 
 export const revalidate = 86400;
+
+export async function generateMetadata({
+	params,
+}: {
+	params: PageParams;
+}): Promise<Metadata> {
+	try {
+		const resolvedParams = await params;
+		const gameName = resolveGameNameFromRoute(resolvedParams.game);
+		const versionLabel = getVersionLabel(gameName, resolvedParams.patch);
+
+		return {
+			title: `${gameName} - ${versionLabel} | ${siteName}`,
+			description: `View driver ratings for ${gameName} ${versionLabel}.`,
+		};
+	} catch {
+		return {
+			title: `Game Ratings | ${siteName}`,
+			description: "View Formula One game driver ratings.",
+		};
+	}
+}
 
 export async function generateStaticParams() {
 	const allGames = getAllGames();

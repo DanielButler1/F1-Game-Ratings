@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import DriverStatsClientWrapper from "@/components/driver-stats-client-wrapper";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
 	getDriverHistory,
@@ -7,10 +9,25 @@ import {
 	getAllDrivers,
 	getVersionLabel,
 } from "@/lib/rankings";
+import { siteName } from "@/lib/seo";
 import { ChevronUpIcon, ChevronDownIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export const revalidate = 86400;
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ name: string }>;
+}): Promise<Metadata> {
+	const { name } = await params;
+	const driverName = decodeURIComponent(name);
+
+	return {
+		title: `${driverName} | ${siteName}`,
+		description: `View ${driverName}'s ratings history across the Formula One game series.`,
+	};
+}
 
 export async function generateStaticParams() {
 	const drivers = getAllDrivers();
@@ -48,12 +65,14 @@ export default async function DriverPage({
 					</p>
 				</div>
 
-				<DriverStatsClientWrapper
-					driverName={driverName}
-					driverHistory={driverHistory}
-					games={games}
-					latestGame={latestGame}
-				/>
+				<Suspense fallback={null}>
+					<DriverStatsClientWrapper
+						driverName={driverName}
+						driverHistory={driverHistory}
+						games={games}
+						latestGame={latestGame}
+					/>
+				</Suspense>
 
 				<div className="grid gap-6 md:grid-cols-1">
 					<Card className="p-6">

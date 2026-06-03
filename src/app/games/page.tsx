@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import type { Metadata } from "next";
 import {
 	getAllGames,
 	getDriverRankings,
@@ -9,6 +10,12 @@ import {
 } from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+	"Games",
+	"Browse every F1 game release and jump into the latest driver ratings for each version."
+);
 
 export default async function Page() {
 	try {

@@ -53,7 +53,7 @@ export default function Header() {
 								Driver Ratings
 							</span>
 						</Link>
-						<div className="hidden md:flex items-center space-x-6">
+						<div className="hidden lg:flex items-center space-x-6">
 							{navigation.map((item) => (
 								<Button key={item.href} variant="ghost" asChild>
 									<Link
@@ -72,11 +72,11 @@ export default function Header() {
 						</div>
 					</nav>
 					<div className="flex items-center gap-4">
-						<div className="hidden md:block">
+						<div className="hidden lg:block">
 							<ThemeToggle />
 						</div>
 						<Drawer open={isOpen} onOpenChange={setIsOpen}>
-							<DrawerTrigger asChild className="md:hidden">
+							<DrawerTrigger asChild className="lg:hidden">
 								<Button variant="ghost" size="icon">
 									<Menu className="h-5 w-5" />
 								</Button>

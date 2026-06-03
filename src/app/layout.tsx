@@ -8,17 +8,18 @@ import Footer from "@/components/footer";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { getMetadataBase, siteDescription, siteName } from "@/lib/seo";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "F1 Driver Ratings Tracker",
-	description:
-		"Track and visualise Formula One game driver ratings from F1 2020 through F1 25",
+	metadataBase: getMetadataBase(),
+	title: siteName,
+	description: siteDescription,
 	openGraph: {
-		title: "F1 Driver Ratings Tracker",
-		description:
-			"Track and visualise Formula One game driver ratings from F1 2020 through F1 25",
+		title: siteName,
+		description: siteDescription,
 		images: [
 			{
 				url: "/og.png",
@@ -30,9 +31,8 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "F1 Driver Ratings Tracker",
-		description:
-			"Track and visualise Formula One game driver ratings from F1 2020 through F1 25",
+		title: siteName,
+		description: siteDescription,
 		images: [
 			{
 				url: "/og.png",
@@ -61,10 +61,12 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<Header />
-					<div className="flex-1">{children}</div>
-					<Footer />
-					<Toaster />
+					<NuqsAdapter>
+						<Header />
+						<div className="flex-1">{children}</div>
+						<Footer />
+						<Toaster />
+					</NuqsAdapter>
 				</ThemeProvider>
 			</body>
 		</html>

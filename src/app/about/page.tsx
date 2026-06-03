@@ -151,3 +151,10 @@ export default function AboutPage() {
 		</div>
 	);
 }
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+	"About",
+	"Learn what this F1 driver ratings tracker is, where the data comes from, and how it is maintained."
+);

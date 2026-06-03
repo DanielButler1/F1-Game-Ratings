@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import DriverStatsClientWrapper from "@/components/driver-stats-client-wrapper";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
 	getDriverHistory,
@@ -6,17 +8,40 @@ import {
 	getLatestGameAndVersion,
 	getAllDrivers,
 	getVersionLabel,
+	getDriverRouteSegment,
+	resolveDriverNameFromRoute,
 } from "@/lib/rankings";
+import { siteName } from "@/lib/seo";
 import { ChevronUpIcon, ChevronDownIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export const revalidate = 86400;
 
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ name: string }>;
+}): Promise<Metadata> {
+	const { name } = await params;
+	let driverName = name;
+
+	try {
+		driverName = resolveDriverNameFromRoute(name);
+	} catch {
+		driverName = decodeURIComponent(name);
+	}
+
+	return {
+		title: `${driverName} | ${siteName}`,
+		description: `View ${driverName}'s ratings history across the Formula One game series.`,
+	};
+}
+
 export async function generateStaticParams() {
 	const drivers = getAllDrivers();
 
 	return drivers.map((name) => ({
-		name: encodeURIComponent(name),
+		name: getDriverRouteSegment(name),
 	}));
 }
 
@@ -26,8 +51,14 @@ export default async function DriverPage({
 	params: Promise<{ name: string }>;
 }) {
 	const { name } = await params;
-	const driverName = decodeURIComponent(name);
-	const driverHistory = getDriverHistory(driverName);
+	let resolvedDriverName = name;
+
+	try {
+		resolvedDriverName = resolveDriverNameFromRoute(name);
+	} catch {
+		notFound();
+	}
+	const driverHistory = getDriverHistory(resolvedDriverName);
 
 	if (!driverHistory) {
 		notFound();
@@ -41,19 +72,21 @@ export default async function DriverPage({
 		<div className="container mx-auto max-w-7xl py-8 px-4 md:px-0">
 			<div className="flex flex-col space-y-8">
 				<div className="flex flex-col space-y-4">
-					<h1 className="text-4xl font-bold">{driverName}</h1>
+					<h1 className="text-4xl font-bold">{resolvedDriverName}</h1>
 					<p className="text-muted-foreground">
-						View {driverName}&apos;s ratings across different game
+						View {resolvedDriverName}&apos;s ratings across different game
 						versions.
 					</p>
 				</div>
 
-				<DriverStatsClientWrapper
-					driverName={driverName}
-					driverHistory={driverHistory}
-					games={games}
-					latestGame={latestGame}
-				/>
+				<Suspense fallback={null}>
+					<DriverStatsClientWrapper
+						driverName={resolvedDriverName}
+						driverHistory={driverHistory}
+						games={games}
+						latestGame={latestGame}
+					/>
+				</Suspense>
 
 				<div className="grid gap-6 md:grid-cols-1">
 					<Card className="p-6">

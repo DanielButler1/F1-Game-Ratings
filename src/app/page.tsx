@@ -10,6 +10,9 @@ import {
 	getGameRouteSegment,
 	getVersionLabel,
 } from "@/lib/rankings";
+import { createPageMetadata, siteDescription } from "@/lib/seo";
+
+export const metadata = createPageMetadata("Home", siteDescription);
 
 export default function HomePage() {
 	const games = getAllGames();

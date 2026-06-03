@@ -1,13 +1,16 @@
 import { MetadataRoute } from "next";
-import { getAllGames, getAllDrivers, getGameRouteSegment } from "@/lib/rankings";
-
-// Define the type for a sitemap item explicitly
-// (MetadataRoute.SitemapItem is the correct type for Next.js 13+)
+import {
+	getAllGames,
+	getAllDrivers,
+	getGameRouteSegment,
+	getDriverRouteSegment,
+} from "@/lib/rankings";
+import { getSiteUrl } from "@/lib/seo";
 
 export const revalidate = 604800; // regenerate once per week (in seconds)
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.WEBSITE_URL || "https://f1ratings.phaseo.app";
+    const baseUrl = getSiteUrl();
 
     // Static routes
     const staticRoutes = [
@@ -25,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Create static route items
     const staticItems = staticRoutes.map((route) => ({
-        url: `${baseUrl}${route}`,
+            url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
         changefreq: route === "/" ? "daily" : "weekly",
         priority: route === "/" ? 1.0 : 0.8,
@@ -34,7 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Dynamic driver pages
     const driverNames = getAllDrivers();
     const driverItems = driverNames.map((name) => ({
-        url: `${baseUrl}/drivers/${encodeURIComponent(name)}`,
+        url: `${baseUrl}/drivers/${getDriverRouteSegment(name)}`,
         lastModified: new Date().toISOString(),
         changefreq: "weekly",
         priority: 0.7,

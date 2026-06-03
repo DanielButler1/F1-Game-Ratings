@@ -88,6 +88,36 @@ export function resolveGameNameFromRoute(routeValue: string): string {
     throw new Error(`No game found for route segment: ${routeValue}`);
 }
 
+export function getDriverSlug(driverName: string): string {
+    return driverName
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
+
+export function getDriverRouteSegment(driverName: string): string {
+    return getDriverSlug(driverName);
+}
+
+export function resolveDriverNameFromRoute(routeValue: string): string {
+    const decodedValue = decodeRouteSegment(routeValue).trim();
+    const allDrivers = getAllDrivers();
+
+    const exactMatch = allDrivers.find((driverName) => driverName === decodedValue);
+    if (exactMatch) {
+        return exactMatch;
+    }
+
+    const slug = getDriverSlug(decodedValue);
+    const slugMatch = allDrivers.find((driverName) => getDriverSlug(driverName) === slug);
+    if (slugMatch) {
+        return slugMatch;
+    }
+
+    throw new Error(`No driver found for route segment: ${routeValue}`);
+}
+
 // Helper function to split the game key into name and version
 function splitGameKey(key: string): { gameName: string; version: string } {
     const match = key.match(/^(.*?)\s*\((.*?)\)$/);

@@ -100,3 +100,10 @@ export default function RatingSystemPage() {
 		</div>
 	);
 }
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+	"Rating System",
+	"Understand how the Formula One driver rating categories are defined and interpreted."
+);

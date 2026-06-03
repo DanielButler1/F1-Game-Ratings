@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
 	Select,
 	SelectContent,
@@ -12,18 +12,19 @@ import { getVersionLabel } from "@/lib/rankings";
 
 interface DriverGameSelectorProps {
 	games: Array<{ gameName: string; versions: string[] }>;
-	latestGame: { gameName: string; version: string };
-	onChange?: (game: string, version: string) => void;
+	selectedGame: string;
+	selectedVersion: string;
+	onGameChange: (game: string) => void;
+	onVersionChange: (version: string) => void;
 }
 
 export default function DriverGameSelector({
 	games,
-	latestGame,
-	onChange,
+	selectedGame,
+	selectedVersion,
+	onGameChange,
+	onVersionChange,
 }: DriverGameSelectorProps) {
-	const [selectedGame, setSelectedGame] = useState(latestGame.gameName);
-	const [selectedVersion, setSelectedVersion] = useState(latestGame.version);
-
 	const versions = useMemo(
 		() =>
 			selectedGame
@@ -32,16 +33,11 @@ export default function DriverGameSelector({
 		[selectedGame, games]
 	);
 
-	// Notify parent on change
-	useMemo(() => {
-		onChange?.(selectedGame, selectedVersion);
-	}, [selectedGame, selectedVersion, onChange]);
-
 	return (
 		<div className="grid gap-4 md:grid-cols-2">
 			<div className="space-y-2">
 				<h3 className="font-medium">Select Game</h3>
-				<Select value={selectedGame} onValueChange={setSelectedGame}>
+				<Select value={selectedGame} onValueChange={onGameChange}>
 					<SelectTrigger>
 						<SelectValue placeholder="Choose a game" />
 					</SelectTrigger>
@@ -59,10 +55,7 @@ export default function DriverGameSelector({
 			</div>
 			<div className="space-y-2">
 				<h3 className="font-medium">Select Version</h3>
-				<Select
-					value={selectedVersion}
-					onValueChange={setSelectedVersion}
-				>
+				<Select value={selectedVersion} onValueChange={onVersionChange}>
 					<SelectTrigger>
 						<SelectValue placeholder="Choose a version" />
 					</SelectTrigger>

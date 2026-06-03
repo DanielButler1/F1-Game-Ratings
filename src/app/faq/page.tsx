@@ -121,3 +121,10 @@ export default function FAQPage() {
 		</div>
 	);
 }
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+	"FAQ",
+	"Find answers to common questions about the driver ratings data, scoring, and site behavior."
+);

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useQueryStates, parseAsString, parseAsStringLiteral } from "nuqs";
-import { getAllDrivers, getDriverHistory } from "@/lib/rankings";
+import { getAllDrivers, getDriverHistory, getDriverRouteSegment } from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
@@ -107,7 +107,7 @@ export default function DriversPageClient() {
 										key={stats.name}
 										className="p-6 transition-colors hover:bg-muted/50"
 									>
-										<Link href={`/drivers/${encodeURIComponent(stats.name)}`}>
+										<Link href={`/drivers/${getDriverRouteSegment(stats.name)}`}>
 											<div className="flex flex-col space-y-4">
 												<div className="space-y-2">
 													<h3 className="text-xl font-semibold">

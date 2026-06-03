@@ -1,5 +1,10 @@
 import { MetadataRoute } from "next";
-import { getAllGames, getAllDrivers, getGameRouteSegment } from "@/lib/rankings";
+import {
+	getAllGames,
+	getAllDrivers,
+	getGameRouteSegment,
+	getDriverRouteSegment,
+} from "@/lib/rankings";
 import { getSiteUrl } from "@/lib/seo";
 
 export const revalidate = 604800; // regenerate once per week (in seconds)
@@ -32,7 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Dynamic driver pages
     const driverNames = getAllDrivers();
     const driverItems = driverNames.map((name) => ({
-        url: `${baseUrl}/drivers/${encodeURIComponent(name)}`,
+        url: `${baseUrl}/drivers/${getDriverRouteSegment(name)}`,
         lastModified: new Date().toISOString(),
         changefreq: "weekly",
         priority: 0.7,

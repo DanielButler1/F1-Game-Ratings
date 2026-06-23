@@ -23,7 +23,7 @@ export default async function Page() {
 
 		return (
 			<div className="flex justify-center w-full">
-				<div className="container mx-auto max-w-7xl py-8 px-4 md:px-0">
+				<div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 					<div className="flex flex-col space-y-8">
 						<div className="flex flex-col space-y-4">
 							<h1 className="text-4xl font-bold">F1 Games</h1>
@@ -48,11 +48,11 @@ export default async function Page() {
 								)[0];
 
 								return (
-									<Card key={game.gameName} className="p-6">
-										<div className="flex flex-col space-y-6">
-											<div className="flex items-start justify-between">
+									<Card key={game.gameName} className="p-5 md:p-6">
+										<div className="flex flex-col gap-5">
+											<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 												<div className="space-y-1">
-													<h2 className="text-2xl font-semibold">
+													<h2 className="text-2xl font-semibold tracking-tight">
 														{game.gameName}
 													</h2>
 													<p className="text-sm text-muted-foreground">
@@ -74,12 +74,12 @@ export default async function Page() {
 												</Button>
 											</div>
 
-											<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-												<div className="space-y-2">
-													<h3 className="font-medium">
+											<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+												<div className="space-y-1.5">
+													<h3 className="text-sm font-medium text-muted-foreground">
 														Latest Version
 													</h3>
-													<p className="text-2xl font-bold">
+													<p className="text-2xl font-bold tracking-tight">
 														{getVersionLabel(
 															game.gameName,
 															latestVersion
@@ -87,11 +87,11 @@ export default async function Page() {
 													</p>
 												</div>
 
-												<div className="space-y-2">
-													<h3 className="font-medium">
+												<div className="space-y-1.5">
+													<h3 className="text-sm font-medium text-muted-foreground">
 														Top Rated Driver
 													</h3>
-													<p className="text-2xl font-bold">
+													<p className="text-2xl font-bold tracking-tight">
 														{topDriver.name}
 													</p>
 													<p className="text-sm text-muted-foreground">
@@ -100,11 +100,11 @@ export default async function Page() {
 													</p>
 												</div>
 
-												<div className="space-y-2">
-													<h3 className="font-medium">
+												<div className="space-y-1.5">
+													<h3 className="text-sm font-medium text-muted-foreground">
 														Average Ratings
 													</h3>
-													<p className="text-2xl font-bold">
+													<p className="text-2xl font-bold tracking-tight">
 														{averageRatings.overall}
 													</p>
 													<p className="text-sm text-muted-foreground">
@@ -112,11 +112,11 @@ export default async function Page() {
 													</p>
 												</div>
 
-												<div className="space-y-2">
-													<h3 className="font-medium">
+												<div className="space-y-1.5">
+													<h3 className="text-sm font-medium text-muted-foreground">
 														All Versions
 													</h3>
-													<div className="flex flex-wrap gap-2">
+													<div className="flex flex-wrap gap-1.5 pt-0.5">
 														{game.versions.map(
 															(version) => (
 															<Link

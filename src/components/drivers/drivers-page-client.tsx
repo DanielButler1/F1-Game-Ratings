@@ -45,7 +45,7 @@ export default function DriversPageClient() {
 		.sort((a, b) => b.stats[query.sort] - a.stats[query.sort]);
 
 	return (
-		<div className="container mx-auto max-w-7xl px-4 py-8 md:px-0">
+		<div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 			<div className="flex flex-col space-y-8">
 				<div className="flex flex-col space-y-4">
 					<h1 className="text-4xl font-bold">F1 Drivers</h1>

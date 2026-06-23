@@ -69,7 +69,7 @@ export default async function DriverPage({
 
 	// Server component: pass all data to client components
 	return (
-		<div className="container mx-auto max-w-7xl py-8 px-4 md:px-0">
+		<div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 			<div className="flex flex-col space-y-8">
 				<div className="flex flex-col space-y-4">
 					<h1 className="text-4xl font-bold">{resolvedDriverName}</h1>

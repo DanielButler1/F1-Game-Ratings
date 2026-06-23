@@ -45,8 +45,8 @@ export type PatchUpdateEntry = {
 };
 
 const versionLabels: Record<string, Record<string, string>> = {
-    "F1 25": {
-        "4": "2026 Season Pack"
+    "F1 26 Season Pack (DLC)": {
+        "1": "Update 1"
     }
 };
 
@@ -120,7 +120,7 @@ export function resolveDriverNameFromRoute(routeValue: string): string {
 
 // Helper function to split the game key into name and version
 function splitGameKey(key: string): { gameName: string; version: string } {
-    const match = key.match(/^(.*?)\s*\((.*?)\)$/);
+    const match = key.match(/^(.*)\s\(([^()]*)\)$/);
     if (!match) {
         throw new Error(`Invalid game key format: ${key}`);
     }

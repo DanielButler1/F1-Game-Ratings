@@ -126,19 +126,21 @@ function TopNavButton({
 
 	return (
 		<Tooltip>
-			<TooltipTrigger asChild>
-				<Link
-					href={href}
-					className={cn(
+			<TooltipTrigger
+				render={
+					<Link
+						href={href}
+						className={cn(
 						buttonVariants({
 							variant: "outline",
 							size: "icon",
 						}),
 						topNavButtonClassName
-					)}
-				>
-					{content}
-				</Link>
+						)}
+					/>
+				}
+			>
+				{content}
 			</TooltipTrigger>
 			<TooltipContent>{label}</TooltipContent>
 		</Tooltip>

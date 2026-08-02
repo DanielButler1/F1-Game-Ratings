@@ -73,7 +73,7 @@ export default function DriversPageClient() {
 								<Select
 									value={query.sort}
 									onValueChange={(value) =>
-										setQuery({ sort: value as SortKey })
+										value && setQuery({ sort: value as SortKey })
 									}
 								>
 									<SelectTrigger>

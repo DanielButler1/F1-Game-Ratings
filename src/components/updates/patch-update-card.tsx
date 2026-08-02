@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
 	Table,
@@ -113,12 +113,16 @@ export default function PatchUpdateCard({
 					</p>
 				</div>
 
-				<Button asChild variant="outline" className="sm:self-center">
-					<Link href={patch.href}>
+				<Link
+					href={patch.href}
+					className={buttonVariants({
+						variant: "outline",
+						className: "sm:self-center",
+					})}
+				>
 						View Patch
 						<ChevronRight className="ml-2 h-4 w-4" />
-					</Link>
-				</Button>
+				</Link>
 			</div>
 
 			<Table>

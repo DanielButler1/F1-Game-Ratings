@@ -245,7 +245,10 @@ export default function TeamsPageClient() {
 					<div className="grid gap-4 md:grid-cols-2">
 						<div className="space-y-2">
 							<h3 className="font-medium">Select Game</h3>
-							<Select onValueChange={handleGameChange} value={selectedGame}>
+							<Select
+								onValueChange={(game) => game && handleGameChange(game)}
+								value={selectedGame}
+							>
 								<SelectTrigger>
 									<SelectValue placeholder="Choose a game" />
 								</SelectTrigger>
@@ -265,7 +268,9 @@ export default function TeamsPageClient() {
 						<div className="space-y-2">
 							<h3 className="font-medium">Select Version</h3>
 							<Select
-								onValueChange={(version) => setQuery({ version })}
+								onValueChange={(version) =>
+									version && setQuery({ version })
+								}
 								disabled={!selectedGame}
 								value={selectedVersion}
 							>

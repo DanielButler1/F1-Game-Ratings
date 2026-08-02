@@ -140,7 +140,9 @@ export default function ComparePageClient() {
 							<h3 className="font-medium">Select Drivers</h3>
 							<Select
 								value=""
-								onValueChange={handleDriverSelect}
+								onValueChange={(value) =>
+									value && handleDriverSelect(value)
+								}
 								disabled={selectedDrivers.length >= 8}
 							>
 								<SelectTrigger>

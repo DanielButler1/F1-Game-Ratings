@@ -301,7 +301,7 @@ export default function TimelinePageClient() {
 								<Select
 									value={selectedDriver}
 									onValueChange={(value) =>
-										setQuery({ driver: value })
+										value && setQuery({ driver: value })
 									}
 								>
 									<SelectTrigger>

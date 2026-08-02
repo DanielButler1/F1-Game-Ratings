@@ -12,7 +12,7 @@ export default function FAQPage() {
 				Frequently Asked Questions
 			</h1>
 
-			<Accordion type="single" collapsible className="w-full">
+			<Accordion className="w-full">
 				<AccordionItem value="item-1">
 					<AccordionTrigger>
 						How often are driver ratings updated?

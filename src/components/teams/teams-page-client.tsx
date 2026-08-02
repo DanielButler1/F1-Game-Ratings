@@ -99,6 +99,18 @@ const teamDrivers: TeamDrivers = {
 	},
 	"F1 25": {
 		Mercedes: ["Kimi Antonelli", "George Russell"],
+		"Red Bull": ["Max Verstappen", "Yuki Tsunoda"],
+		Ferrari: ["Charles Leclerc", "Lewis Hamilton"],
+		McLaren: ["Lando Norris", "Oscar Piastri"],
+		"Aston Martin": ["Fernando Alonso", "Lance Stroll"],
+		Alpine: ["Pierre Gasly", "Franco Colapinto"],
+		Williams: ["Carlos Sainz", "Alexander Albon"],
+		"Racing Bulls": ["Liam Lawson", "Isack Hadjar"],
+		"Kick Sauber": ["Nico Hulkenberg", "Gabriel Bortoleto"],
+		Haas: ["Oliver Bearman", "Esteban Ocon"],
+	},
+	"F1 26 Season Pack (DLC)": {
+		Mercedes: ["Kimi Antonelli", "George Russell"],
 		"Red Bull Racing": ["Max Verstappen", "Isack Hadjar"],
 		Ferrari: ["Charles Leclerc", "Lewis Hamilton"],
 		McLaren: ["Lando Norris", "Oscar Piastri"],
@@ -158,9 +170,7 @@ export default function TeamsPageClient() {
 
 	const teamStats: TeamStats[] =
 		selectedGame && selectedVersion
-			? Object.entries(
-					teamDrivers[selectedGame as keyof typeof teamDrivers]
-			  )
+			? Object.entries(teamDrivers[selectedGame] ?? {})
 					.map(([team, drivers]) => {
 						const allDrivers = getDriverRankings(
 							selectedGame,
@@ -273,6 +283,12 @@ export default function TeamsPageClient() {
 						</div>
 					</div>
 				</Card>
+
+				{selectedGame && !teamDrivers[selectedGame] && (
+					<Card className="p-6 text-muted-foreground">
+						Team data is not available for {selectedGame} yet.
+					</Card>
+				)}
 
 				{teamStats.length > 0 && (
 					<div className="grid gap-6">

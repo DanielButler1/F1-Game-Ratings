@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import RatingCriteriaSection from "@/components/landing/rating-criteria";
 import {
@@ -34,12 +34,12 @@ export default function HomePage() {
 							favorite drivers have evolved over time.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4">
-							<Button asChild size="lg" className="">
-								<Link href="/drivers">Explore Drivers</Link>
-							</Button>
-							<Button asChild size="lg" className="">
-								<Link href="/compare">Compare Ratings</Link>
-							</Button>
+							<Link href="/drivers" className={buttonVariants({ size: "lg" })}>
+								Explore Drivers
+							</Link>
+							<Link href="/compare" className={buttonVariants({ size: "lg" })}>
+								Compare Ratings
+							</Link>
 						</div>
 					</div>
 				</section>
@@ -55,20 +55,22 @@ export default function HomePage() {
 								</span>
 								{/* Show button below on mobile */}
 								<div className="block md:hidden mt-2">
-									<Button asChild variant="ghost" className="gap-1">
-										<Link href={`/games/${getGameRouteSegment(gameName)}/${version}`}>
+									<Link
+										href={`/games/${getGameRouteSegment(gameName)}/${version}`}
+										className={buttonVariants({ variant: "ghost", className: "gap-1" })}
+									>
 											View All <ChevronRight className="h-4 w-4" />
-										</Link>
-									</Button>
+									</Link>
 								</div>
 							</div>
 							{/* Show button on the right on desktop */}
 							<div className="hidden md:flex items-center gap-2">
-								<Button asChild variant="ghost" className="gap-1">
-									<Link href={`/games/${getGameRouteSegment(gameName)}/${version}`}>
+								<Link
+									href={`/games/${getGameRouteSegment(gameName)}/${version}`}
+									className={buttonVariants({ variant: "ghost", className: "gap-1" })}
+								>
 										View All <ChevronRight className="h-4 w-4" />
-									</Link>
-								</Button>
+								</Link>
 							</div>
 						</div>
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

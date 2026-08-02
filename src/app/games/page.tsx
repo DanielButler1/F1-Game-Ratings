@@ -9,7 +9,7 @@ import {
 	getVersionLabel,
 } from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
@@ -64,14 +64,13 @@ export default async function Page() {
 															: ""}
 													</p>
 												</div>
-												<Button asChild>
-													<Link
+												<Link
 														href={`/games/${getGameRouteSegment(game.gameName)}/${latestVersion}`}
+														className={buttonVariants()}
 													>
 														Latest Ratings
 														<ChevronRight className="ml-2 h-4 w-4" />
-													</Link>
-												</Button>
+												</Link>
 											</div>
 
 											<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

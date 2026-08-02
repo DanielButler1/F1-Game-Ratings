@@ -37,7 +37,14 @@ export default function DriverGameSelector({
 		<div className="grid gap-4 md:grid-cols-2">
 			<div className="space-y-2">
 				<h3 className="font-medium">Select Game</h3>
-				<Select value={selectedGame} onValueChange={onGameChange}>
+				<Select
+					items={games.map((game) => ({
+						value: game.gameName,
+						label: game.gameName,
+					}))}
+					value={selectedGame}
+					onValueChange={(game) => game && onGameChange(game)}
+				>
 					<SelectTrigger>
 						<SelectValue placeholder="Choose a game" />
 					</SelectTrigger>
@@ -55,7 +62,14 @@ export default function DriverGameSelector({
 			</div>
 			<div className="space-y-2">
 				<h3 className="font-medium">Select Version</h3>
-				<Select value={selectedVersion} onValueChange={onVersionChange}>
+				<Select
+					items={versions.map((version) => ({
+						value: version,
+						label: getVersionLabel(selectedGame, version, "Base"),
+					}))}
+					value={selectedVersion}
+					onValueChange={(version) => version && onVersionChange(version)}
+				>
 					<SelectTrigger>
 						<SelectValue placeholder="Choose a version" />
 					</SelectTrigger>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { ThemeToggle } from "./theme-toggle";
 import { Menu } from "lucide-react";
 import {
@@ -55,19 +55,21 @@ export default function Header() {
 						</Link>
 						<div className="hidden lg:flex items-center space-x-6">
 							{navigation.map((item) => (
-								<Button key={item.href} variant="ghost" asChild>
-									<Link
+								<Link
+									key={item.href}
 										href={item.href}
 										aria-current={
 											isActiveRoute(item.href)
 												? "page"
 												: undefined
 										}
-										className={navLinkClassName(item.href)}
+										className={cn(
+											buttonVariants({ variant: "ghost" }),
+											navLinkClassName(item.href)
+										)}
 									>
 										{item.label}
-									</Link>
-								</Button>
+								</Link>
 							))}
 						</div>
 					</nav>
@@ -76,10 +78,11 @@ export default function Header() {
 							<ThemeToggle />
 						</div>
 						<Drawer open={isOpen} onOpenChange={setIsOpen}>
-							<DrawerTrigger asChild className="lg:hidden">
-								<Button variant="ghost" size="icon">
-									<Menu className="h-5 w-5" />
-								</Button>
+							<DrawerTrigger
+								render={<Button variant="ghost" size="icon" />}
+								className="lg:hidden"
+							>
+								<Menu className="h-5 w-5" />
 							</DrawerTrigger>
 							<DrawerContent>
 								<DrawerHeader className="text-right">
@@ -87,9 +90,8 @@ export default function Header() {
 										{navigation.map((item) => (
 											<DrawerClose
 												key={item.href}
-												asChild
-											>
-												<Link
+												render={
+													<Link
 													href={item.href}
 													aria-current={
 														isActiveRoute(item.href)
@@ -102,9 +104,10 @@ export default function Header() {
 													onClick={() =>
 														setIsOpen(false)
 													}
-												>
+													/>
+												}
+											>
 													{item.label}
-												</Link>
 											</DrawerClose>
 										))}
 										<div className="pt-4">

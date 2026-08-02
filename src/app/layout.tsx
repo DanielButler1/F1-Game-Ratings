@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { getMetadataBase, siteDescription, siteName } from "@/lib/seo";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -61,12 +62,14 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<NuqsAdapter>
-						<Header />
-						<div className="flex-1">{children}</div>
-						<Footer />
-						<Toaster />
-					</NuqsAdapter>
+					<TooltipProvider>
+						<NuqsAdapter>
+							<Header />
+							<div className="flex-1">{children}</div>
+							<Footer />
+							<Toaster />
+						</NuqsAdapter>
+					</TooltipProvider>
 				</ThemeProvider>
 			</body>
 		</html>

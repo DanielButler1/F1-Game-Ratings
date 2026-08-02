@@ -246,6 +246,10 @@ export default function TeamsPageClient() {
 						<div className="space-y-2">
 							<h3 className="font-medium">Select Game</h3>
 							<Select
+								items={games.map((game) => ({
+									value: game.gameName,
+									label: game.gameName,
+								}))}
 								onValueChange={(game) => game && handleGameChange(game)}
 								value={selectedGame}
 							>
@@ -268,6 +272,10 @@ export default function TeamsPageClient() {
 						<div className="space-y-2">
 							<h3 className="font-medium">Select Version</h3>
 							<Select
+								items={versions.map((version) => ({
+									value: version,
+									label: getVersionLabel(selectedGame, version),
+								}))}
 								onValueChange={(version) =>
 									version && setQuery({ version })
 								}

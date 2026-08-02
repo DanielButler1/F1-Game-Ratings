@@ -38,6 +38,10 @@ export default function DriverGameSelector({
 			<div className="space-y-2">
 				<h3 className="font-medium">Select Game</h3>
 				<Select
+					items={games.map((game) => ({
+						value: game.gameName,
+						label: game.gameName,
+					}))}
 					value={selectedGame}
 					onValueChange={(game) => game && onGameChange(game)}
 				>
@@ -59,6 +63,10 @@ export default function DriverGameSelector({
 			<div className="space-y-2">
 				<h3 className="font-medium">Select Version</h3>
 				<Select
+					items={versions.map((version) => ({
+						value: version,
+						label: getVersionLabel(selectedGame, version, "Base"),
+					}))}
 					value={selectedVersion}
 					onValueChange={(version) => version && onVersionChange(version)}
 				>

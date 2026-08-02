@@ -139,6 +139,9 @@ export default function ComparePageClient() {
 						<div className="space-y-2">
 							<h3 className="font-medium">Select Drivers</h3>
 							<Select
+								items={allDrivers
+									.filter((driver) => !selectedDrivers.includes(driver))
+									.map((driver) => ({ value: driver, label: driver }))}
 								value=""
 								onValueChange={(value) =>
 									value && handleDriverSelect(value)

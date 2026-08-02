@@ -299,6 +299,10 @@ export default function TimelinePageClient() {
 									Select Driver
 								</h3>
 								<Select
+									items={drivers.map((driver) => ({
+										value: driver,
+										label: driver,
+									}))}
 									value={selectedDriver}
 									onValueChange={(value) =>
 										value && setQuery({ driver: value })

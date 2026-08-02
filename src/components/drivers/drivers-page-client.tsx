@@ -23,6 +23,14 @@ const sortKeys = [
 	"pace",
 ] as const satisfies readonly SortKey[];
 
+const sortOptions = [
+	{ value: "overall", label: "Overall Rating" },
+	{ value: "experience", label: "Experience" },
+	{ value: "racecraft", label: "Racecraft" },
+	{ value: "awareness", label: "Awareness" },
+	{ value: "pace", label: "Pace" },
+] satisfies ReadonlyArray<{ value: SortKey; label: string }>;
+
 const driversSearchParams = {
 	search: parseAsString.withDefault(""),
 	sort: parseAsStringLiteral(sortKeys).withDefault("overall"),
@@ -71,6 +79,7 @@ export default function DriversPageClient() {
 							<div className="space-y-2">
 								<h3 className="font-medium">Sort by</h3>
 								<Select
+									items={sortOptions}
 									value={query.sort}
 									onValueChange={(value) =>
 										value && setQuery({ sort: value as SortKey })

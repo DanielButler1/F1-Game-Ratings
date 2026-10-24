@@ -167,13 +167,8 @@ export default function HomePage() {
 	return (
 		<>
 			{/* Hero: intro on the left, the current top-rated driver as a game-style rating card on the right */}
-			<section className="relative overflow-hidden border-b">
-				{/* faint speed-stripe band behind the card */}
-				<div
-					aria-hidden="true"
-					className="pointer-events-none absolute inset-y-0 right-[-10%] hidden w-[55%] -skew-x-12 bg-gradient-to-r from-transparent via-[#e10600]/[0.07] to-[#e10600]/[0.12] lg:block dark:via-[#cc0500]/[0.12] dark:to-[#cc0500]/[0.2]"
-				/>
-				<div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_1fr] lg:px-10">
+			<section className="border-b">
+				<div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_1fr] lg:px-10">
 					<div className="space-y-7">
 						<Link
 							href={latestHref}

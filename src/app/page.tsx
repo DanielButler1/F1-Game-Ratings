@@ -23,23 +23,30 @@ export default function HomePage() {
 		<div className="flex flex-col min-h-screen">
 			<main className="flex-1">
 				{/* Hero Section */}
-				<section className="relative bg-[#e10600] dark:bg-[#cc0500] text-white">
-					<div className="container mx-auto max-w-7xl px-4 py-20 sm:py-32 flex flex-col items-center text-center">
-						<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
-							F1 Driver Ratings Tracker
-						</h1>
-						<p className="text-lg sm:text-xl max-w-3xl mb-8">
-							Track and compare Formula One game driver ratings
-							from F1 2020 through the F1 26 Season Pack. Explore how your
-							favorite drivers have evolved over time.
-						</p>
-						<div className="flex flex-col sm:flex-row gap-4">
-							<Button asChild size="lg" className="">
-								<Link href="/drivers">Explore Drivers</Link>
-							</Button>
-							<Button asChild size="lg" className="">
-								<Link href="/compare">Compare Ratings</Link>
-							</Button>
+				<section className="pt-10 sm:pt-12">
+					<div className="container mx-auto max-w-7xl px-4">
+						<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-[#e10600]/10 via-background to-background px-6 py-10 sm:px-10 sm:py-12 dark:from-[#cc0500]/15">
+							<div className="absolute inset-y-0 left-0 w-1.5 bg-[#e10600] dark:bg-[#cc0500]" />
+							<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+								F1 Driver Ratings Tracker
+							</h1>
+							<p className="text-base sm:text-lg text-muted-foreground max-w-2xl mb-8">
+								Track and compare Formula One game driver ratings
+								from F1 2020 through the F1 26 Season Pack. Explore
+								how your favorite drivers have evolved over time.
+							</p>
+							<div className="flex flex-col sm:flex-row gap-3">
+								<Button
+									asChild
+									size="lg"
+									className="bg-[#e10600] text-white hover:bg-[#c00500] dark:bg-[#cc0500] dark:hover:bg-[#b30400]"
+								>
+									<Link href="/drivers">Explore Drivers</Link>
+								</Button>
+								<Button asChild size="lg" variant="outline">
+									<Link href="/compare">Compare Ratings</Link>
+								</Button>
+							</div>
 						</div>
 					</div>
 				</section>

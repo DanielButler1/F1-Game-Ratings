@@ -4,15 +4,14 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Page, PageHeader } from "@/components/page";
 
 export default function FAQPage() {
 	return (
-		<div className="container mx-auto max-w-7xl px-4 py-12">
-			<h1 className="text-4xl font-bold mb-8">
-				Frequently Asked Questions
-			</h1>
+		<Page>
+			<PageHeader title="Frequently Asked Questions" />
 
-			<Accordion type="single" collapsible className="w-full">
+			<Accordion type="single" collapsible className="w-full max-w-3xl">
 				<AccordionItem value="item-1">
 					<AccordionTrigger>
 						How often are driver ratings updated?
@@ -118,7 +117,7 @@ export default function FAQPage() {
 					</AccordionContent>
 				</AccordionItem>
 			</Accordion>
-		</div>
+		</Page>
 	);
 }
 import type { Metadata } from "next";

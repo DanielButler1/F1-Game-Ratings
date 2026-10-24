@@ -78,11 +78,11 @@ function calculateRanking(value: number, maxValue: number): string {
 
 function getBadgeClasses(ranking: string): string {
 	const classes = {
-		"Best in Class": "bg-gold/25 text-foreground",
-		Elite: "bg-primary/10 text-primary",
-		Strong: "bg-sky-500/10 text-sky-700 dark:text-sky-400",
-		Average: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
-		Developing: "bg-muted text-muted-foreground",
+		"Best in Class": "bg-yellow-500/10 text-yellow-500",
+		Elite: "bg-violet-500/10 text-violet-500",
+		Strong: "bg-blue-500/10 text-blue-500",
+		Average: "bg-green-500/10 text-green-500",
+		Developing: "bg-gray-500/10 text-gray-500",
 	};
 	return classes[ranking as keyof typeof classes];
 }
@@ -422,10 +422,9 @@ function StatBar({
 						)}
 					>
 						{ranking}
+						{value === maxValue && " 🏆"}
 					</span>
-					<span className="w-6 text-right font-medium tabular-nums">
-						{value}
-					</span>
+					<span className="font-medium tabular-nums">{value}/99</span>
 				</div>
 			</div>
 			<Progress

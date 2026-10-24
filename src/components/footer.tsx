@@ -1,77 +1,120 @@
 import Link from "next/link";
 import { Coffee, Github } from "lucide-react";
-import { BrandMark } from "@/components/header";
-
-const footerLinks = [
-	{
-		title: "Explore",
-		links: [
-			{ href: "/drivers", label: "Drivers" },
-			{ href: "/teams", label: "Teams" },
-			{ href: "/games", label: "Games" },
-			{ href: "/compare", label: "Compare" },
-			{ href: "/timeline", label: "Timeline" },
-			{ href: "/updates", label: "Updates" },
-		],
-	},
-	{
-		title: "Resources",
-		links: [
-			{ href: "/about", label: "About" },
-			{ href: "/rating-system", label: "Rating System" },
-			{ href: "/faq", label: "FAQ" },
-		],
-	},
-];
 
 export default function Footer() {
 	return (
-		<footer className="mt-16 border-t">
-			<div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
-				<div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-					<div className="col-span-2 space-y-3">
-						<Link
-							href="/"
-							className="flex items-center gap-2 font-semibold tracking-tight"
-						>
-							<BrandMark />
-							F1 Ratings
+		<footer className="border-t bg-background mb-8">
+			<div className="container mx-auto max-w-7xl px-4">
+				<div className="grid grid-cols-1 gap-8 py-8 md:grid-cols-4 md:py-12">
+					<div className="md:col-span-2">
+						<Link href="/" className="mb-4 flex items-center gap-2">
+							<div className="rounded bg-[#e10600] px-2 py-1 text-xl font-bold text-white dark:bg-[#cc0500]">
+								F1
+							</div>
+							<span className="text-lg font-bold">
+								Driver Ratings
+							</span>
 						</Link>
-						<p className="text-muted-foreground max-w-md text-sm">
+						<p className="max-w-md text-sm text-muted-foreground">
 							Track and visualise Formula One game driver ratings
-							from F1 2020 through the F1 26 Season Pack. Compare
-							drivers, teams, and see how ratings have evolved
-							over time.
+							from F1 2020 through the F1 26 Season Pack. Compare drivers, teams,
+							and see how ratings have evolved over time.
 						</p>
 					</div>
 
-					{footerLinks.map((group) => (
-						<div key={group.title} className="space-y-3">
-							<h3 className="text-sm font-medium">{group.title}</h3>
-							<ul className="space-y-2 text-sm">
-								{group.links.map((link) => (
-									<li key={link.href}>
-										<Link
-											href={link.href}
-											className="text-muted-foreground hover:text-foreground transition-colors"
-										>
-											{link.label}
-										</Link>
-									</li>
-								))}
-							</ul>
-						</div>
-					))}
+					<div>
+						<h3 className="mb-4 font-semibold">Navigation</h3>
+						<ul className="space-y-2 text-sm">
+							<li>
+								<Link
+									href="/drivers"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Drivers
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/teams"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Teams
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/games"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Games
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/compare"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Compare
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/timeline"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Timeline
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/updates"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Updates
+								</Link>
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 className="mb-4 font-semibold">Resources</h3>
+						<ul className="space-y-2 text-sm">
+							<li>
+								<Link
+									href="/about"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									About
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/rating-system"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									Rating System
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/faq"
+									className="text-muted-foreground hover:text-foreground"
+								>
+									FAQ
+								</Link>
+							</li>
+						</ul>
+					</div>
 				</div>
 
-				<div className="text-muted-foreground mt-10 flex flex-col gap-4 border-t pt-6 text-xs md:flex-row md:items-center md:justify-between">
-					<div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-						<p>
+				<div className="mt-8 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
+					<div className="flex items-center gap-2">
+						<p className="text-sm text-muted-foreground">
 							&copy; {new Date().getFullYear()} F1 Driver Ratings
-							by{" "}
+							By{" "}
 							<Link
 								href="https://portfolio.phaseo.app"
-								className="underline underline-offset-4 hover:text-foreground"
+								className="text-muted-foreground hover:text-foreground"
 							>
 								Phaseo
 							</Link>
@@ -81,24 +124,27 @@ export default function Footer() {
 							href="https://coff.ee/phaseo"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-foreground transition-colors"
+							className="ml-2 hover:text-yellow-600"
 							aria-label="Buy me a coffee"
 							title="Buy Me A Coffee"
 						>
-							<Coffee className="size-4" />
+							<Coffee size={20} />
 						</Link>
 						<Link
 							href="https://github.com/DanielButler1/F1-Game-Ratings"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-foreground transition-colors"
+							className="ml-2 hover:text-foreground"
 							aria-label="GitHub"
 							title="View the Source Code"
 						>
-							<Github className="size-4" />
+							<Github size={20} />
 						</Link>
 					</div>
-					<p>Not affiliated with Formula 1, EA Sports, or Codemasters.</p>
+					<p className="text-sm text-muted-foreground">
+						Not affiliated with Formula 1, EA Sports, or
+						Codemasters.
+					</p>
 				</div>
 			</div>
 		</footer>

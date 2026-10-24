@@ -26,7 +26,6 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { Page, PageHeader } from "@/components/page";
 
 type StatKey = keyof Pick<
 	Driver,
@@ -34,9 +33,9 @@ type StatKey = keyof Pick<
 >;
 
 const rankColors = {
-	1: "bg-gold/25 text-foreground font-semibold",
-	2: "bg-silver/30 text-foreground font-semibold",
-	3: "bg-bronze/25 text-foreground font-semibold",
+	1: "bg-yellow-400 text-black font-bold ",
+	2: "bg-zinc-300 text-black font-semibold ",
+	3: "bg-amber-700 text-white font-semibold ",
 	4: "bg-muted text-muted-foreground",
 	5: "bg-muted text-muted-foreground",
 	6: "bg-muted text-muted-foreground",
@@ -129,190 +128,196 @@ export default function ComparePageClient() {
 	};
 
 	return (
-		<Page>
-			<PageHeader title="Compare Drivers">
-				Compare driver ratings side by side across different game versions.
-			</PageHeader>
-
-			<Card className="p-6">
-				<div className="grid gap-6">
-					<div className="space-y-2">
-						<h3 className="font-medium">Select Drivers</h3>
-						<Select
-							value=""
-							onValueChange={handleDriverSelect}
-							disabled={selectedDrivers.length >= 8}
-						>
-							<SelectTrigger>
-								<SelectValue
-									placeholder={
-										selectedDrivers.length === 0
-											? "Choose a driver"
-											: `${selectedDrivers.length} drivers selected`
-									}
-								/>
-							</SelectTrigger>
-							<SelectContent>
-								{allDrivers
-									.filter((d) => !selectedDrivers.includes(d))
-									.map((driver) => (
-										<SelectItem key={driver} value={driver}>
-											{driver}
-										</SelectItem>
-									))}
-							</SelectContent>
-						</Select>
-					</div>
-
-					{selectedDrivers.length > 0 && (
-						<div className="flex flex-wrap gap-2">
-							{selectedDrivers.map((driver) => (
-								<Badge
-									key={driver}
-									variant="secondary"
-									className="cursor-pointer"
-									onClick={() => handleRemoveDriver(driver)}
-								>
-									{driver} ×
-								</Badge>
-							))}
-						</div>
-					)}
+		<div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+			<div className="flex flex-col space-y-8">
+				<div className="flex flex-col space-y-4">
+					<h1 className="text-4xl font-bold">Compare Drivers</h1>
+					<p className="text-muted-foreground">
+						Compare driver ratings side by side across different
+						game versions.
+					</p>
 				</div>
-			</Card>
 
-			{selectedDrivers.length > 0 && (
-				<div className="space-y-8">
-					<Card className="overflow-hidden">
-						<div className="border-b p-6">
-							<h3 className="text-xl font-semibold">
-								Current Ratings
-							</h3>
+				<Card className="p-6">
+					<div className="grid gap-6">
+						<div className="space-y-2">
+							<h3 className="font-medium">Select Drivers</h3>
+							<Select
+								value=""
+								onValueChange={handleDriverSelect}
+								disabled={selectedDrivers.length >= 8}
+							>
+								<SelectTrigger>
+									<SelectValue
+										placeholder={
+											selectedDrivers.length === 0
+												? "Choose a driver"
+												: `${selectedDrivers.length} drivers selected`
+										}
+									/>
+								</SelectTrigger>
+								<SelectContent>
+									{allDrivers
+										.filter((d) => !selectedDrivers.includes(d))
+										.map((driver) => (
+											<SelectItem key={driver} value={driver}>
+												{driver}
+											</SelectItem>
+										))}
+								</SelectContent>
+							</Select>
 						</div>
-						<Table>
-							<TableHeader>
-								<TableRow>
-									<TableHead className="pl-6 text-left">
-										Driver
-									</TableHead>
-									{stats.map((stat) => (
-										<TableHead
-											key={stat}
-											className="px-4 text-center"
-										>
-											{stat.charAt(0).toUpperCase() +
-												stat.slice(1)}
-										</TableHead>
-									))}
-								</TableRow>
-							</TableHeader>
-							<TableBody>
-								{selectedDrivers.map((driverName, index) => {
-									const latestStats = latestDriverStats[index];
 
-									if (!latestStats) return null;
+						{selectedDrivers.length > 0 && (
+							<div className="flex flex-wrap gap-2">
+								{selectedDrivers.map((driver) => (
+									<Badge
+										key={driver}
+										variant="secondary"
+										className="cursor-pointer"
+										onClick={() => handleRemoveDriver(driver)}
+									>
+										{driver} ×
+									</Badge>
+								))}
+							</div>
+						)}
+					</div>
+				</Card>
 
-									return (
-										<TableRow key={driverName}>
-											<TableCell className="pl-6 font-medium">
-												{driverName}
-											</TableCell>
-											{stats.map((stat) => {
-												const values = latestDriverStats
-													.map((s) => s[stat])
-													.filter(
-														(value): value is number =>
-															typeof value === "number"
-													);
-												const rank = getRankForStat(
-													stat,
-													latestStats[stat],
-													values
-												);
-
-												return (
-													<TableCell
-														key={`${driverName}-${stat}`}
-														className="px-4 text-center font-medium"
-													>
-														<div className="flex items-center justify-center gap-2">
-															<span>{latestStats[stat]}</span>
-															<span
-																className={cn(
-																	"rounded-full px-2 py-0.5 text-xs",
-																	rankColors[
-																		rank as keyof typeof rankColors
-																	]
-																)}
-															>
-																#{rank}
-															</span>
-														</div>
-													</TableCell>
-												);
-											})}
-										</TableRow>
-									);
-								})}
-							</TableBody>
-						</Table>
-					</Card>
-
-					<Card className="overflow-hidden">
-						<div className="border-b p-6">
-							<h3 className="text-xl font-semibold">
-								Versions Comparison
-							</h3>
-						</div>
-						<div className="overflow-x-auto">
+				{selectedDrivers.length > 0 && (
+					<div className="space-y-8">
+						<Card className="overflow-hidden">
+							<div className="border-b p-6">
+								<h3 className="text-xl font-semibold">
+									Current Ratings
+								</h3>
+							</div>
 							<Table>
 								<TableHeader>
 									<TableRow>
 										<TableHead className="pl-6 text-left">
-											Version
+											Driver
 										</TableHead>
-										{selectedDrivers.map((driver) => (
+										{stats.map((stat) => (
 											<TableHead
-												key={driver}
+												key={stat}
 												className="px-4 text-center"
 											>
-												{driver}
+												{stat.charAt(0).toUpperCase() +
+													stat.slice(1)}
 											</TableHead>
 										))}
 									</TableRow>
 								</TableHeader>
 								<TableBody>
-									{versions.map(({ gameName, version }) => (
-										<TableRow key={`${gameName}-${version}`}>
-											<TableCell className="pl-6 font-medium">
-												{gameName} (
-												{getVersionLabel(gameName, version, "Base")})
-											</TableCell>
-											{selectedDrivers.map((driverName) => {
-												const statsData =
-													getDriverStatsForVersion(
-														driverName,
-														gameName,
-														version
+									{selectedDrivers.map((driverName, index) => {
+										const latestStats = latestDriverStats[index];
+
+										if (!latestStats) return null;
+
+										return (
+											<TableRow key={driverName}>
+												<TableCell className="pl-6 font-medium">
+													{driverName}
+												</TableCell>
+												{stats.map((stat) => {
+													const values = latestDriverStats
+														.map((s) => s[stat])
+														.filter(
+															(value): value is number =>
+																typeof value === "number"
+														);
+													const rank = getRankForStat(
+														stat,
+														latestStats[stat],
+														values
 													);
 
-												return (
-													<TableCell
-														key={`${gameName}-${version}-${driverName}`}
-														className="px-4 text-center"
-													>
-														{statsData ? statsData.overall : "-"}
-													</TableCell>
-												);
-											})}
-										</TableRow>
-									))}
+													return (
+														<TableCell
+															key={`${driverName}-${stat}`}
+															className="px-4 text-center font-medium"
+														>
+															<div className="flex items-center justify-center gap-2">
+																<span>{latestStats[stat]}</span>
+																<span
+																	className={cn(
+																		"rounded-full px-2 py-0.5 text-xs",
+																		rankColors[
+																			rank as keyof typeof rankColors
+																		]
+																	)}
+																>
+																	#{rank}
+																</span>
+															</div>
+														</TableCell>
+													);
+												})}
+											</TableRow>
+										);
+									})}
 								</TableBody>
 							</Table>
-						</div>
-					</Card>
-				</div>
-			)}
-		</Page>
+						</Card>
+
+						<Card className="overflow-hidden">
+							<div className="border-b p-6">
+								<h3 className="text-xl font-semibold">
+									Versions Comparison
+								</h3>
+							</div>
+							<div className="overflow-x-auto">
+								<Table>
+									<TableHeader>
+										<TableRow>
+											<TableHead className="pl-6 text-left">
+												Version
+											</TableHead>
+											{selectedDrivers.map((driver) => (
+												<TableHead
+													key={driver}
+													className="px-4 text-center"
+												>
+													{driver}
+												</TableHead>
+											))}
+										</TableRow>
+									</TableHeader>
+									<TableBody>
+										{versions.map(({ gameName, version }) => (
+											<TableRow key={`${gameName}-${version}`}>
+												<TableCell className="pl-6 font-medium">
+													{gameName} (
+													{getVersionLabel(gameName, version, "Base")})
+												</TableCell>
+												{selectedDrivers.map((driverName) => {
+													const statsData =
+														getDriverStatsForVersion(
+															driverName,
+															gameName,
+															version
+														);
+
+													return (
+														<TableCell
+															key={`${gameName}-${version}-${driverName}`}
+															className="px-4 text-center"
+														>
+															{statsData ? statsData.overall : "-"}
+														</TableCell>
+													);
+												})}
+											</TableRow>
+										))}
+									</TableBody>
+								</Table>
+							</div>
+						</Card>
+					</div>
+				)}
+			</div>
+		</div>
 	);
 }

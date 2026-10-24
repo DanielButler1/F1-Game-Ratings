@@ -16,7 +16,6 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { ComparisonBar } from "@/components/ui/comparison-bar";
-import { Page, PageHeader } from "@/components/page";
 
 type TeamDrivers = {
 	[key: string]: {
@@ -233,191 +232,197 @@ export default function TeamsPageClient() {
 			: [];
 
 	return (
-		<Page>
-			<PageHeader title="F1 Teams">
-				Compare team performance based on their drivers&apos; ratings.
-			</PageHeader>
-
-			<Card className="p-6">
-				<div className="grid gap-4 md:grid-cols-2">
-					<div className="space-y-2">
-						<h3 className="font-medium">Select Game</h3>
-						<Select onValueChange={handleGameChange} value={selectedGame}>
-							<SelectTrigger>
-								<SelectValue placeholder="Choose a game" />
-							</SelectTrigger>
-							<SelectContent>
-								{games.map((game) => (
-									<SelectItem
-										key={game.gameName}
-										value={game.gameName}
-									>
-										{game.gameName}
-									</SelectItem>
-								))}
-							</SelectContent>
-						</Select>
-					</div>
-
-					<div className="space-y-2">
-						<h3 className="font-medium">Select Version</h3>
-						<Select
-							onValueChange={(version) => setQuery({ version })}
-							disabled={!selectedGame}
-							value={selectedVersion}
-						>
-							<SelectTrigger>
-								<SelectValue placeholder="Choose a version" />
-							</SelectTrigger>
-							<SelectContent>
-								{versions.map((version) => (
-									<SelectItem key={version} value={version}>
-										{getVersionLabel(selectedGame, version)}
-									</SelectItem>
-								))}
-							</SelectContent>
-						</Select>
-					</div>
+		<div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+			<div className="flex flex-col space-y-8">
+				<div className="flex flex-col space-y-4">
+					<h1 className="text-4xl font-bold">F1 Teams</h1>
+					<p className="text-muted-foreground">
+						Compare team performance based on their drivers&apos;
+						ratings.
+					</p>
 				</div>
-			</Card>
 
-			{selectedGame && !teamDrivers[selectedGame] && (
-				<Card className="p-6 text-muted-foreground">
-					Team data is not available for {selectedGame} yet.
+				<Card className="p-6">
+					<div className="grid gap-4 md:grid-cols-2">
+						<div className="space-y-2">
+							<h3 className="font-medium">Select Game</h3>
+							<Select onValueChange={handleGameChange} value={selectedGame}>
+								<SelectTrigger>
+									<SelectValue placeholder="Choose a game" />
+								</SelectTrigger>
+								<SelectContent>
+									{games.map((game) => (
+										<SelectItem
+											key={game.gameName}
+											value={game.gameName}
+										>
+											{game.gameName}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
+						</div>
+
+						<div className="space-y-2">
+							<h3 className="font-medium">Select Version</h3>
+							<Select
+								onValueChange={(version) => setQuery({ version })}
+								disabled={!selectedGame}
+								value={selectedVersion}
+							>
+								<SelectTrigger>
+									<SelectValue placeholder="Choose a version" />
+								</SelectTrigger>
+								<SelectContent>
+									{versions.map((version) => (
+										<SelectItem key={version} value={version}>
+											{getVersionLabel(selectedGame, version)}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
+						</div>
+					</div>
 				</Card>
-			)}
 
-			{teamStats.length > 0 && (
-				<div className="grid gap-6">
-					{teamStats.map(({ team, drivers, averageStats }) => (
-						<Card key={team} className="p-6">
-							<div className="space-y-6">
-								<div className="flex items-center justify-between">
-									<h3 className="text-xl font-semibold">
-										{team}
-									</h3>
-								</div>
+				{selectedGame && !teamDrivers[selectedGame] && (
+					<Card className="p-6 text-muted-foreground">
+						Team data is not available for {selectedGame} yet.
+					</Card>
+				)}
 
-								<div>
-									<div className="grid grid-cols-1 gap-6">
-										<div className="flex flex-col gap-4">
-											<div className="flex flex-col gap-3">
-												<div className="flex justify-between">
-													<h4 className="font-medium text-blue-500">
-														{drivers[0]?.name}
-													</h4>
-													<h4 className="font-medium text-red-500">
-														{drivers[1]?.name}
-													</h4>
+				{teamStats.length > 0 && (
+					<div className="grid gap-6">
+						{teamStats.map(({ team, drivers, averageStats }) => (
+							<Card key={team} className="p-6">
+								<div className="space-y-6">
+									<div className="flex items-center justify-between">
+										<h3 className="text-2xl font-semibold">
+											{team}
+										</h3>
+									</div>
+
+									<div>
+										<div className="grid grid-cols-1 gap-6">
+											<div className="flex flex-col gap-4">
+												<div className="flex flex-col gap-3">
+													<div className="flex justify-between">
+														<h4 className="font-medium text-blue-500">
+															{drivers[0]?.name}
+														</h4>
+														<h4 className="font-medium text-red-500">
+															{drivers[1]?.name}
+														</h4>
+													</div>
+													{drivers[0] && drivers[1] && (
+														<>
+															<div className="flex items-center gap-2">
+																<span className="w-20 text-sm text-muted-foreground">
+																	OVR
+																</span>
+																<ComparisonBar
+																	leftValue={drivers[0].overall}
+																	rightValue={drivers[1].overall}
+																	className="h-2"
+																/>
+															</div>
+															<div className="flex items-center gap-2">
+																<span className="w-20 text-sm text-muted-foreground">
+																	EXP
+																</span>
+																<ComparisonBar
+																	leftValue={drivers[0].experience}
+																	rightValue={drivers[1].experience}
+																	className="h-2"
+																/>
+															</div>
+															<div className="flex items-center gap-2">
+																<span className="w-20 text-sm text-muted-foreground">
+																	RAC
+																</span>
+																<ComparisonBar
+																	leftValue={drivers[0].racecraft}
+																	rightValue={drivers[1].racecraft}
+																	className="h-2"
+																/>
+															</div>
+															<div className="flex items-center gap-2">
+																<span className="w-20 text-sm text-muted-foreground">
+																	AWA
+																</span>
+																<ComparisonBar
+																	leftValue={drivers[0].awareness}
+																	rightValue={drivers[1].awareness}
+																	className="h-2"
+																/>
+															</div>
+															<div className="flex items-center gap-2">
+																<span className="w-20 text-sm text-muted-foreground">
+																	PAC
+																</span>
+																<ComparisonBar
+																	leftValue={drivers[0].pace}
+																	rightValue={drivers[1].pace}
+																	className="h-2"
+																/>
+															</div>
+														</>
+													)}
 												</div>
-												{drivers[0] && drivers[1] && (
-													<>
-														<div className="flex items-center gap-2">
-															<span className="w-20 text-sm text-muted-foreground">
-																OVR
-															</span>
-															<ComparisonBar
-																leftValue={drivers[0].overall}
-																rightValue={drivers[1].overall}
-																className="h-2"
-															/>
-														</div>
-														<div className="flex items-center gap-2">
-															<span className="w-20 text-sm text-muted-foreground">
-																EXP
-															</span>
-															<ComparisonBar
-																leftValue={drivers[0].experience}
-																rightValue={drivers[1].experience}
-																className="h-2"
-															/>
-														</div>
-														<div className="flex items-center gap-2">
-															<span className="w-20 text-sm text-muted-foreground">
-																RAC
-															</span>
-															<ComparisonBar
-																leftValue={drivers[0].racecraft}
-																rightValue={drivers[1].racecraft}
-																className="h-2"
-															/>
-														</div>
-														<div className="flex items-center gap-2">
-															<span className="w-20 text-sm text-muted-foreground">
-																AWA
-															</span>
-															<ComparisonBar
-																leftValue={drivers[0].awareness}
-																rightValue={drivers[1].awareness}
-																className="h-2"
-															/>
-														</div>
-														<div className="flex items-center gap-2">
-															<span className="w-20 text-sm text-muted-foreground">
-																PAC
-															</span>
-															<ComparisonBar
-																leftValue={drivers[0].pace}
-																rightValue={drivers[1].pace}
-																className="h-2"
-															/>
-														</div>
-													</>
-												)}
+											</div>
+										</div>
+									</div>
+
+									<div className="border-t pt-4">
+										<div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
+											<div className="text-center">
+												<span className="text-sm text-muted-foreground">
+													Overall
+												</span>
+												<p className="text-lg font-medium">
+													{averageStats.overall}
+												</p>
+											</div>
+											<div className="text-center">
+												<span className="text-sm text-muted-foreground">
+													Experience
+												</span>
+												<p className="text-lg font-medium">
+													{averageStats.experience}
+												</p>
+											</div>
+											<div className="text-center">
+												<span className="text-sm text-muted-foreground">
+													Racecraft
+												</span>
+												<p className="text-lg font-medium">
+													{averageStats.racecraft}
+												</p>
+											</div>
+											<div className="text-center">
+												<span className="text-sm text-muted-foreground">
+													Awareness
+												</span>
+												<p className="text-lg font-medium">
+													{averageStats.awareness}
+												</p>
+											</div>
+											<div className="text-center">
+												<span className="text-sm text-muted-foreground">
+													Pace
+												</span>
+												<p className="text-lg font-medium">
+													{averageStats.pace}
+												</p>
 											</div>
 										</div>
 									</div>
 								</div>
-
-								<div className="border-t pt-4">
-									<div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
-										<div className="text-center">
-											<span className="text-sm text-muted-foreground">
-												Overall
-											</span>
-											<p className="text-lg font-medium">
-												{averageStats.overall}
-											</p>
-										</div>
-										<div className="text-center">
-											<span className="text-sm text-muted-foreground">
-												Experience
-											</span>
-											<p className="text-lg font-medium">
-												{averageStats.experience}
-											</p>
-										</div>
-										<div className="text-center">
-											<span className="text-sm text-muted-foreground">
-												Racecraft
-											</span>
-											<p className="text-lg font-medium">
-												{averageStats.racecraft}
-											</p>
-										</div>
-										<div className="text-center">
-											<span className="text-sm text-muted-foreground">
-												Awareness
-											</span>
-											<p className="text-lg font-medium">
-												{averageStats.awareness}
-											</p>
-										</div>
-										<div className="text-center">
-											<span className="text-sm text-muted-foreground">
-												Pace
-											</span>
-											<p className="text-lg font-medium">
-												{averageStats.pace}
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</Card>
-					))}
-				</div>
-			)}
-		</Page>
+							</Card>
+						))}
+					</div>
+				)}
+			</div>
+		</div>
 	);
 }

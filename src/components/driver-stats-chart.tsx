@@ -43,7 +43,7 @@ const CustomTooltip = ({
 		<div className="rounded-lg border bg-background p-2 shadow-md">
 			<p className="font-medium text-sm">
 				{payload[0].payload.stat}:{" "}
-				<span className="font-medium tabular-nums">{payload[0].value}</span>
+				<span className="text-blue-600">{payload[0].value}</span>
 			</p>
 		</div>
 	);
@@ -78,9 +78,8 @@ export default function DriverStatsChart({
 							<Radar
 								name="Current Stats"
 								dataKey="value"
-								fill="var(--f1)"
-								fillOpacity={0.15}
-								stroke="var(--f1)"
+								fill="transparent"
+								stroke="#2563eb"
 								strokeWidth={2}
 							/>
 						</RadarChart>
@@ -91,32 +90,32 @@ export default function DriverStatsChart({
 						<div className="col-span-2 flex justify-between items-center border-b pb-2 mb-2">
 							<div>
 								<span className="font-medium">Overall:</span>{" "}
-								<span className="font-medium tabular-nums">
+								<span className="text-blue-600">
 									{stats.overall}
 								</span>
 							</div>
 						</div>
 						<div className="flex justify-between">
 							<span>Experience</span>
-							<span className="font-medium tabular-nums">
+							<span className="text-blue-600">
 								{stats.experience}
 							</span>
 						</div>
 						<div className="flex justify-between">
 							<span>Racecraft</span>
-							<span className="font-medium tabular-nums">
+							<span className="text-blue-600">
 								{stats.racecraft}
 							</span>
 						</div>
 						<div className="flex justify-between">
 							<span>Awareness</span>
-							<span className="font-medium tabular-nums">
+							<span className="text-blue-600">
 								{stats.awareness}
 							</span>
 						</div>
 						<div className="flex justify-between">
 							<span>Pace</span>
-							<span className="font-medium tabular-nums">{stats.pace}</span>
+							<span className="text-blue-600">{stats.pace}</span>
 						</div>
 					</div>
 				</div>

@@ -5,7 +5,6 @@ import {
 	getGameRouteSegment,
 	resolveGameNameFromRoute,
 	getVersionLabel,
-	getDriverRouteSegment,
 	type Driver,
 } from "@/lib/rankings";
 import type { Metadata } from "next";
@@ -59,11 +58,11 @@ export async function generateStaticParams() {
 }
 
 const statColors = {
-	overall: "var(--f1)",
-	experience: "#10b981",
-	racecraft: "#3b82f6",
-	awareness: "#f59e0b",
-	pace: "#8b5cf6",
+	overall: "#FF3366",
+	experience: "#33FF99",
+	racecraft: "#3366FF",
+	awareness: "#FFCC33",
+	pace: "#9933FF",
 };
 
 type PageParams = Promise<{ game: string; patch: string }>;
@@ -78,11 +77,11 @@ function calculateRanking(value: number, maxValue: number): string {
 
 function getBadgeClasses(ranking: string): string {
 	const classes = {
-		"Best in Class": "bg-gold/25 text-foreground",
-		Elite: "bg-primary/10 text-primary",
-		Strong: "bg-sky-500/10 text-sky-700 dark:text-sky-400",
-		Average: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
-		Developing: "bg-muted text-muted-foreground",
+		"Best in Class": "bg-yellow-500/10 text-yellow-500",
+		Elite: "bg-violet-500/10 text-violet-500",
+		Strong: "bg-blue-500/10 text-blue-500",
+		Average: "bg-green-500/10 text-green-500",
+		Developing: "bg-gray-500/10 text-gray-500",
 	};
 	return classes[ranking as keyof typeof classes];
 }
@@ -204,18 +203,16 @@ export default async function GamePage({ params }: { params: PageParams }) {
 	};
 
 	return (
-		<div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-10">
-			<div className="flex flex-col gap-10 sm:gap-12">
-				<div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-					<div className="min-w-0 space-y-1.5">
-						<h1 className="text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
-							{gameName}
-						</h1>
-						<p className="text-muted-foreground text-sm">
+		<div className="container mx-auto max-w-7xl px-4 py-8">
+			<div className="flex flex-col space-y-8">
+				<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+					<div className="min-w-0 space-y-2 sm:space-y-4">
+						<h1 className="text-4xl font-bold">{gameName}</h1>
+						<p className="text-muted-foreground text-lg">
 							{getVersionLabel(gameName, resolvedParams.patch)}
 						</p>
 					</div>
-					<div className="flex w-full justify-end gap-2 sm:w-auto">
+					<div className="flex w-full justify-end gap-2 sm:w-auto sm:self-start">
 						<TopNavButton
 							href={
 								previousVersion || previousGame
@@ -273,7 +270,7 @@ export default async function GamePage({ params }: { params: PageParams }) {
 					</div>
 				</div>
 
-				<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{drivers
 						.sort((a, b) => b.overall - a.overall)
 						.map((driver) => {
@@ -282,20 +279,15 @@ export default async function GamePage({ params }: { params: PageParams }) {
 								maxStats.overall
 							);
 							return (
-								<Card key={driver.name} className="gap-0 p-5">
-									<div className="mb-4 flex items-center justify-between gap-3">
-										<h3 className="truncate font-semibold">
-											<Link
-												href={`/drivers/${getDriverRouteSegment(driver.name)}`}
-												className="underline-offset-4 hover:underline"
-											>
-												{driver.name}
-											</Link>
+								<Card key={driver.name} className="p-6">
+									<div className="flex justify-between items-center mb-4">
+										<h3 className="text-xl font-semibold">
+											{driver.name}
 										</h3>
 										<div className="flex items-center gap-2">
 											<span
 												className={cn(
-													"rounded-md px-2 py-0.5 text-sm font-semibold tabular-nums",
+													"px-2 py-0.5 rounded-full text-md font-medium",
 													getBadgeClasses(
 														overallRanking
 													)
@@ -408,29 +400,46 @@ function StatBar({
 	color: string;
 }) {
 	const percentage = (value / 99) * 100;
-	const ranking = calculateRanking(value, maxValue);
+	const ranking =
+		value === maxValue
+			? "Best in Class"
+			: value >= maxValue - 5
+			? "Elite"
+			: value >= maxValue - 10
+			? "Strong"
+			: value >= maxValue - 20
+			? "Average"
+			: "Developing";
+
+	// Badge colors based on ranking
+	const badgeClasses = {
+		"Best in Class": "bg-yellow-500/10 text-yellow-500",
+		Elite: "bg-violet-500/10 text-violet-500",
+		Strong: "bg-blue-500/10 text-blue-500",
+		Average: "bg-green-500/10 text-green-500",
+		Developing: "bg-gray-500/10 text-gray-500",
+	}[ranking];
 
 	return (
 		<div className="space-y-1.5">
 			<div className="flex items-center justify-between text-sm">
-				<span className="text-muted-foreground">{label}</span>
+				<span>{label}</span>
 				<div className="flex items-center gap-2">
 					<span
 						className={cn(
-							"rounded-md px-1.5 py-0.5 text-xs font-medium",
-							getBadgeClasses(ranking)
+							"px-2 py-0.5 rounded-full text-xs font-medium",
+							badgeClasses
 						)}
 					>
 						{ranking}
+						{value === maxValue && " 🏆"}
 					</span>
-					<span className="w-6 text-right font-medium tabular-nums">
-						{value}
-					</span>
+					<span className="font-medium">{value}/99</span>
 				</div>
 			</div>
 			<Progress
 				value={percentage}
-				className="bg-muted h-1.5 [&>div]:bg-current [&>div]:transition-all"
+				className="h-2 [&>div]:bg-current [&>div]:transition-all"
 				style={{ color }}
 			/>
 		</div>

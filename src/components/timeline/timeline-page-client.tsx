@@ -103,6 +103,62 @@ interface CustomTooltipProps {
 	label?: string;
 }
 
+const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
+	if (!active || !payload || !payload.length) return null;
+
+	const hasRating = payload[0]?.payload.hasRating;
+
+	if (!hasRating) return null;
+
+	return (
+		<div className="bg-card border-border rounded-lg border p-2 shadow-lg">
+			<div className="flex items-center justify-between gap-2">
+				<p className="font-medium">{label}</p>
+			</div>
+			<div className="mt-1 space-y-1">
+				{payload.map((entry) => {
+					const baseDataKey = entry.dataKey as StatKey;
+					const change = entry.payload.changes?.[baseDataKey];
+
+					return (
+						<div
+							key={entry.dataKey}
+							className="flex items-center gap-2"
+						>
+							<div
+								className="h-2 w-2 rounded-sm"
+								style={{ backgroundColor: entry.color }}
+							/>
+							<span className="text-muted-foreground">
+								{chartConfig[baseDataKey].label}:
+							</span>
+							<span className="font-mono tabular-nums">
+								{entry.value === null ? "-" : entry.value}
+								{entry.value !== null &&
+									change !== undefined && (
+										<span
+											className={
+												change > 0
+													? "text-green-500"
+													: change < 0
+														? "text-red-500"
+														: "text-muted-foreground"
+											}
+										>
+											{" "}
+											({change > 0 ? "+" : ""}
+											{change})
+										</span>
+									)}
+							</span>
+						</div>
+					);
+				})}
+			</div>
+		</div>
+	);
+};
+
 export default function TimelinePageClient() {
 	const [query, setQuery] = useQueryStates(timelineSearchParams, {
 		history: "push",
@@ -221,62 +277,6 @@ export default function TimelinePageClient() {
 				({delta > 0 ? "+" : ""}
 				{delta})
 			</span>
-		);
-	};
-
-	const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
-		if (!active || !payload || !payload.length) return null;
-
-		const hasRating = payload[0]?.payload.hasRating;
-
-		if (!hasRating) return null;
-
-		return (
-			<div className="bg-card border-border rounded-lg border p-2 shadow-lg">
-				<div className="flex items-center justify-between gap-2">
-					<p className="font-medium">{label}</p>
-				</div>
-				<div className="mt-1 space-y-1">
-					{payload.map((entry) => {
-						const baseDataKey = entry.dataKey as StatKey;
-						const change = entry.payload.changes?.[baseDataKey];
-
-						return (
-							<div
-								key={entry.dataKey}
-								className="flex items-center gap-2"
-							>
-								<div
-									className="h-2 w-2 rounded-sm"
-									style={{ backgroundColor: entry.color }}
-								/>
-								<span className="text-muted-foreground">
-									{chartConfig[baseDataKey].label}:
-								</span>
-								<span className="font-mono tabular-nums">
-									{entry.value === null ? "-" : entry.value}
-									{entry.value !== null &&
-										change !== undefined && (
-											<span
-												className={
-													change > 0
-														? "text-green-500"
-														: change < 0
-															? "text-red-500"
-															: "text-muted-foreground"
-												}
-											>
-												{" "}
-												({change > 0 ? "+" : ""}
-												{change})
-											</span>
-										)}
-								</span>
-							</div>
-						);
-					})}
-				</div>
-			</div>
 		);
 	};
 

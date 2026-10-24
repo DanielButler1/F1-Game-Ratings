@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { useQueryStates, parseAsString, parseAsStringLiteral } from "nuqs";
-import { getAllDrivers, getDriverHistory, getDriverRouteSegment } from "@/lib/rankings";
+import {
+	getAllDrivers,
+	getDriverHistory,
+	getDriverRouteSegment,
+	getVersionLabel,
+} from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
@@ -115,7 +120,7 @@ export default function DriversPageClient() {
 													</h3>
 													<p className="text-sm text-muted-foreground">
 														Latest from {gameName} (
-														{version})
+														{getVersionLabel(gameName, version, "Base")})
 													</p>
 												</div>
 												<div className="space-y-2">

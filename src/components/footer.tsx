@@ -17,7 +17,7 @@ export default function Footer() {
 						</Link>
 						<p className="max-w-md text-sm text-muted-foreground">
 							Track and visualise Formula One game driver ratings
-							from F1 2020 through F1 25. Compare drivers, teams,
+							from F1 2020 through the F1 26 Season Pack. Compare drivers, teams,
 							and see how ratings have evolved over time.
 						</p>
 					</div>

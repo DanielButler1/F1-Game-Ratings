@@ -5,6 +5,7 @@ import {
 	getAllDrivers,
 	getDriverHistory,
 	getAllGames,
+	getVersionLabel,
 	type Driver,
 } from "@/lib/rankings";
 import { Card } from "@/components/ui/card";
@@ -58,8 +59,11 @@ export default function ComparePageClient() {
 	const [query, setQuery] = useQueryStates(compareSearchParams, {
 		history: "replace",
 	});
-	const selectedDrivers = query.drivers;
 	const allDrivers = getAllDrivers();
+	// Ignore unknown or duplicate names from a hand-edited URL
+	const selectedDrivers = query.drivers
+		.filter((d, i, arr) => allDrivers.includes(d) && arr.indexOf(d) === i)
+		.slice(0, 8);
 
 	const handleDriverSelect = (value: string) => {
 		if (!selectedDrivers.includes(value) && selectedDrivers.length < 8) {
@@ -285,7 +289,8 @@ export default function ComparePageClient() {
 										{versions.map(({ gameName, version }) => (
 											<TableRow key={`${gameName}-${version}`}>
 												<TableCell className="pl-6 font-medium">
-													{gameName} ({version})
+													{gameName} (
+													{getVersionLabel(gameName, version, "Base")})
 												</TableCell>
 												{selectedDrivers.map((driverName) => {
 													const statsData =

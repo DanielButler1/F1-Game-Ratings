@@ -5,6 +5,7 @@ import {
 	getGameRouteSegment,
 	resolveGameNameFromRoute,
 	getVersionLabel,
+	type Driver,
 } from "@/lib/rankings";
 import type { Metadata } from "next";
 import { siteName } from "@/lib/seo";
@@ -15,7 +16,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import {
 	Tooltip,
 	TooltipContent,
@@ -146,249 +147,245 @@ function TopNavButton({
 }
 
 export default async function GamePage({ params }: { params: PageParams }) {
+	const resolvedParams = await params;
+	let gameName: string;
 	try {
-		const resolvedParams = await params;
-		const gameName = resolveGameNameFromRoute(resolvedParams.game);
-		const canonicalGameRoute = getGameRouteSegment(gameName);
-		if (resolvedParams.game !== canonicalGameRoute) {
-			redirect(`/games/${canonicalGameRoute}/${resolvedParams.patch}`);
-		}
-		const drivers = getDriverRankings(gameName, resolvedParams.patch);
-		const allGames = getAllGames();
-		const currentGameIndex = allGames.findIndex(
-			(g) => g.gameName === gameName
-		);
-		const versions = getGameVersions(gameName);
-		const currentVersionIndex = versions.indexOf(resolvedParams.patch);
-
-		// Previous version or last version of previous game
-		let previousVersion = null;
-		let previousGame = null;
-		if (currentVersionIndex > 0) {
-			previousVersion = versions[currentVersionIndex - 1];
-		} else if (currentGameIndex > 0) {
-			previousGame = allGames[currentGameIndex - 1];
-			previousVersion =
-				previousGame.versions[previousGame.versions.length - 1];
-		}
-
-		// Next version or first version of next game
-		let nextVersion = null;
-		let nextGame = null;
-		if (currentVersionIndex < versions.length - 1) {
-			nextVersion = versions[currentVersionIndex + 1];
-		} else if (currentGameIndex < allGames.length - 1) {
-			nextGame = allGames[currentGameIndex + 1];
-			nextVersion = "B"; // Base version of next game
-		}
-
-		const maxStats = {
-			overall: Math.max(...drivers.map((d) => d.overall)),
-			experience: Math.max(...drivers.map((d) => d.experience)),
-			racecraft: Math.max(...drivers.map((d) => d.racecraft)),
-			awareness: Math.max(...drivers.map((d) => d.awareness)),
-			pace: Math.max(...drivers.map((d) => d.pace)),
-		};
-
-		return (
-			<div className="container mx-auto max-w-7xl px-4 py-8">
-				<div className="flex flex-col space-y-8">
-					<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-						<div className="min-w-0 space-y-2 sm:space-y-4">
-							<h1 className="text-4xl font-bold">{gameName}</h1>
-							<p className="text-muted-foreground text-lg">
-								{getVersionLabel(gameName, resolvedParams.patch)}
-							</p>
-						</div>
-						<div className="flex w-full justify-end gap-2 sm:w-auto sm:self-start">
-							<TopNavButton
-								href={
-									previousVersion || previousGame
-										? `/games/${getGameRouteSegment(
-												previousGame?.gameName ||
-													gameName
-											)}/${previousVersion}`
-										: undefined
-								}
-								label={
-									previousGame
-										? `${previousGame.gameName} ${getVersionLabel(
-												previousGame.gameName,
-												previousVersion!
-											)}`
-										: previousVersion
-											? getVersionLabel(
-													gameName,
-													previousVersion
-												)
-											: "No previous version"
-								}
-								icon={
-									<ChevronLeft className="h-4 w-4 shrink-0 translate-y-px" />
-								}
-								disabled={!previousVersion && !previousGame}
-							/>
-							<TopNavButton
-								href={
-									nextVersion || nextGame
-										? `/games/${getGameRouteSegment(
-												nextGame?.gameName ||
-													gameName
-											)}/${nextVersion}`
-										: undefined
-								}
-								label={
-									nextGame
-										? `${nextGame.gameName} ${getVersionLabel(
-												nextGame.gameName,
-												nextVersion!
-											)}`
-										: nextVersion
-											? getVersionLabel(
-													gameName,
-													nextVersion
-												)
-											: "No next version"
-								}
-								icon={
-									<ChevronRight className="h-4 w-4 shrink-0 translate-y-px" />
-								}
-								disabled={!nextVersion && !nextGame}
-							/>
-						</div>
-					</div>
-
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{drivers
-							.sort((a, b) => b.overall - a.overall)
-							.map((driver) => {
-								const overallRanking = calculateRanking(
-									driver.overall,
-									maxStats.overall
-								);
-								return (
-									<Card key={driver.name} className="p-6">
-										<div className="flex justify-between items-center mb-4">
-											<h3 className="text-xl font-semibold">
-												{driver.name}
-											</h3>
-											<div className="flex items-center gap-2">
-												<span
-													className={cn(
-														"px-2 py-0.5 rounded-full text-md font-medium",
-														getBadgeClasses(
-															overallRanking
-														)
-													)}
-												>
-													{driver.overall}
-												</span>
-											</div>
-										</div>
-										<div className="space-y-3">
-											<StatBar
-												label="Experience"
-												value={driver.experience}
-												maxValue={maxStats.experience}
-												color={statColors.experience}
-											/>
-											<StatBar
-												label="Racecraft"
-												value={driver.racecraft}
-												maxValue={maxStats.racecraft}
-												color={statColors.racecraft}
-											/>
-											<StatBar
-												label="Awareness"
-												value={driver.awareness}
-												maxValue={maxStats.awareness}
-												color={statColors.awareness}
-											/>
-											<StatBar
-												label="Pace"
-												value={driver.pace}
-												maxValue={maxStats.pace}
-												color={statColors.pace}
-											/>
-										</div>
-									</Card>
-								);
-							})}
-					</div>
-					<div className="grid w-full gap-2 sm:grid-cols-2">
-						{(previousVersion || previousGame) && (
-							<Link
-								href={`/games/${getGameRouteSegment(
-									previousGame?.gameName || gameName
-								)}/${previousVersion}`}
-								className={cn(
-									buttonVariants({
-										variant: "outline",
-										size: "sm",
-									}),
-									"w-full justify-start gap-2"
-								)}
-							>
-								<ChevronLeft className="h-4 w-4 shrink-0" />
-								<span className="truncate text-left">
-									{previousGame
-										? `${previousGame.gameName} ${getVersionLabel(
-												previousGame.gameName,
-												previousVersion!
-											)}`
-										: getVersionLabel(
-												gameName,
-												previousVersion!
-											)}
-								</span>
-							</Link>
-						)}
-						{(nextVersion || nextGame) && (
-							<Link
-								href={`/games/${getGameRouteSegment(
-									nextGame?.gameName || gameName
-								)}/${nextVersion}`}
-								className={cn(
-									buttonVariants({
-										variant: "outline",
-										size: "sm",
-									}),
-									"w-full justify-between"
-								)}
-							>
-								<span className="truncate text-left">
-									{nextGame
-										? `${nextGame.gameName} ${getVersionLabel(
-												nextGame.gameName,
-												nextVersion!
-											)}`
-										: getVersionLabel(
-												gameName,
-												nextVersion!
-											)}
-								</span>
-								<ChevronRight className="h-4 w-4 shrink-0" />
-							</Link>
-						)}
-					</div>
-				</div>
-			</div>
-		);
+		gameName = resolveGameNameFromRoute(resolvedParams.game);
 	} catch {
-		return (
-			<div className="container mx-auto max-w-7xl px-4 py-8">
-				<div className="flex flex-col space-y-8">
-					<div className="flex flex-col space-y-4">
-						<h1 className="text-4xl font-bold">Error</h1>
+		notFound();
+	}
+	// redirect() throws, so it must stay outside the try/catch below
+	const canonicalGameRoute = getGameRouteSegment(gameName);
+	if (resolvedParams.game !== canonicalGameRoute) {
+		redirect(`/games/${canonicalGameRoute}/${resolvedParams.patch}`);
+	}
+
+	let drivers: Driver[];
+	try {
+		drivers = getDriverRankings(gameName, resolvedParams.patch);
+	} catch {
+		notFound();
+	}
+	const allGames = getAllGames();
+	const currentGameIndex = allGames.findIndex(
+		(g) => g.gameName === gameName
+	);
+	const versions = getGameVersions(gameName);
+	const currentVersionIndex = versions.indexOf(resolvedParams.patch);
+
+	// Previous version or last version of previous game
+	let previousVersion = null;
+	let previousGame = null;
+	if (currentVersionIndex > 0) {
+		previousVersion = versions[currentVersionIndex - 1];
+	} else if (currentGameIndex > 0) {
+		previousGame = allGames[currentGameIndex - 1];
+		previousVersion =
+			previousGame.versions[previousGame.versions.length - 1];
+	}
+
+	// Next version or first version of next game
+	let nextVersion = null;
+	let nextGame = null;
+	if (currentVersionIndex < versions.length - 1) {
+		nextVersion = versions[currentVersionIndex + 1];
+	} else if (currentGameIndex < allGames.length - 1) {
+		nextGame = allGames[currentGameIndex + 1];
+		nextVersion = "B"; // Base version of next game
+	}
+
+	const maxStats = {
+		overall: Math.max(...drivers.map((d) => d.overall)),
+		experience: Math.max(...drivers.map((d) => d.experience)),
+		racecraft: Math.max(...drivers.map((d) => d.racecraft)),
+		awareness: Math.max(...drivers.map((d) => d.awareness)),
+		pace: Math.max(...drivers.map((d) => d.pace)),
+	};
+
+	return (
+		<div className="container mx-auto max-w-7xl px-4 py-8">
+			<div className="flex flex-col space-y-8">
+				<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+					<div className="min-w-0 space-y-2 sm:space-y-4">
+						<h1 className="text-4xl font-bold">{gameName}</h1>
 						<p className="text-muted-foreground text-lg">
-							Failed to load game data. Please make sure the game
-							and version exist.
+							{getVersionLabel(gameName, resolvedParams.patch)}
 						</p>
 					</div>
+					<div className="flex w-full justify-end gap-2 sm:w-auto sm:self-start">
+						<TopNavButton
+							href={
+								previousVersion || previousGame
+									? `/games/${getGameRouteSegment(
+											previousGame?.gameName ||
+												gameName
+										)}/${previousVersion}`
+									: undefined
+							}
+							label={
+								previousGame
+									? `${previousGame.gameName} ${getVersionLabel(
+											previousGame.gameName,
+											previousVersion!
+										)}`
+									: previousVersion
+										? getVersionLabel(
+												gameName,
+												previousVersion
+											)
+										: "No previous version"
+							}
+							icon={
+								<ChevronLeft className="h-4 w-4 shrink-0 translate-y-px" />
+							}
+							disabled={!previousVersion && !previousGame}
+						/>
+						<TopNavButton
+							href={
+								nextVersion || nextGame
+									? `/games/${getGameRouteSegment(
+											nextGame?.gameName ||
+												gameName
+										)}/${nextVersion}`
+									: undefined
+							}
+							label={
+								nextGame
+									? `${nextGame.gameName} ${getVersionLabel(
+											nextGame.gameName,
+											nextVersion!
+										)}`
+									: nextVersion
+										? getVersionLabel(
+												gameName,
+												nextVersion
+											)
+										: "No next version"
+							}
+							icon={
+								<ChevronRight className="h-4 w-4 shrink-0 translate-y-px" />
+							}
+							disabled={!nextVersion && !nextGame}
+						/>
+					</div>
+				</div>
+
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{drivers
+						.sort((a, b) => b.overall - a.overall)
+						.map((driver) => {
+							const overallRanking = calculateRanking(
+								driver.overall,
+								maxStats.overall
+							);
+							return (
+								<Card key={driver.name} className="p-6">
+									<div className="flex justify-between items-center mb-4">
+										<h3 className="text-xl font-semibold">
+											{driver.name}
+										</h3>
+										<div className="flex items-center gap-2">
+											<span
+												className={cn(
+													"px-2 py-0.5 rounded-full text-md font-medium",
+													getBadgeClasses(
+														overallRanking
+													)
+												)}
+											>
+												{driver.overall}
+											</span>
+										</div>
+									</div>
+									<div className="space-y-3">
+										<StatBar
+											label="Experience"
+											value={driver.experience}
+											maxValue={maxStats.experience}
+											color={statColors.experience}
+										/>
+										<StatBar
+											label="Racecraft"
+											value={driver.racecraft}
+											maxValue={maxStats.racecraft}
+											color={statColors.racecraft}
+										/>
+										<StatBar
+											label="Awareness"
+											value={driver.awareness}
+											maxValue={maxStats.awareness}
+											color={statColors.awareness}
+										/>
+										<StatBar
+											label="Pace"
+											value={driver.pace}
+											maxValue={maxStats.pace}
+											color={statColors.pace}
+										/>
+									</div>
+								</Card>
+							);
+						})}
+				</div>
+				<div className="grid w-full gap-2 sm:grid-cols-2">
+					{(previousVersion || previousGame) && (
+						<Link
+							href={`/games/${getGameRouteSegment(
+								previousGame?.gameName || gameName
+							)}/${previousVersion}`}
+							className={cn(
+								buttonVariants({
+									variant: "outline",
+									size: "sm",
+								}),
+								"w-full justify-start gap-2"
+							)}
+						>
+							<ChevronLeft className="h-4 w-4 shrink-0" />
+							<span className="truncate text-left">
+								{previousGame
+									? `${previousGame.gameName} ${getVersionLabel(
+											previousGame.gameName,
+											previousVersion!
+										)}`
+									: getVersionLabel(
+											gameName,
+											previousVersion!
+										)}
+							</span>
+						</Link>
+					)}
+					{(nextVersion || nextGame) && (
+						<Link
+							href={`/games/${getGameRouteSegment(
+								nextGame?.gameName || gameName
+							)}/${nextVersion}`}
+							className={cn(
+								buttonVariants({
+									variant: "outline",
+									size: "sm",
+								}),
+								"w-full justify-between"
+							)}
+						>
+							<span className="truncate text-left">
+								{nextGame
+									? `${nextGame.gameName} ${getVersionLabel(
+											nextGame.gameName,
+											nextVersion!
+										)}`
+									: getVersionLabel(
+											gameName,
+											nextVersion!
+										)}
+							</span>
+							<ChevronRight className="h-4 w-4 shrink-0" />
+						</Link>
+					)}
 				</div>
 			</div>
-		);
-	}
+		</div>
+	);
 }
 
 function StatBar({

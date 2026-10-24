@@ -1,7 +1,6 @@
 "use client";
 
 import { useQueryStates, parseAsString } from "nuqs";
-import { useMemo } from "react";
 import {
 	getAllGames,
 	getDriverRankings,
@@ -93,8 +92,8 @@ const teamDrivers: TeamDrivers = {
 		"Aston Martin": ["Fernando Alonso", "Lance Stroll"],
 		Alpine: ["Pierre Gasly", "Esteban Ocon"],
 		Williams: ["Alexander Albon", "Logan Sargeant"],
-		AlphaTauri: ["Daniel Ricciardo", "Yuki Tsunoda"],
-		"Alfa Romeo": ["Valtteri Bottas", "Zhou Guanyu"],
+		RB: ["Daniel Ricciardo", "Yuki Tsunoda"],
+		"Kick Sauber": ["Valtteri Bottas", "Zhou Guanyu"],
 		Haas: ["Kevin Magnussen", "Nico Hulkenberg"],
 	},
 	"F1 25": {
@@ -103,7 +102,8 @@ const teamDrivers: TeamDrivers = {
 		Ferrari: ["Charles Leclerc", "Lewis Hamilton"],
 		McLaren: ["Lando Norris", "Oscar Piastri"],
 		"Aston Martin": ["Fernando Alonso", "Lance Stroll"],
-		Alpine: ["Pierre Gasly", "Franco Colapinto"],
+		// Doohan was replaced by Colapinto in Update 3
+		Alpine: ["Pierre Gasly", "Jack Doohan", "Franco Colapinto"],
 		Williams: ["Carlos Sainz", "Alexander Albon"],
 		"Racing Bulls": ["Liam Lawson", "Isack Hadjar"],
 		"Kick Sauber": ["Nico Hulkenberg", "Gabriel Bortoleto"],
@@ -146,10 +146,8 @@ export default function TeamsPageClient() {
 			? query.game
 			: latestGame;
 
-	const versions = useMemo(
-		() => games.find((g) => g.gameName === selectedGame)?.versions || [],
-		[games, selectedGame]
-	);
+	const versions =
+		games.find((g) => g.gameName === selectedGame)?.versions || [];
 
 	const latestVersionForSelectedGame =
 		versions[versions.length - 1] || latestVersionForLatestGame;
@@ -176,13 +174,16 @@ export default function TeamsPageClient() {
 							selectedGame,
 							selectedVersion
 						);
+						// Lineups may list a mid-season replacement after the
+						// original driver; use the first two present in this patch
 						const teamDriverStats = drivers
 							.map((driver) =>
 								allDrivers.find((d) => d.name === driver)
 							)
-							.filter(Boolean);
+							.filter(Boolean)
+							.slice(0, 2);
 
-						if (teamDriverStats.length !== drivers.length) {
+						if (teamDriverStats.length !== 2) {
 							return null;
 						}
 

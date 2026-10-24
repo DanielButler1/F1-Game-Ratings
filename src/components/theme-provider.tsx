@@ -126,6 +126,8 @@ export function ThemeProvider({
 		const initialSystemTheme = getSystemTheme();
 		mountedRef.current = true;
 
+		// localStorage is only readable after mount; syncing it here keeps hydration safe
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setThemeState(initialTheme);
 		setSystemTheme(initialSystemTheme);
 		applyThemeToDocument(

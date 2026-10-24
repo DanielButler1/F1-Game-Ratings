@@ -30,7 +30,7 @@ export default function HomePage() {
 						</h1>
 						<p className="text-lg sm:text-xl max-w-3xl mb-8">
 							Track and compare Formula One game driver ratings
-							from F1 2020 through F1 25. Explore how your
+							from F1 2020 through the F1 26 Season Pack. Explore how your
 							favorite drivers have evolved over time.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4">

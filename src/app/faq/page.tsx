@@ -86,7 +86,7 @@ export default function FAQPage() {
 					<AccordionTrigger>What games are covered?</AccordionTrigger>
 					<AccordionContent>
 						We track driver ratings from F1 2020 through the latest
-						F1 25 game. Each game&apos;s data includes the base
+						F1 26 Season Pack. Each game&apos;s data includes the base
 						release ratings and all subsequent patch updates that
 						modified driver ratings.
 					</AccordionContent>

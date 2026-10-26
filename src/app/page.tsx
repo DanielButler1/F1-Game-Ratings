@@ -7,17 +7,13 @@ import {
 	TableCell,
 	TableRow,
 } from "@/components/ui/table";
-import {
-	Page,
-	RankPill,
-	Section,
-	StatCard,
-	TableCard,
-} from "@/components/page";
-import RatingCriteriaSection from "@/components/landing/rating-criteria";
+import { Page, RankPill, Section, TableCard } from "@/components/page";
+import RatingCriteria from "@/components/landing/rating-criteria";
+import Showcase from "@/components/landing/showcase";
 import {
 	getAllDrivers,
 	getAllGames,
+	getDriverHistory,
 	getDriverRankings,
 	getDriverRouteSegment,
 	getGameRouteSegment,
@@ -25,7 +21,6 @@ import {
 	getPatchUpdateEntries,
 	getVersionLabel,
 } from "@/lib/rankings";
-import type { Driver } from "@/lib/rankings";
 import { createPageMetadata, siteDescription } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -43,93 +38,6 @@ function MoreLink({ href, children }: { href: string; children: string }) {
 			{children}
 			<ChevronRight className="size-4" />
 		</Link>
-	);
-}
-
-const cardStats = [
-	["experience", "EXP"],
-	["racecraft", "RAC"],
-	["awareness", "AWA"],
-	["pace", "PAC"],
-] as const;
-
-/** The current top three, styled like an in-game driver rating card. */
-function HeroRatingCard({
-	drivers,
-	label,
-}: {
-	drivers: Driver[];
-	label: string;
-}) {
-	const [leader, ...chasers] = drivers;
-	return (
-		<div className="bg-card relative mx-auto w-full max-w-md rounded-2xl border p-6 shadow-xl shadow-black/5 lg:ml-auto dark:shadow-black/40">
-			<div className="flex items-center justify-between text-xs">
-				<span className="text-muted-foreground font-medium tracking-wider uppercase">
-					Top rated
-				</span>
-				<span className="text-muted-foreground">{label}</span>
-			</div>
-
-			<Link
-				href={`/drivers/${getDriverRouteSegment(leader.name)}`}
-				className="group mt-5 flex items-center gap-4"
-			>
-				<span className="flex size-16 shrink-0 flex-col items-center justify-center rounded-lg bg-[#e10600] text-white dark:bg-[#cc0500]">
-					<span className="text-2xl leading-none font-bold tabular-nums">
-						{leader.overall}
-					</span>
-					<span className="mt-1 text-[10px] font-semibold tracking-wider opacity-80">
-						OVR
-					</span>
-				</span>
-				<span className="min-w-0">
-					<span className="block truncate text-xl font-bold tracking-tight group-hover:underline group-hover:underline-offset-4">
-						{leader.name}
-					</span>
-					<span className="text-muted-foreground text-sm">
-						#1 overall
-					</span>
-				</span>
-			</Link>
-
-			<div className="mt-6 space-y-3">
-				{cardStats.map(([key, short]) => (
-					<div key={key} className="flex items-center gap-3 text-sm">
-						<span className="text-muted-foreground w-9 text-xs font-medium">
-							{short}
-						</span>
-						<div className="bg-muted h-1.5 flex-1 overflow-hidden rounded-full">
-							<div
-								className="h-full rounded-full bg-[#e10600] dark:bg-[#cc0500]"
-								style={{ width: `${(leader[key] / 99) * 100}%` }}
-							/>
-						</div>
-						<span className="w-6 text-right font-semibold tabular-nums">
-							{leader[key]}
-						</span>
-					</div>
-				))}
-			</div>
-
-			<div className="mt-6 divide-y border-t">
-				{chasers.map((driver, i) => (
-					<Link
-						key={driver.name}
-						href={`/drivers/${getDriverRouteSegment(driver.name)}`}
-						className="hover:bg-muted/60 -mx-2 flex items-center gap-3 rounded-md px-2 py-2.5 text-sm transition-colors"
-					>
-						<RankPill rank={i + 2} />
-						<span className="flex-1 truncate font-medium">
-							{driver.name}
-						</span>
-						<span className="font-semibold tabular-nums">
-							{driver.overall}
-						</span>
-					</Link>
-				))}
-			</div>
-		</div>
 	);
 }
 
@@ -166,88 +74,73 @@ export default function HomePage() {
 
 	return (
 		<>
-			{/* Hero: intro on the left, the current top-rated driver as a game-style rating card on the right */}
+			{/* Hero: centred headline and actions, then a row of showcase cards for the main tools */}
 			<section className="border-b">
-				<div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_1fr] lg:px-10">
-					<div className="space-y-7">
-						<Link
-							href={latestHref}
-							className="bg-background/80 hover:bg-muted inline-flex items-center gap-2 rounded-full border py-1 pr-3 pl-2 text-xs font-medium transition-colors"
-						>
-							<span className="size-2 rounded-full bg-[#e10600]" />
-							{latestLabel} ratings are in
-							<ChevronRight className="text-muted-foreground size-3.5" />
-						</Link>
-						<div className="space-y-4">
-							<h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-								F1 Driver Ratings Tracker
+				<div className="mx-auto max-w-7xl space-y-14 px-4 pt-16 pb-20 sm:px-6 sm:pt-24 lg:px-10">
+					<div className="mx-auto max-w-5xl space-y-8 text-center">
+						<div className="space-y-6">
+							<h1 className="mx-auto max-w-4xl text-5xl leading-[0.96] font-semibold tracking-[-0.065em] text-balance md:text-7xl md:leading-[0.94]">
+								Every F1 game driver rating, tracked.
 							</h1>
-							<p className="text-muted-foreground max-w-xl text-lg leading-8">
-								Track and compare Formula One game driver ratings from
-								F1 2020 through the F1 26 Season Pack. Explore how your
-								favourite drivers have evolved over time.
+							<p className="text-muted-foreground mx-auto max-w-2xl text-lg leading-8 text-balance">
+								{`${getAllDrivers().length} drivers across ${games.length} games and ${patchCount} ratings updates, from F1 2020 to the F1 26 Season Pack.`}{" "}
+								See who&apos;s rated highest and how every
+								driver has changed.
 							</p>
 						</div>
-						<div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+						<div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
 							<Link
 								href="/drivers"
 								className={cn(
-									buttonVariants({ size: "lg" }),
-									"bg-[#e10600] text-white hover:bg-[#c00500] dark:bg-[#cc0500] dark:hover:bg-[#b30400]"
+									buttonVariants({ size: "lg", variant: "outline" }),
+									"h-11 w-full rounded-xl text-sm font-semibold"
 								)}
 							>
 								Explore Drivers
+							</Link>
+							<Link
+								href={latestHref}
+								className={cn(
+									buttonVariants({ size: "lg" }),
+									"h-11 w-full rounded-xl bg-[#e10600] text-sm font-semibold text-white hover:bg-[#c00500] dark:bg-[#cc0500] dark:hover:bg-[#b30400]"
+								)}
+							>
+								Latest Ratings
 								<ArrowRight className="size-4" />
 							</Link>
 							<Link
 								href="/compare"
-								className={cn(buttonVariants({ size: "lg", variant: "outline" }))}
+								className={cn(
+									buttonVariants({ size: "lg", variant: "outline" }),
+									"h-11 w-full rounded-xl text-sm font-semibold"
+								)}
 							>
 								Compare Ratings
 							</Link>
-							<Link
-								href="/updates"
-								className="text-muted-foreground hover:text-foreground px-2 text-sm font-medium underline-offset-4 transition-colors hover:underline"
-							>
-								Every ratings update
-							</Link>
 						</div>
+						<Link
+							href={latestHref}
+							className="group text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-sm font-medium transition-colors"
+						>
+							<span className="underline decoration-1 underline-offset-4">
+								{latestLabel} ratings are in
+							</span>
+							<ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+						</Link>
 					</div>
 
-					<HeroRatingCard
-						drivers={latestDrivers.slice(0, 3)}
-						label={latestLabel}
+					<RatingCriteria />
+
+					<Showcase
+						drivers={latestDrivers}
+						latestHref={latestHref}
+						leaderHistory={getDriverHistory(latestDrivers[0].name)}
+						driverHref={`/drivers/${getDriverRouteSegment(latestDrivers[0].name)}`}
 					/>
 				</div>
 			</section>
 
-			<Page>
-				<div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-					<StatCard
-						label="Biggest riser this update"
-						value={
-							movers[0] && movers[0].changes!.overall > 0 ? (
-								<>
-									<DriverLink name={movers[0].name} />{" "}
-									<span className="text-base text-emerald-600 dark:text-emerald-400">
-										↑ {movers[0].changes!.overall}
-									</span>
-								</>
-							) : (
-								"–"
-							)
-						}
-						className="max-sm:col-span-2"
-					/>
-					<StatCard label="Games tracked" value={games.length} />
-					<StatCard label="Ratings updates" value={patchCount} />
-					<StatCard
-						label="Drivers rated"
-						value={getAllDrivers().length}
-						className="max-sm:hidden"
-					/>
-				</div>
-
+			<Page className="py-12 sm:py-16">
 				<div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8">
 					<Section
 						title="Latest ratings"
@@ -320,8 +213,6 @@ export default function HomePage() {
 						</TableCard>
 					</Section>
 				</div>
-
-				<RatingCriteriaSection />
 
 				<Section title="Every game and update">
 					<div className="grid gap-4 md:grid-cols-2">

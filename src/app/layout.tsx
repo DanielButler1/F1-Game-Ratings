@@ -6,12 +6,14 @@ import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { getMetadataBase, siteDescription, siteName } from "@/lib/seo";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const montserrat = Montserrat({
+	subsets: ["latin"],
+	variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
 	metadataBase: getMetadataBase(),
@@ -48,12 +50,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<body
-				className={`${montserrat.className} ${cn(
-					"bg-background antialiased min-h-screen flex flex-col"
-				)}`}
-			>
+		<html
+			lang="en"
+			className={montserrat.variable}
+			suppressHydrationWarning
+		>
+			<body className="flex min-h-dvh flex-col antialiased">
 				<GoogleAnalytics gaId="G-1RFFEH7Z2B" />
 				<ThemeProvider
 					attribute="class"

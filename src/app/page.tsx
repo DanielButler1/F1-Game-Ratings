@@ -1,164 +1,243 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import RatingCriteriaSection from "@/components/landing/rating-criteria";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 import {
+	Table,
+	TableBody,
+	TableCell,
+	TableRow,
+} from "@/components/ui/table";
+import { Page, RankPill, Section, TableCard } from "@/components/page";
+import RatingCriteria from "@/components/landing/rating-criteria";
+import Showcase from "@/components/landing/showcase";
+import {
+	getAllDrivers,
 	getAllGames,
+	getDriverHistory,
 	getDriverRankings,
-	getLatestGameAndVersion,
+	getDriverRouteSegment,
 	getGameRouteSegment,
+	getLatestGameAndVersion,
+	getPatchUpdateEntries,
 	getVersionLabel,
 } from "@/lib/rankings";
 import { createPageMetadata, siteDescription } from "@/lib/seo";
+import { cn } from "@/lib/utils";
 
 export const metadata = createPageMetadata("Home", siteDescription);
+
+function MoreLink({ href, children }: { href: string; children: string }) {
+	return (
+		<Link
+			href={href}
+			className={cn(
+				buttonVariants({ variant: "ghost", size: "sm" }),
+				"text-muted-foreground"
+			)}
+		>
+			{children}
+			<ChevronRight className="size-4" />
+		</Link>
+	);
+}
+
+function DriverLink({ name }: { name: string }) {
+	return (
+		<Link
+			href={`/drivers/${getDriverRouteSegment(name)}`}
+			className="font-medium underline-offset-4 hover:underline"
+		>
+			{name}
+		</Link>
+	);
+}
 
 export default function HomePage() {
 	const games = getAllGames();
 	const { gameName, version } = getLatestGameAndVersion();
-	const latestDrivers = getDriverRankings(gameName, version);
+	const latestDrivers = getDriverRankings(gameName, version).sort(
+		(a, b) => b.overall - a.overall
+	);
+	const latestHref = `/games/${getGameRouteSegment(gameName)}/${version}`;
+	const latestLabel = `${gameName} · ${getVersionLabel(gameName, version)}`;
+	const patchCount = games.reduce((sum, g) => sum + g.versions.length, 0);
+
+	const latestPatch = getPatchUpdateEntries().at(-1);
+	const movers = (latestPatch?.drivers ?? [])
+		.filter((d) => d.changes && d.changes.overall !== 0)
+		.sort(
+			(a, b) =>
+				Math.abs(b.changes!.overall) - Math.abs(a.changes!.overall) ||
+				b.changes!.overall - a.changes!.overall
+		)
+		.slice(0, 10);
 
 	return (
-		<div className="flex flex-col min-h-screen">
-			<main className="flex-1">
-				{/* Hero Section */}
-				<section className="relative bg-[#e10600] dark:bg-[#cc0500] text-white">
-					<div className="container mx-auto max-w-7xl px-4 py-20 sm:py-32 flex flex-col items-center text-center">
-						<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
-							F1 Driver Ratings Tracker
-						</h1>
-						<p className="text-lg sm:text-xl max-w-3xl mb-8">
-							Track and compare Formula One game driver ratings
-							from F1 2020 through F1 25. Explore how your
-							favorite drivers have evolved over time.
-						</p>
-						<div className="flex flex-col sm:flex-row gap-4">
-							<Button asChild size="lg" className="">
-								<Link href="/drivers">Explore Drivers</Link>
-							</Button>
-							<Button asChild size="lg" className="">
-								<Link href="/compare">Compare Ratings</Link>
-							</Button>
+		<>
+			{/* Hero: centred headline and actions, then a row of showcase cards for the main tools */}
+			<section className="border-b">
+				<div className="mx-auto max-w-7xl space-y-14 px-4 pt-16 pb-20 sm:px-6 sm:pt-24 lg:px-10">
+					<div className="mx-auto max-w-5xl space-y-8 text-center">
+						<div className="space-y-6">
+							<h1 className="mx-auto max-w-4xl text-5xl leading-[0.96] font-semibold tracking-[-0.065em] text-balance md:text-7xl md:leading-[0.94]">
+								Every F1 game driver rating, tracked.
+							</h1>
+							<p className="text-muted-foreground mx-auto max-w-2xl text-lg leading-8 text-balance">
+								{`${getAllDrivers().length} drivers across ${games.length} games and ${patchCount} ratings updates, from F1 2020 to the F1 26 Season Pack.`}{" "}
+								See who&apos;s rated highest and how every
+								driver has changed.
+							</p>
 						</div>
+						<div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+							<Link
+								href="/drivers"
+								className={cn(
+									buttonVariants({ size: "lg", variant: "outline" }),
+									"h-11 w-full rounded-xl text-sm font-semibold"
+								)}
+							>
+								Explore Drivers
+							</Link>
+							<Link
+								href={latestHref}
+								className={cn(
+									buttonVariants({ size: "lg" }),
+									"h-11 w-full rounded-xl bg-[#e10600] text-sm font-semibold text-white hover:bg-[#c00500] dark:bg-[#cc0500] dark:hover:bg-[#b30400]"
+								)}
+							>
+								Latest Ratings
+								<ArrowRight className="size-4" />
+							</Link>
+							<Link
+								href="/compare"
+								className={cn(
+									buttonVariants({ size: "lg", variant: "outline" }),
+									"h-11 w-full rounded-xl text-sm font-semibold"
+								)}
+							>
+								Compare Ratings
+							</Link>
+						</div>
+						<Link
+							href={latestHref}
+							className="group text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-sm font-medium transition-colors"
+						>
+							<span className="underline decoration-1 underline-offset-4">
+								{latestLabel} ratings are in
+							</span>
+							<ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+						</Link>
 					</div>
-				</section>
 
-				{/* Latest Ratings Section */}
-				<section className="py-16">
-					<div className="container mx-auto max-w-7xl px-4">
-						<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-2">
-							<div>
-								<h2 className="text-3xl font-bold">Latest Driver Ratings</h2>
-								<span className="text-gray-600 dark:text-gray-400 block mt-1">
-									{gameName} - {getVersionLabel(gameName, version)}
-								</span>
-								{/* Show button below on mobile */}
-								<div className="block md:hidden mt-2">
-									<Button asChild variant="ghost" className="gap-1">
-										<Link href={`/games/${getGameRouteSegment(gameName)}/${version}`}>
-											View All <ChevronRight className="h-4 w-4" />
+					<RatingCriteria />
+
+					<Showcase
+						drivers={latestDrivers}
+						latestHref={latestHref}
+						leaderHistory={getDriverHistory(latestDrivers[0].name)}
+						driverHref={`/drivers/${getDriverRouteSegment(latestDrivers[0].name)}`}
+					/>
+				</div>
+			</section>
+
+			<Page className="py-12 sm:py-16">
+				<div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8">
+					<Section
+						title="Latest ratings"
+						description={latestLabel}
+						action={<MoreLink href={latestHref}>All drivers</MoreLink>}
+					>
+						<TableCard>
+							<Table>
+								<TableBody>
+									{latestDrivers.slice(0, 10).map((driver, i) => (
+										<TableRow key={driver.name}>
+											<TableCell className="w-10">
+												<RankPill rank={i + 1} />
+											</TableCell>
+											<TableCell>
+												<DriverLink name={driver.name} />
+											</TableCell>
+											<TableCell className="text-muted-foreground hidden text-right text-xs tabular-nums sm:table-cell">
+												PAC {driver.pace} · RAC{" "}
+												{driver.racecraft}
+											</TableCell>
+											<TableCell className="w-12 text-right font-semibold tabular-nums">
+												{driver.overall}
+											</TableCell>
+										</TableRow>
+									))}
+								</TableBody>
+							</Table>
+						</TableCard>
+					</Section>
+
+					<Section
+						title="Biggest movers"
+						description={
+							latestPatch
+								? `Overall change in ${latestPatch.gameName} · ${latestPatch.versionLabel}`
+								: undefined
+						}
+						action={<MoreLink href="/updates">All updates</MoreLink>}
+					>
+						<TableCard>
+							<Table>
+								<TableBody>
+									{movers.map((driver) => {
+										const delta = driver.changes!.overall;
+										return (
+											<TableRow key={driver.name}>
+												<TableCell>
+													<DriverLink name={driver.name} />
+												</TableCell>
+												<TableCell className="text-muted-foreground text-right text-xs tabular-nums">
+													{driver.previous?.overall} →{" "}
+													{driver.current.overall}
+												</TableCell>
+												<TableCell
+													className={cn(
+														"w-14 text-right font-semibold tabular-nums",
+														delta > 0
+															? "text-emerald-600 dark:text-emerald-400"
+															: "text-red-600 dark:text-red-400"
+													)}
+												>
+													{delta > 0 ? `↑ ${delta}` : `↓ ${-delta}`}
+												</TableCell>
+											</TableRow>
+										);
+									})}
+								</TableBody>
+							</Table>
+						</TableCard>
+					</Section>
+				</div>
+
+				<Section title="Every game and update">
+					<div className="grid gap-4 md:grid-cols-2">
+						{[...games].reverse().map((game) => (
+							<div
+								key={game.gameName}
+								className="bg-card space-y-3 rounded-xl border p-5 shadow-sm"
+							>
+								<h3 className="font-semibold">{game.gameName}</h3>
+								<div className="flex flex-wrap gap-2">
+									{game.versions.map((v) => (
+										<Link
+											key={`${game.gameName}-${v}`}
+											href={`/games/${getGameRouteSegment(game.gameName)}/${v}`}
+											className="hover:bg-muted inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors"
+										>
+											{getVersionLabel(game.gameName, v)}
 										</Link>
-									</Button>
+									))}
 								</div>
 							</div>
-							{/* Show button on the right on desktop */}
-							<div className="hidden md:flex items-center gap-2">
-								<Button asChild variant="ghost" className="gap-1">
-									<Link href={`/games/${getGameRouteSegment(gameName)}/${version}`}>
-										View All <ChevronRight className="h-4 w-4" />
-									</Link>
-								</Button>
-							</div>
-						</div>
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-							{latestDrivers
-								.sort((a, b) => b.overall - a.overall)
-								.slice(0, 6)
-								.map((driver) => (
-								<Card key={driver.name} className="p-6">
-									<div className="flex flex-col space-y-4">
-										<h3 className="text-xl font-semibold">
-											{driver.name}
-										</h3>
-										<div className="space-y-2">
-											<div className="flex justify-between">
-													<span className="font-semibold">
-														Overall
-													</span>
-													<span className="font-medium">
-														{driver.overall}
-													</span>
-												</div>
-												<div className="flex justify-between">
-													<span>Experience</span>
-													<span className="font-medium">
-														{driver.experience}
-													</span>
-												</div>
-												<div className="flex justify-between">
-													<span>Racecraft</span>
-													<span className="font-medium">
-														{driver.racecraft}
-													</span>
-												</div>
-												<div className="flex justify-between">
-													<span>Awareness</span>
-													<span className="font-medium">
-														{driver.awareness}
-													</span>
-												</div>
-												<div className="flex justify-between">
-													<span>Pace</span>
-													<span className="font-medium">
-														{driver.pace}
-													</span>
-												</div>
-											</div>
-										</div>
-									</Card>
-								))}
-						</div>
+						))}
 					</div>
-				</section>
-
-				{/* Rating Criteria Section */}
-				<RatingCriteriaSection />
-
-				{/* Timeline Preview Section */}
-				<section className="py-16">
-					<div className="container mx-auto max-w-7xl px-4">
-						<h2 className="text-3xl font-bold mb-10">
-							Rating Evolution Timeline
-						</h2>
-						<div className="grid gap-6">
-							{games.map((game) => (
-								<Card key={game.gameName} className="p-6">
-									<div className="flex flex-col space-y-4">
-										<h3 className="text-xl font-semibold">
-											{game.gameName}
-										</h3>
-										<div className="flex flex-wrap gap-2">
-											{game.versions.map((version) => (
-												<Link
-													key={`${game.gameName}-${version}`}
-													href={`/games/${getGameRouteSegment(game.gameName)}/${version}`}
-													className="inline-flex items-center justify-center rounded-full border px-3 py-1 text-sm font-medium transition-colors hover:bg-muted"
-												>
-													{getVersionLabel(
-														game.gameName,
-														version
-													)}
-												</Link>
-											))}
-										</div>
-									</div>
-								</Card>
-							))}
-						</div>
-					</div>
-				</section>
-			</main>
-		</div>
+				</Section>
+			</Page>
+		</>
 	);
 }

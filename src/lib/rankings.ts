@@ -155,7 +155,8 @@ export function getDriverRankings(gameName: string, version: string): Driver[] {
         throw new Error(`No data found for game: ${gameName} version: ${version}`);
     }
 
-    return drivers;
+    // Copy so callers can sort without mutating the shared JSON module
+    return [...drivers];
 }
 
 // Get all unique game names (without versions)

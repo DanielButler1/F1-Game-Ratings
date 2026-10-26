@@ -28,9 +28,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Create static route items
     const staticItems = staticRoutes.map((route) => ({
-            url: `${baseUrl}${route}`,
+        url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
-        changefreq: route === "/" ? "daily" : "weekly",
+        changeFrequency: route === "/" ? ("daily" as const) : ("weekly" as const),
         priority: route === "/" ? 1.0 : 0.8,
     }));
 
@@ -39,7 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const driverItems = driverNames.map((name) => ({
         url: `${baseUrl}/drivers/${getDriverRouteSegment(name)}`,
         lastModified: new Date().toISOString(),
-        changefreq: "weekly",
+        changeFrequency: "weekly" as const,
         priority: 0.7,
     }));
 
@@ -51,7 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 patch
             )}`,
             lastModified: new Date().toISOString(),
-            changefreq: "weekly",
+            changeFrequency: "weekly" as const,
             priority: 0.7,
         }))
     );

@@ -3,6 +3,7 @@
 import { getPatchUpdateEntries } from "@/lib/rankings";
 import PatchUpdateCard from "@/components/updates/patch-update-card";
 import { parseAsString, parseAsStringLiteral, useQueryStates } from "nuqs";
+import { Page, PageHeader } from "@/components/page";
 
 type SortKey = "overall" | "experience" | "racecraft" | "awareness" | "pace";
 type SortDirection = "asc" | "desc" | null;
@@ -68,31 +69,24 @@ export default function UpdatesPageClient() {
 	};
 
 	return (
-		<div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-			<div className="flex flex-col space-y-8">
-				<div className="flex flex-col space-y-4">
-					<h1 className="text-4xl font-bold">Updates</h1>
-					<p className="text-muted-foreground text-lg max-w-3xl">
-						A changelog of every ratings update, ordered from
-						newest to oldest. Each patch shows how every rating
-						moved compared with the previous release.
-					</p>
-				</div>
+		<Page>
+			<PageHeader title="Updates">
+				A changelog of every ratings update, ordered from newest to oldest. Each patch shows how every rating moved compared with the previous release.
+			</PageHeader>
 
-				<div className="space-y-6">
-					{updates.map((patch) => (
-						<PatchUpdateCard
-							key={`${patch.gameName}-${patch.version}`}
-							patch={patch}
-							sortKey={query.patch === patch.href ? activeSortState.key : null}
-							sortDirection={
-								query.patch === patch.href ? activeSortState.direction : null
-							}
-							onSortClick={(stat) => handleSortClick(patch.href, stat)}
-						/>
-					))}
-				</div>
+			<div className="space-y-6">
+				{updates.map((patch) => (
+					<PatchUpdateCard
+						key={`${patch.gameName}-${patch.version}`}
+						patch={patch}
+						sortKey={query.patch === patch.href ? activeSortState.key : null}
+						sortDirection={
+							query.patch === patch.href ? activeSortState.direction : null
+						}
+						onSortClick={(stat) => handleSortClick(patch.href, stat)}
+					/>
+				))}
 			</div>
-		</div>
+		</Page>
 	);
 }

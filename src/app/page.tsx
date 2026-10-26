@@ -212,6 +212,7 @@ export default function HomePage() {
 														) : (
 															<ArrowDown className="size-3.5" />
 														)}
+														<span className="sr-only">{delta > 0 ? "Up" : "Down"}</span>
 														{Math.abs(delta)}
 													</span>
 												</TableCell>

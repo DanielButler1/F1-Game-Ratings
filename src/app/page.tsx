@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUp, ChevronRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import {
 	Table,
@@ -192,8 +192,11 @@ export default function HomePage() {
 													<DriverLink name={driver.name} />
 												</TableCell>
 												<TableCell className="text-muted-foreground text-right text-xs tabular-nums">
-													{driver.previous?.overall} →{" "}
-													{driver.current.overall}
+													<span className="inline-flex items-center gap-1">
+														{driver.previous?.overall}
+														<ArrowRight className="size-3" />
+														{driver.current.overall}
+													</span>
 												</TableCell>
 												<TableCell
 													className={cn(
@@ -203,7 +206,14 @@ export default function HomePage() {
 															: "text-red-600 dark:text-red-400"
 													)}
 												>
-													{delta > 0 ? `↑ ${delta}` : `↓ ${-delta}`}
+													<span className="inline-flex items-center gap-0.5">
+														{delta > 0 ? (
+															<ArrowUp className="size-3.5" />
+														) : (
+															<ArrowDown className="size-3.5" />
+														)}
+														{Math.abs(delta)}
+													</span>
 												</TableCell>
 											</TableRow>
 										);

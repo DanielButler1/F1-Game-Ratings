@@ -137,8 +137,10 @@ function HistoryVisual({ history }: { history: DriverHistory }) {
 		<div className="space-y-2">
 			<div className="flex items-baseline justify-between text-xs">
 				<span className="font-semibold">{history.name}</span>
-				<span className="text-muted-foreground tabular-nums">
-					{values[0]} → {values.at(-1)}
+				<span className="text-muted-foreground inline-flex items-center gap-1 tabular-nums">
+					{values[0]}
+					<ArrowRight className="size-3" />
+					{values.at(-1)}
 				</span>
 			</div>
 			<svg viewBox="0 0 240 82" className="h-24 w-full overflow-visible" aria-hidden="true">

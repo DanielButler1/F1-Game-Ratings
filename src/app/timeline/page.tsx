@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import TimelinePageClient from "@/components/timeline/timeline-page-client";
 import type { Metadata } from "next";
-import { siteDescription, siteName } from "@/lib/seo";
+import { createPageMetadata, siteDescription } from "@/lib/seo";
 
 export async function generateMetadata({
 	searchParams,
@@ -10,17 +10,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { driver } = await searchParams;
 
-	if (driver) {
-		return {
-			title: `${driver} Timeline | ${siteName}`,
-			description: siteDescription,
-		};
-	}
-
-	return {
-		title: `Timeline | ${siteName}`,
-		description: siteDescription,
-	};
+	return createPageMetadata(
+		driver ? `${driver} Timeline` : "Timeline",
+		siteDescription
+	);
 }
 
 export default function TimelinePage() {

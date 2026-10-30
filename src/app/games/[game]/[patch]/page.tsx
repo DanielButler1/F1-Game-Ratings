@@ -9,7 +9,7 @@ import {
 	type Driver,
 } from "@/lib/rankings";
 import type { Metadata } from "next";
-import { siteName } from "@/lib/seo";
+import { createPageMetadata } from "@/lib/seo";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
@@ -36,15 +36,15 @@ export async function generateMetadata({
 		const gameName = resolveGameNameFromRoute(resolvedParams.game);
 		const versionLabel = getVersionLabel(gameName, resolvedParams.patch);
 
-		return {
-			title: `${gameName} - ${versionLabel} | ${siteName}`,
-			description: `View driver ratings for ${gameName} ${versionLabel}.`,
-		};
+		return createPageMetadata(
+			`${gameName} - ${versionLabel}`,
+			`View driver ratings for ${gameName} ${versionLabel}.`
+		);
 	} catch {
-		return {
-			title: `Game Ratings | ${siteName}`,
-			description: "View Formula One game driver ratings.",
-		};
+		return createPageMetadata(
+			"Game Ratings",
+			"View Formula One game driver ratings."
+		);
 	}
 }
 

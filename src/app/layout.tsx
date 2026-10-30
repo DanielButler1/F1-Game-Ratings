@@ -19,28 +19,18 @@ export const metadata: Metadata = {
 	metadataBase: getMetadataBase(),
 	title: siteName,
 	description: siteDescription,
+	// The preview image is app/opengraph-image.tsx (and each folder's own).
 	openGraph: {
+		siteName,
+		locale: "en_GB",
+		type: "website",
 		title: siteName,
 		description: siteDescription,
-		images: [
-			{
-				url: "/og.png",
-				width: 1200,
-				height: 630,
-				alt: "F1 Driver Ratings Tracker Open Graph Image",
-			},
-		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: siteName,
 		description: siteDescription,
-		images: [
-			{
-				url: "/og.png",
-				alt: "F1 Driver Ratings Tracker Twitter Card Image",
-			},
-		],
 	},
 };
 

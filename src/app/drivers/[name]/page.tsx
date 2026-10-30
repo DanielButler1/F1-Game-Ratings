@@ -11,7 +11,7 @@ import {
 	getDriverRouteSegment,
 	resolveDriverNameFromRoute,
 } from "@/lib/rankings";
-import { siteName } from "@/lib/seo";
+import { createPageMetadata } from "@/lib/seo";
 import { ChevronUpIcon, ChevronDownIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Page, PageHeader } from "@/components/page";
@@ -32,10 +32,10 @@ export async function generateMetadata({
 		driverName = decodeURIComponent(name);
 	}
 
-	return {
-		title: `${driverName} | ${siteName}`,
-		description: `View ${driverName}'s ratings history across the Formula One game series.`,
-	};
+	return createPageMetadata(
+		driverName,
+		`View ${driverName}'s ratings history across the Formula One game series.`
+	);
 }
 
 export async function generateStaticParams() {

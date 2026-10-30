@@ -4,8 +4,12 @@ export const siteName = "F1 Driver Ratings Tracker";
 export const siteDescription =
 	"Track and visualise Formula One game driver ratings from F1 2020 through the F1 26 Season Pack.";
 
+// Vercel doesn't set WEBSITE_URL, so its builds fall back to the live domain rather than localhost.
 export function getSiteUrl(): string {
-	return process.env.WEBSITE_URL || "http://localhost:3000";
+	return (
+		process.env.WEBSITE_URL ||
+		(process.env.VERCEL ? "https://f1ratings.phaseo.app" : "http://localhost:3000")
+	);
 }
 
 export function getMetadataBase(): URL {
